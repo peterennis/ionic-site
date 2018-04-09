@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.6.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -106,7 +106,7 @@ Open the barcode scanner.
       <code>BarcodeScannerOptions</code>
     </td>
     <td>
-      <p>Optional options to pass to the scanner</p>
+      <p>Optional options to pass to the scanner<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

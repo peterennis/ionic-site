@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.6.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -96,7 +96,7 @@ Crops an image
     <td>
       pathToImage</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -106,10 +106,11 @@ Crops an image
     <td>
       options</td>
     <td>
-      
+      <code>CropOptions</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>

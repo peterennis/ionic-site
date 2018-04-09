@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.6.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -165,7 +165,7 @@ Request permission
       value
     </td>
     <td>
-      <code>string|Array&lt;string&gt;</code>
+      <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
       

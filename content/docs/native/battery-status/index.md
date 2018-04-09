@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.6.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -107,7 +107,7 @@ Watch when the battery level goes low
 
 
 
-Watch when the battery level goes to critial
+Watch when the battery level goes to critical
 
 
 <div class="return-value" markdown="1">

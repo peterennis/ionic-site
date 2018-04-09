@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.6.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/hygieiasoft/cordova-plugin-uid">
-    https://github.com/hygieiasoft/cordova-plugin-uid
+  <a href="https://github.com/lionelhe/cordova-plugin-uid">
+    https://github.com/lionelhe/cordova-plugin-uid
   </a>
 </p>
 
