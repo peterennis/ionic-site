@@ -260,10 +260,11 @@ gulp.task('sitemap', function () {
       return loc.replace(/\.\w+$/, '').replace(/\/$/, '');
     },
     mappings: sitemappings,
-    // verbose: true
+    // verbose: true,
+    lastmod: false
   }))
   .pipe(gulp.dest('content/'))
-  .pipe(gulp.dest('_site'));
+  .pipe(gulp.dest('_site/'));
 });
 
 gulp.task('docs.index', function() {
@@ -462,7 +463,6 @@ gulp.task(
     'js',
     'docs.index',
     'stencil',
-    'sitemap'
   ],
   bustCache
 );
