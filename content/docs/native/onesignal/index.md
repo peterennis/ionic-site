@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.7.0"
+version: "4.9.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">OneSignal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L296">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L300">
   Improve this doc
 </a>
 
@@ -84,7 +84,7 @@ module.exports = function(context) {
 
 };
 </code></pre>
-<ol start="3">
+<ol>
 <li>From the root of your project make the file executable:
 <code>$ chmod +x hooks/after_prepare/030_copy_android_notification_icons.js</code></li>
 </ol>
