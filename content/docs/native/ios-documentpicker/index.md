@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.9.0"
+version: "4.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -57,9 +57,9 @@ $ npm install --save @ionic-native/document-picker
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { IOSDocumentPicker } from &#39;@ionic-native/document-picker&#39;;
+<pre><code class="lang-typescript">import { DocumentPicker } from &#39;@ionic-native/document-picker&#39;;
 
-constructor(private docPicker: IOSDocumentPicker) { }
+constructor(private docPicker: DocumentPicker) { }
 
 ...
 
