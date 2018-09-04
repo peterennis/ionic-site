@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.10.1"
+version: "4.12.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -750,7 +750,7 @@ This includes the following events:
 
 
 
-Clears all OneSignla notifications
+Clears all OneSignal notifications
 
 
 

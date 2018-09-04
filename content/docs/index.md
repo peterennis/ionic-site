@@ -2,7 +2,8 @@
 layout: fluid/docs_base
 category: home
 id: docs-home
-title: Ionic Documentation
+title: Ionic Platform Documentation
+header_sub_title: UI Components, APIs, PWA, Native App Development and Storage
 hide_header_search: true
 pre_footer: true
 ---

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.10.1"
+version: "4.12.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -81,10 +81,9 @@ $ npm install --save @ionic-native/firebase-dynamic-links
 constructor(private firebaseDynamicLinks: FirebaseDynamicLinks) { }
 
 ...
-
+// Handle the logic here after opening the app with the Dynamic link
 this.firebaseDynamicLinks.onDynamicLink()
-  .then((res: any) =&gt; console.log(res)) //Handle the logic here after opening the app with the Dynamic link
-  .catch((error:any) =&gt; console.log(error));
+  .subscribe((res: any) =&gt; console.log(res), (error:any) =&gt; console.log(error));
 </code></pre>
 
 

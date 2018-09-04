@@ -27,8 +27,10 @@ module.exports = function router(app) {
   .get('/about', (_, res) => { res.render('about'); })
   .get('/articles/pwa-architects-guide', (_, res) => { res.render('articles/pwa-architects-guide'); })
   .get('/articles/pwa-architects-guide/preview', (_, res) => { res.render('articles/pwa-architects-guide-preview'); })
+  .get('/articles/why-hybrid', (_, res) => { res.render('articles/why-hybrid'); })
   .get('/books/hybrid-vs-native', (_, res) => { res.render('books/hybrid-vs-native'); })
   .get('/books/hybrid-vs-native/preview', (_, res) => { res.render('books/hybrid-vs-native-preview'); })
+  .get('/community', (_, res) => { res.render('community'); })
   .get('/contact', (_, res) => { res.render('contact'); })
   .get('/contributors', (_, res) => { res.render('contributors'); })
   .get('/demo', (_, res) => { res.render('demo'); })
@@ -39,7 +41,15 @@ module.exports = function router(app) {
   .get('/enterprise/training', (_, res) => { res.render('enterprise/training'); })
   .get('/framework', (_, res) => { res.render('framework'); })
   .get('/getting-started', (_, res) => { res.render('getting-started'); })
-  .get('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide'); })
+
+  .get('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide/index'); })
+  .post('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide/thank-you'); })
+  .get('/go/pwa-architects-guide/thank-you', (_, res) => { res.render('go/pwa-architects-guide/thank-you'); })
+
+  .get('/go/why-hybrid', (_, res) => { res.render('go/why-hybrid/index'); })
+  .post('/go/why-hybrid', (_, res) => { res.render('go/why-hybrid/thank-you'); })
+  .get('/go/why-hybrid/thank-you', (_, res) => { res.render('go/why-hybrid/thank-you'); })
+
   .get('/jobs', (_, res) => { res.render('jobs'); })
   .get('/press', (_, res) => { res.render('press'); })
   .get('/pro/pricing', (_, res) => { res.render('pro/pricing/table'); })
@@ -55,18 +65,21 @@ module.exports = function router(app) {
   .get('/pro/monitor', (_, res) => { res.render('pro/monitor'); })
   .get('/pro/package', (_, res) => { res.render('pro/package'); })
   .get('/pro/teams', (_, res) => { res.render('pro/teams'); })
-  .get('/pro/view', (_, res) => { res.render('pro/view'); })
   .get('/pwa', (_, res) => { res.render('pwa/index'); })
   .get('/pwa/toolkit', (_, res) => { res.render('pwa/toolkit'); })
   .get('/sales', (_, res) => { res.render('sales'); })
   .get('/startups', (_, res) => { res.render('startups'); })
   .get('/strategysession', (_, res) => { res.render('strategysession'); })
   .get('/support', (_, res) => { res.render('support'); })
-  .get('/support/request', (_, res) => { res.redirect(301, 'https://ionic.zendesk.com/hc/en-us/requests/new'); })
   .get('/survey/2017', (_, res) => { res.render('survey/2017'); })
   .get('/team', (_, res) => { res.render('team'); })
   .get('/tos', (_, res) => { markdown(res, 'tos'); })
+
+  .get('/trusted-partners', (_, res) => { res.render('trusted-partners'); })
+  .post('/trusted-partners', bp.urlencoded({extended: true}), es(), trustedPartnersCtrl)
+
   .get('/values', (_, res) => { res.render('values'); })
+  .get('/what-is-ionic', (_, res) => { res.render('what-is-ionic'); })
 
   // resource center
   .get('/resources', (_, res) => { res.render('resources/index', {currentCategory: 'featured'}); })
@@ -78,11 +91,6 @@ module.exports = function router(app) {
     (_, res) => { markdown(res, 'pr-170725-dev-survey-says-the-web-is-wi'); })
   .get('/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises',
     (_, res) => { markdown(res, 'pr-171206-ionic-brings-powerful-app-dev'); })
-
-  // pages w/ POST handlers
-  .get('/trusted-partners', (_, res) => { res.render('trusted-partners'); })
-  .post('/trusted-partners', bp.urlencoded({extended: true}), es(),
-    trustedPartnersCtrl)
 
   // JSON endpoints
   .post('/contact', bp.json(), es(), contactCtrl)

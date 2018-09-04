@@ -1,4 +1,4 @@
-const sass = require('@stencil/sass');
+const { sass } = require('@stencil/sass');
 
 exports.config = {
   namespace: 'ionic-site-components',
@@ -6,7 +6,7 @@ exports.config = {
     sass()
   ],
   copy: [
-    // { src: 'node_modules/ionicons/dist/collection/icon/svg/md-search.svg' }
+    { src: '../../node_modules/ionicons/dist/collection/icon/svg' }
   ],
   outputTargets: [
     // {

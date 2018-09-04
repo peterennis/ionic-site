@@ -32,6 +32,13 @@ const resources = {
         "bgColor": "#4ebff3"
       }, {
         "type": "Article",
+        "title": "Why Hybrid",
+        "url": "/articles/why-hybrid",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-why-hybrid.jpg",
+        "bgColor": "#7b63b0"
+      }, {
+        "type": "Article",
         "title": "2017 Developer Survey",
         "url": "/survey/2017",
         "action": "Read",
@@ -86,6 +93,13 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-napa.jpg",
         "bgColor": "#7479e4"
+      }, {
+        "type": "Case Study",
+        "title": "Why the world's largest healthcare provider chose Ionic",
+        "url": "/files/Ionic_NHS_Case_Study.pdf",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-nhs.jpg",
+        "bgColor": "#0163ac"
       }, {
         "type": "Case Study",
         "title": "Sworkit goes cross platform with Ionic",

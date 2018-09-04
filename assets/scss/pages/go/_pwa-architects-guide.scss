@@ -1,4 +1,5 @@
-#page-go-pwa-architects-guide {
+#page-go-pwa-architects-guide,
+#page-go-why-hybrid {
   font-family: $font-family-graphik;
 
   h1,
@@ -134,7 +135,8 @@
     }
   }
 
-  .signup-form {
+  .signup-form,
+  .thank-you aside {
     padding: 42px 48px 48px;
     background: white;
     box-shadow: 0 8px 48px 0px rgba(black, 0.2);
@@ -267,6 +269,43 @@
 
     .get-started .btn + .btn  {
       margin-top: 8px;
+    }
+  }
+
+  .banner .thank-you {
+    min-height: 490px;
+  }
+
+  main.thank-you {
+    margin-top: -340px;
+  }
+
+  .thank-you {
+    aside {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 500px;
+    }
+
+    p::before {
+      content: none;
+    }
+
+    .btn {
+      display: block;
+    }
+
+    p.lg {
+      margin-bottom: 0;
+    }
+
+    .also {
+      margin-top: 0;
+      margin-bottom: 64px;
+    }
+
+    .company {
+      margin-top: 128px;
     }
   }
 }
