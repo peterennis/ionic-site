@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.12.2"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Web Intent</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L21">
   Improve this doc
 </a>
 
@@ -135,6 +135,18 @@ Convenience constant for actions
 
 
 <h3><a class="anchor" name="ACTION_PICK" href="#ACTION_PICK"></a><code>ACTION_PICK</code></h3>
+
+
+Convenience constant for actions
+
+
+<h3><a class="anchor" name="ACTION_INSTALL_PACKAGE" href="#ACTION_INSTALL_PACKAGE"></a><code>ACTION_INSTALL_PACKAGE</code></h3>
+
+
+Convenience constant for actions
+
+
+<h3><a class="anchor" name="ACTION_UNINSTALL_PACKAGE" href="#ACTION_UNINSTALL_PACKAGE"></a><code>ACTION_UNINSTALL_PACKAGE</code></h3>
 
 
 Convenience constant for actions

@@ -23,19 +23,57 @@ export class IonicNewsletterSignup {
 
   handleSubmit(e) {
     e.preventDefault();
+    const email = this.email;
     this.isLoading = true;
     var xhr = new XMLHttpRequest();   // new HttpRequest instance
     xhr.open("POST", "/api/v1/newsletter");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
-      console.log(xhr)
       if (xhr.readyState === 4 && xhr.status === 200) {
-          this.isLoading = false;
-          var json = JSON.parse(xhr.responseText);
-          this.hasSubmitted = json.ok;
+        this.isLoading = false;
+        var json = JSON.parse(xhr.responseText);
+        this.hasSubmitted = json.ok;
+        this.hubspotIdentify(email);
       }
     };
     xhr.send(JSON.stringify({ email: this.email}));
+  }
+
+  hubspotIdentify(email: string) {
+    const _hsq = window['_hsq'] = window['_hsq'] || [];
+    _hsq.push(["identify",{
+      email: email
+    }]);
+     _hsq.push(["trackEvent", {
+        id: "Signed Up for Newsletter",
+        value: true
+    }]);
+
+    // Send 
+    var xhr = new XMLHttpRequest();
+    var url = [
+      'https://api.hsforms.com/submissions/v3/integration/submit',
+      '3776657',
+      '76e5f69f-85fd-4579-afce-a1892d48bb32'].join('/');
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log(json)
+      }
+    };
+    xhr.send(JSON.stringify({ 
+      fields: [{
+        name: 'email',
+        value: this.email
+      }],
+      context: {
+        hutk: document.cookie.match(/hubspotutk=(.*?);/)[1],
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    }));
   }
 
   getFormClass() {

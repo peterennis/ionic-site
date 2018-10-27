@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.12.2"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -167,7 +167,7 @@ Show the currently authenticated player.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Player&gt;</code> Returns a promise that resolves when Play 
+  <b>Returns:</b> <code>Promise&lt;Player&gt;</code> Returns a promise that resolves when Play
 Games Services returns the authenticated player.
 </div><h3><a class="anchor" name="submitScore" href="#submitScore"></a><code>submitScore(data)</code></h3>
 

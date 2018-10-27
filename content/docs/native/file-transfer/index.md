@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.12.2"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -90,7 +90,7 @@ upload() {
      // error
    })
 }
-*
+
 download() {
   const url = &#39;http://www.example.com/file.pdf&#39;;
   fileTransfer.download(url, this.file.dataDirectory + &#39;file.pdf&#39;).then((entry) =&gt; {

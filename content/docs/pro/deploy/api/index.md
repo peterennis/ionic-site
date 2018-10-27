@@ -102,6 +102,7 @@ and info about <a href="/docs/pro/deploy/api/#try-the-new-improved-deploy-plugin
 <!-- BEGIN v5 API -->
 
 * [configure](#configure)
+* [getConfiguration](#getconfiguration)
 * [sync](#sync)
 * [checkForUpdate](#checkforupdate)
 * [downloadUpdate](#downloadupdate)
@@ -154,9 +155,9 @@ console.log(info)
 // {
 //   'appId': 'abcd1234',
 //   'channel': 'MY_CHANNEL_NAME',
-//   'binaryVersion': 'X.X.X',
-//   'debug': false,
-//   'debug': false,
+//   'binaryVersionName': 'X.X.X',
+//   'binaryVersionCode': 'X.X.X', (string on iOS number on Android)
+//   'disabled': false,
 //   'updateMethod': 'auto',
 //   'maxVersions': 3,
 //   'minBackgroundDuration': 30,
@@ -617,7 +618,7 @@ ___
 ```js
 const info = await Pro.deploy.info()
 console.log(info)
-// { 
+// {
 //   'deploy_uuid': 'UUID_OF_ACTIVE_CODE',
 //   'channel': 'CHANNEL_NAME',
 //   'binary_version': 'X.X.X'
@@ -689,7 +690,6 @@ ___
 
 * [channel](#optional-channel)
 * [appId](#optional-appid)
-* [debug](#optional-debug)
 
 ___
 
@@ -713,22 +713,13 @@ The [channel](/docs/pro/deploy/channels) that the plugin should listen for updat
 
 ___
 
-#### `<Optional>` debug
-
-**● debug**: `undefined` |
-`true` |
-`false`
-
-
-whether or not the app should in debug mode
-
-___
-
 ### CheckForUpdateResponse
 
 #### Properties
 
 * [available](#available)
+* [compatible](#compatible)
+* [partial](#partial)
 * [integrity](#optional-integrity)
 * [snapshot](#optional-snapshot)
 * [url](#optional-url)
@@ -738,6 +729,24 @@ ___
 **● available**: `boolean`
 
 Whether or not an update is available.
+
+___
+
+####  compatible
+
+**● compatible**: `boolean`
+
+*__deprecated__*: in favor of [available](#available)
+Whether or not an update is available. Will always be identical to [available](#available)
+
+___
+
+####  partial
+
+**● compatible**: `boolean`
+
+*__deprecated__*
+Legacy way of determining whether an update was full or partial. Will always be `false`.
 
 ___
 
@@ -787,13 +796,14 @@ ___
 ### ConfigurationInfo
 
 #### Properties
-* `binaryVersion` `<string>` - The binary version of the native bundle.
+* `binaryVersion` `<string>` - **deprecated** in favor of `binaryVersionName`. The versionName on Android or CFBundleShortVersionString on iOS this is the end user readable version listed on the stores.
+* `binaryVersionName` `<string>` - The versionName on Android or CFBundleShortVersionString on iOS this is the end user readable version listed on the stores.
+* `binaryVersionCode` `<string(iOS)|number(Android)>` -The versionCode on Android or CFBundleVersion on iOS this should be changed every time you do a new build.
 * `channel` `<string>` - The channel name the device is currently configured to check for updates on.
-* `debug` `<boolean>` - Whether the plugin is in debug mode or not.
+* `disabled` `<boolean>` - Whether the deploy updates are disabled or not.
 * `updateMethod` `<'none' | 'auto' | 'background'>` - The currently configured updateMethod for the plugin.
 * `maxVersions` `<number>` - The maximum number of updates to be stored locally on the device.
 * `minBackgroundDuration` `<number>` - The number of seconds the app needs to be in the background before the plugin considers it closed for the purposes of fetching and applying a new update.
-* `debug` `<boolean>` - Whether the plugin is in debug mode or not.
 * `currentVersionId` `<string | undefined>` - The id of the currently applied update or `undefined` if none is applied.
 
 
@@ -937,3 +947,16 @@ the plugin considers the app closed and checks for an update on resume like it w
 [update method](#update_method).
 
 
+## Plugin Preferences
+
+### `DisableDeploy`
+
+`Default: false`
+
+Allows to disable deploy updates by adding this preference in the config.xml
+
+```
+<preference name="DisableDeploy" value="true" />
+```
+
+After adding be sure to run `cordova prepare [platform]` in order for changes to take effect.

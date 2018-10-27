@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.12.2"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -115,7 +115,7 @@ hide automatically (or not) the navigation bar.
 
 
 
-Hide the navigation bar. 
+Hide the navigation bar.
 
 
 <div class="return-value" markdown="1">

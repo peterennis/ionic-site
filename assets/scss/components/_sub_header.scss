@@ -35,11 +35,16 @@
 
   li {
     display: inline-block;
+    font-weight: 500;
   }
 
   .breadcrumbs {
     font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
     font-size: 16px;
+
+    &.sm {
+      font-size: 13px;
+    }
 
     li {
       font-weight: 600;
@@ -71,6 +76,7 @@
       padding: 0;
       display: inline-block;
       margin-left: -1px;
+
 
       &:hover {
         color: rgba(white, .3);

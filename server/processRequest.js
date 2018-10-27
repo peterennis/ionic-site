@@ -8,6 +8,7 @@ var followerCount   = null;
 var tools           = require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
 });
+const integrations = require('./data/integrations');
 
 module.exports = function(req, res, next) {
 
@@ -83,9 +84,10 @@ module.exports = function(req, res, next) {
   }
 
   // Setting default Page Vars
-  res.locals = {
+  res.locals = Object.assign({}, res.locals, {
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
+    integrations: integrations,
     employees: shuffle(employees),
     resources: resources,
     followerCount: followerCount,
@@ -96,7 +98,7 @@ module.exports = function(req, res, next) {
     dev: req.get('host').indexOf('localhost') === 0,
     trustedPartners: shuffle(trustedPartners),
     frameworkInfo: frameworkInfo
-  };
+  });
 
   return next();
 };
