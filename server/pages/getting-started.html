@@ -3,6 +3,7 @@
 {% set id = "getting-started" %}
 {% set pre_footer = false %}
 {% set meta_description = "" %}
+{% set stickyNav = true %}
 
 {% block main %}
 <div class="cta gradient">
@@ -18,9 +19,9 @@
   </hgroup>
 
   <div class="container">
-    <ul class="tabs">
-      <li class="tab tab--active" data-tab-content="account" id="get-started-tab-create-account">
-        <div class="tab__inner">
+    <ul class="rounded-tabs">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="account" id="get-started-tab-create-account">
+        <div class="rounded-tabs__tab-inner">
           <svg width="20px" height="20px" viewBox="0 0 20 20">
             <g transform="translate(-309.000000, -479.000000)">
               <g transform="translate(309.000000, 479.000000)">
@@ -35,8 +36,8 @@
           <span>Create Ionic account</span>
         </div>
       </li>
-      <li class="tab" data-tab-content="cli" id="get-started-tab-cli">
-        <div class="tab__inner">
+      <li class="rounded-tabs__tab" data-tab-content="cli" id="get-started-tab-cli">
+        <div class="rounded-tabs__tab-inner">
           <svg width="20px" height="18px" viewBox="0 0 20 18">
             <g transform="translate(-567.000000, -480.000000)">
               <g transform="translate(560.000000, 480.000000)">
@@ -54,8 +55,8 @@
           <span>Install with CLI</span>
         </div>
       </li>
-      <li class="tab" data-tab-content="creator" id="get-started-tab-creator">
-        <div class="tab__inner">
+      <li class="rounded-tabs__tab" data-tab-content="creator" id="get-started-tab-creator">
+        <div class="rounded-tabs__tab-inner">
           <svg width="21px" height="21px" viewBox="0 0 21 21">
             <g transform="translate(-771.000000, -478.000000)">
               <g transform="translate(771.000000, 478.000000)">
@@ -116,7 +117,7 @@
 
         <div class="col benefits">
           <h4>Get more with an Ionic account</h4>
-          <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b>, <b>DevApp</b>, and <b>Ionic Pro</b> cloud features</p>
+          <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b>, <b>DevApp</b>, and <b>Ionic Appflow</b> cloud features</p>
           <ul>
             <li>
               <h5>Continuous delivery</h5>
@@ -228,7 +229,7 @@
                   <pre><code>ionic link</code></pre>
                 </div>
                 <div class="col col--half">
-                  <p>Update your app remotely, build native binaries in the cloud, and share your app easily with others, all from the Ionic Pro dashboard.</p>
+                  <p>Update your app remotely, build native binaries in the cloud, and share your app easily with others, all from the Ionic Appflow dashboard.</p>
                 </div>
               </div>
             </div>
@@ -239,7 +240,7 @@
 
       <div class="learn-more">
         <p>
-          <a href="https://ionicframework.com/pro">Learn more</a> about Ionic Pro.
+          <a href="https://ionicframework.com/appflow">Learn more</a> about Ionic Appflow.
         </p>
         <p>
           Your dashboard is always available at <a href="https://dashboard.ionicframework.com/login">dashboard.ionicframework.com</a>.
@@ -278,7 +279,7 @@
         <img src="/img/getting-started/creator-logo.png" alt="Creator" class="logo">
         <h1>Create your Ionic apps visually</h1>
         <h2>A simple drag-&-drop tool for going from idea to App Store, with just the drag of a mouse.</h2>
-        <a href="https://usecreator.com" class="btn">
+        <a href="https://creator.ionic.io" class="btn">
           Start an app in Creator <i class="ion-ios-arrow-forward"></i>
         </a>
       </hgroup>
@@ -289,13 +290,11 @@
 
 {% endblock %} {% block scripts %}
 <script>
-  // enable sticky nav
-  stickyNav.init();
 
   (function() {
 
       // content tabs
-      var tabs = document.querySelectorAll('.tab');
+      var tabs = document.querySelectorAll('.rounded-tabs__tab');
       for (var i = 0; i < tabs.length; i++) {
         tabs[i].addEventListener('click', function() {
           selectTab(this);
@@ -313,9 +312,9 @@
         var contentId = tab.dataset.tabContent;
         window.location.hash = contentId;
 
-        document.querySelector('.tab--active').classList.remove('tab--active');
+        document.querySelector('.rounded-tabs__tab--active').classList.remove('rounded-tabs__tab--active');
         document.querySelector('.tab-content--active').classList.remove('tab-content--active');
-        tab.classList.add('tab--active');
+        tab.classList.add('rounded-tabs__tab--active');
         document.getElementById('content-' + contentId).classList.add('tab-content--active');
       }
 

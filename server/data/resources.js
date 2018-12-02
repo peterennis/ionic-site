@@ -81,6 +81,15 @@ const resources = {
     items: [
       {
         "type": "Case Study",
+        "title": "MRA builds its first app in just two months",
+        "url": "/resources/case-studies/mauritius-revenue-authority-mra",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-mra.jpg",
+        "bgColor": "#182435"
+      },
+      {
+        "type": "Case Study",
         "title": "Building the new Marketwatch app",
         "url": "/case-studies/MarketWatch.pdf",
         "action": "Read",
@@ -174,6 +183,13 @@ const resources = {
     meta: "Ionic Resources: Webinars for developers and architects",
     items: [
       {
+        "type": "Webinar",
+        "title": "Reimagining Cordova: Building Cross-Platform Web Apps with Capacitor",
+        "url": "/resources/webinars/reimagining-cordova-building-with-capacitor",
+        "action": "Listen",
+        "bgImage": "/img/resource-center/webinars/webinar-rethinking-cordova-capacitor.png",
+        "bgColor": "#02192e"
+      }, {
         "type": "Webinar",
         "title": "Device testing with DevApp and View",
         "url": "https://www.youtube.com/watch?v=7jTQYF5qE98",

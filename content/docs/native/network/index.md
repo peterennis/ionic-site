@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.16.0"
+version: "4.18.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -62,7 +62,7 @@ constructor(private network: Network) { }
 
 ...
 
-// watch network for a disconnect
+// watch network for a disconnection
 let disconnectSubscription = this.network.onDisconnect().subscribe(() =&gt; {
   console.log(&#39;network was disconnected :-(&#39;);
 });

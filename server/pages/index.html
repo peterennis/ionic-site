@@ -3,6 +3,7 @@
 {% set id = "home" %}
 {% set pre_footer = false %}
 {% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
+{% set stickyNav = true %}
 
 {% block main %}
 <div class="banner">
@@ -68,7 +69,7 @@
       <li class="teams">
         <div class="card-wrapper">
           <div class="card">
-            <a href="/pro/teams" id="btn-home-teams-card">
+            <a href="/appflow" id="btn-home-teams-card">
               <div class="layer-1">
                 <h4>Ionic for <em>Teams</em></h4>
                 <h2>Boost your team’s workflow with mobile DevOps tools.</h2>
@@ -105,7 +106,7 @@
       <hgroup>
         <h3>Start building better apps today.</h3>
         <p>
-          Sign up for <a href="/pro">Ionic Pro</a> to get an access to the
+          Sign up for <a href="/pro">Ionic Appflow</a> to get access to the
           full Ionic experience.
         </p>
       </hgroup>
@@ -122,8 +123,6 @@
 
 {% block scripts %}
 <script>
-// enable sticky nav
-stickyNav.init();
 
 // paralax effect
 var $banner = document.querySelector('.banner')

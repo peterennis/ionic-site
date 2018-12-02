@@ -4,6 +4,7 @@
 {% set pre_footer = false %}
 {% set title = 'Enterprise App Development Platform - Ionic Framework' %}
 {% set meta_description = "Ionic is the app platform for building industry leading enterprise apps. Ionic helps you build your mobile app strategy by delivering a mobile app platform for the enterprise." %}
+{% set stickyNav = true %}
 
 {% block main %}
 
@@ -74,7 +75,7 @@
 
 <section class="container section__content section__content--align-right pro-section bg-animate">
   <hgroup>
-    <h5 class="two-tone">Ionic <b>Pro</b></h5>
+    <h5 class="two-tone">Ionic <b>Appflow</b></h5>
     <h3>A fully integrated DevOps platform covering the entire app lifecycle for Enterprise teams building and shipping apps with Ionic.</h3>
   </hgroup>
   <div class="row">
@@ -161,7 +162,7 @@
       <hgroup>
         <div class="slide__topbar">
           <div class="logo"></div>
-          <a class="slide__cta">
+          <a class="slide__cta" href="https://ionicframework.com/files/Airbus_Case_Study.pdf" target="_blank">
             <svg><use xlink:href="#icon-book"/></svg>
             Checkout the <b>Case Study</b>
             <svg><use xlink:href="#icon-arrow"/></svg>
@@ -179,7 +180,7 @@
       <hgroup>
         <div class="slide__topbar">
           <div class="logo"></div>
-          <a class="slide__cta">
+          <a class="slide__cta" href="https://ionicframework.com/case-studies/MarketWatch.pdf" target="_blank">
             <svg><use xlink:href="#icon-book"/></svg>
             Checkout the <b>Case Study</b>
             <svg><use xlink:href="#icon-arrow"/></svg>
@@ -236,7 +237,7 @@
         Get your team started with Ionic Enterprise today.
       </h2>
       <p class="lg">
-        Start building better apps faster with Ionic Pro.
+        Start building better apps faster with Ionic Appflow.
       </p>
     </hgroup>
     <div class="btns">
@@ -255,6 +256,8 @@
   <symbol id="icon-arrow" viewBox="0 0 512 512"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"/></symbol>
 </svg>
 
+  
+{% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 
 
@@ -267,8 +270,6 @@
 
 <script>
   (function(){
-    // enable sticky nav
-    stickyNav.init();
 
     // fade in bg images
     var bgAnimates = document.querySelectorAll('.bg-animate');

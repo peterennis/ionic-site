@@ -4,20 +4,19 @@
 {% import "_includes/macros.html" as macros %}
 {% set header_style = 'transparent light' %}
 {% set title = 'Ionic Resources: eBooks, Articles, Case Studies and Webinars' %}
+{% set stickyNav = true %}
 
 {% block main %}
 
 <div class="banner">
   <div class="container">
-    <div class="transitionTitle">
-      <hgroup>
-        <h1>Resource Center</h1>
-        <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
-      </hgroup>
-    </div>
+    <hgroup>
+      <h1>Resource Center</h1>
+      <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
+    </hgroup>
 
     <div class="hero-content">
-      <div class="resource-card-list resource-card-list--third transitionHero">
+      <div class="resource-card-list resource-card-list--third">
       {% for r in resources.heroFeatured %}
         <div class="resource-card resource-card-large">
           <div class="resource-card__inner">
@@ -35,7 +34,7 @@
 
 <section class="container">
 
-  <div class="transitionBody">
+  <div class="pjxTransitionBody">
     <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Articles</h4>
@@ -118,7 +117,8 @@
   </div>
 
 </section>
-
+  
+{% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 
 {% block scripts %}
@@ -129,11 +129,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
   (function(){
-    // enable sticky nav
-    stickyNav.init();
 
     // enable page transitions
-    pjx.init();
+    pjx.init('resources', '#page-resource-center');
 
     var tabs = document.querySelector('.tabs');
     ['scroll','touchmove'].forEach( function(evt) {

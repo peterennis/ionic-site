@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.16.0"
+version: "4.18.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>Share text, files, images, and links via social networks, sms, and email.</p>
-<p>For Browser usage check out the Web Share API docs: <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api">https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api</a></p>
+<p>For Browser usage check out the Web Share API docs: <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#5-web-share-api">https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#5-web-share-api</a></p>
 
 
 <p>Repo:

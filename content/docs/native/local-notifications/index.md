@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.16.0"
+version: "4.18.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L425">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L477">
   Improve this doc
 </a>
 

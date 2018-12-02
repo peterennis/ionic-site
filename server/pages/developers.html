@@ -1,8 +1,9 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'developers' %}
-{% set title = 'Devops: Ionic Framework Components and Ionic Pro Suite' %}
+{% set title = 'Devops: Ionic Framework Components and Ionic Appflow Suite' %}
 {% set meta_description = "Documentation for hybrid app development for cross platform deliverability while providing the native app experience. Our documentation helps you kick off your mobile development strategy." %}
 {% set cssPath = 'developers' %}
+{% set stickyNav = true %}
 
 {% block main %}
 
@@ -24,27 +25,16 @@
         </p>
       </hgroup>
     </a>
-    <a href="/docs/pro" class="platform">
+    <a href="/docs/appflow" class="platform">
       <hgroup>
-        <h2>Ionic Pro</h2>
+        <h2>Ionic Appflow</h2>
         <p>
-          Get the most out of Ionic Pro, Ionic's suite of powerful app development
+          Get the most out of Ionic Appflow, Ionic's suite of powerful app development
           features for professional developers.
         </p>
       </hgroup>
     </a>
   </div>
-
-  <div style="text-align: center; margin: 20px 0 60px">
-    <i>Looking for Ionic Cloud (legacy) documentation? Visit <a href="https://docs.ionic.io/">docs.ionic.io</a>.</i>
-  </div>
 </section>
 
-{% endblock %}
-
-{% block scripts %}
-<script>
-  // enable sticky nav
-  stickyNav.init();
-</script>
 {% endblock %}

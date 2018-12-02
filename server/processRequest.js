@@ -8,7 +8,6 @@ var followerCount   = null;
 var tools           = require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
 });
-const integrations = require('./data/integrations');
 
 module.exports = function(req, res, next) {
 
@@ -29,12 +28,10 @@ module.exports = function(req, res, next) {
     (req.headers.referer && req.headers.referer.indexOf('pwasftw.com') !== -1)
   ) {
     return res.redirect(301, 'https://ionicframework.com/pwa');
-  } else if (parts.path.indexOf('/creator/') == 0) {
-    return res.redirect(301, '/pro/creator' + req.url.replace(/^\/creator\//, ''));
-  } else if (parts.path.indexOf('/products') == 0) {
-    return res.redirect(301, '/pro' + req.url.replace(/^\/products/, ''));
-  } else if (parts.path.indexOf('/img/products') == 0) {
-    return res.redirect(301, '/img/pro' + req.url.replace(/^\/img\/pro/, ''));
+  } else if (parts.path.indexOf('/docs/pro/') == 0) {
+    return res.redirect(301, '/docs/appflow/' + req.url.replace(/\/docs\/pro\//, ''));
+  } else if (parts.path.indexOf('/docs/pro') == 0) {
+    return res.redirect(301, '/docs/appflow');
   } else if (parts.path.indexOf('/tutorials') == 0) {
     return res.redirect(301, '/getting-started');
   } else if (parts.path.indexOf('/docs/v1/cli') == 0) {
@@ -87,7 +84,6 @@ module.exports = function(req, res, next) {
   res.locals = Object.assign({}, res.locals, {
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
-    integrations: integrations,
     employees: shuffle(employees),
     resources: resources,
     followerCount: followerCount,
