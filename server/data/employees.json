@@ -11,7 +11,7 @@
     "dept":"VP of Marketing",
     "description":null,
     "twitter":"achaire",
-    "image": "andrew.jpg"
+    "image": "andrew.png"
   },
   {
     "name":"Ben Sperry",
@@ -56,6 +56,13 @@
     "image": "cam.jpg"
   },
   {
+    "name":"Cody Wiseman",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"cwiseman1",
+    "image": "cody.png"
+  },
+  {
     "name":"Dan Imhoff",
     "dept":"Development",
     "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
@@ -89,6 +96,13 @@
     "description":"I am an Italian living in Boston, a Formula 1, basket and a football (the American one) fan. I like to run, try new food and beer. My secret mission is to teach people what a good Italian pizza is. While listening to '70s and 80's rock, I write code for Ionic PRO.",
     "twitter":"giocalitri",
     "image": "giovanni.jpg"
+  },
+  {
+    "name":"Jake Santerre",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"JakeSanterre",
+    "image": "jake.png"
   },
   {
     "name":"Josh Thomas",
@@ -157,14 +171,14 @@
     "dept":"Product Manager",
     "description":"Two couches, a lazy boy, 40” TV and wired internet. Awesome man-cave? Nope, that’s just Matt’s garage where he spends his time working on Creator, the worlds most awesome project ever (or at least his mom says so). With “Anything Is Possible” tattooed on his arm, Matt enjoys tackling complex business and programming problems, as well as attempting to win board games against his wife.",
     "twitter":"matthewkremer",
-    "image": "matt.jpg"
+    "image": "matt.png"
   },
   {
     "name":"Matt Netkow",
     "dept":"Marketing",
     "description":"",
     "twitter":"dotNetkow",
-    "image": "matt-n.jpg"
+    "image": "netkow.png"
   },
   {
     "name":"Max Lynch",
@@ -175,7 +189,7 @@
   },
   {
     "name":"Mike Hartington",
-    "dept":"Development",
+    "dept":"Dev Relations",
     "description":"Deep in the frozen North, just before the great wall, a man sits with a laptop, surrounded by several cups of coffee and a glass of whiskey. Traveling across this great kingdom, he enlightens other devs and shares his knowledge through the written and spoken word. When the laptop is not near, he often finds solace in music with his guitar.",
     "twitter":"mhartington",
     "image": "mike.jpg"
@@ -186,6 +200,13 @@
     "description":"If there's snow on the ground, you'll find Nick on his cross-country skis, training for the American Birkebeiner. In the more temperate months, you can find him running around the soccer pitch, doing his best to score a goal, but mostly just trying not get in his teammates' way. Of course, year-round, regardless of weather conditions, you can find Nick hard at work on the Ionic Platform.",
     "twitter":"NicholasPHyatt",
     "image": "nick.jpg"
+  },
+  {
+    "name":"Noah Blank",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":"noahblank",
+    "image": "noah.jpg"
   },
   {
     "name":"Perry Govier",
@@ -199,14 +220,14 @@
     "dept":"Marketing",
     "description": null,
     "twitter": "rachelanjali",
-    "image": "rachel.jpg"
+    "image": "rachel.png"
   },
   {
-    "name":"Rudy Pelrine",
-    "dept":"Development",
-    "description":"A musician, DJ, sound engineer, photographer, and self proclaimed fashion nerd, Rudy seems to find a new obsession daily.  At Ionic, you'll find him working on the Platform services, making sure everyone's notifications arrive safe and sound.",
-    "twitter":"Drawn_Closer",
-    "image": "rudy.jpg"
+    "name":"Rachel Ashton",
+    "dept":"Marketing",
+    "description": null,
+    "twitter": "Rachel_Ellen31",
+    "image": "ashton.png"
   },
   {
     "name":"Ryan Bowman",
