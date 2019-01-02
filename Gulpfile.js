@@ -78,9 +78,18 @@ function bustCacheAndReload(done) {
   });
 }
 
+function justReload(done) {
+  // server.restart(function(err) {
+    // if (!err) {
+      done();
+      browserSync.reload();
+    // }
+  // });
+}
+
 gulp.task('styles:others', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src([
+  return gulp.src([
     'assets/scss/**/*.scss',
     '!assets/scss/styles.scss'
   ])
@@ -103,7 +112,7 @@ gulp.task('styles:others', function() {
 
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src(
+  return  gulp.src(
     ['assets/scss/styles.scss'].concat(lib.css)
   ) .pipe($.sourcemaps.init())
     .pipe(sass({
@@ -156,9 +165,9 @@ gulp.task('js', function() {
 
 
 
-gulp.task('stencil', function(done) {
-  return cp.spawn('npm',
-    ['run', 'stencil-build'],
+gulp.task('stencil:build', function(done) {
+  return cp.spawn('stencil',
+    ['build'],
     {
       cwd: process.cwd(),
       env: {
@@ -171,6 +180,10 @@ gulp.task('stencil', function(done) {
     done();
   }).on('error', function(err) {throw err; });
 });
+
+gulp.task('stencil', function() {
+  return runSequence('stencil:build', 'js');
+})
 
 /**
  * Build the Jekyll Site
@@ -225,20 +238,13 @@ gulp.task('server', ['build'], function() {
   return runSequence('server-listen');
 });
 
-gulp.task('server:server', function() {
-  server.restart(function(err) {
-    if (!err) {
-      browserSync.reload();
-    }
-  });
-});
+gulp.task('server:server', justReload);
 
-gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
-gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
-gulp.task('server:others', ['styles:others'], bustCacheAndReload);
-gulp.task('server:stencil', ['stencil'], bustCacheAndReload);
-
-gulp.task('server:js', ['js'], bustCacheAndReload);
+gulp.task('server:stylesv1', ['styles:v1'], justReload);
+gulp.task('server:stylesv2', ['styles:v2'], justReload);
+gulp.task('server:others', ['styles:others'], justReload);
+gulp.task('server:stencil', ['stencil'], justReload);
+gulp.task('server:js', ['js'], justReload);
 
 gulp.task('watch.max', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
@@ -259,7 +265,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
     ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['styles:others']);
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['server:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
@@ -292,7 +298,6 @@ gulp.task('sitemap', function () {
 
 gulp.task('docs.index', function() {
   var lunr = require('lunr');
-  var gutil = require('gulp-util');
   var es = require('event-stream');
   var yaml = require('js-yaml');
   var htmlparser = require('htmlparser2');
@@ -316,7 +321,6 @@ gulp.task('docs.index', function() {
   }
 
   var docPath = 'content/docs/';
-  gutil.log('Reading docs from', gutil.colors.cyan(docPath));
 
   return gulp.src([
     docPath + '/{api,cli,components,faq,getting-started,native,resources,theming,utils}/**/*.{md,html,markdown}',
@@ -449,12 +453,11 @@ gulp.task('slug.prep', function () {
 gulp.task(
   'build-prep',
   [
+    'stencil',
     'styles:v1',
     'styles:v2',
     'styles:others',
-    'js',
     'docs.index',
-    'stencil',
   ],
   bustCache
 );
