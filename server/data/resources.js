@@ -32,18 +32,18 @@ const resources = {
         "bgColor": "#4ebff3"
       }, {
         "type": "Article",
+        "title": "2018 Developer Survey",
+        "url": "/survey/2018",
+        "action": "Read",
+        "bgImage": "/img/resource-center/dev-survey-19-card.png",
+        "bgColor": "#67a6eb"
+      }, {
+        "type": "Article",
         "title": "Why Hybrid",
         "url": "/articles/why-hybrid",
         "action": "Read",
         "bgImage": "/img/resource-center/article-why-hybrid.jpg",
         "bgColor": "#7b63b0"
-      }, {
-        "type": "Article",
-        "title": "2017 Developer Survey",
-        "url": "/survey/2017",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-ionic-survey.jpg",
-        "bgColor": "#5a6eb9"
       }, {
         "type": "Article",
         "title": "The Mobile Delivery Gap",
@@ -72,6 +72,13 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-ionicforenterprise.jpg",
         "bgColor": "#f8926b"
+      }, {
+        "type": "Article",
+        "title": "2017 Developer Survey",
+        "url": "/survey/2017",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-ionic-survey.jpg",
+        "bgColor": "#5a6eb9"
       }
     ]
   },
@@ -183,6 +190,13 @@ const resources = {
     meta: "Ionic Resources: Webinars for developers and architects",
     items: [
       {
+        "type": "Webinar",
+        "title": "Tackling Continuous Delivery with Appflow",
+        "url": "/resources/webinars/tackling-continuous-delivery-with-appflow",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-appflow.png",
+        "bgColor": "#5352fe"
+      }, {
         "type": "Webinar",
         "title": "Introducing: Ionic Studio & Appflow A Better Way to Build Apps",
         "url": "/resources/webinars/introducing-ionic-studio-appflow",

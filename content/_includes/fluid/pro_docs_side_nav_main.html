@@ -132,6 +132,9 @@
           <li>
             <a href="/docs/appflow/package/#native-configs">Native Configurations</a>
           </li>
+          <li>
+            <a href="/docs/appflow/package/cli.html">Packages from Ionic CLI</a>
+          </li>
         </ul>
       </li>
       <li ng-show="sections.monitoring" ng-cloak class="{% if page.category == 'pro-monitoring' %}active{% endif %}" >
@@ -158,6 +161,14 @@
             <a href="/docs/appflow/automation">Introduction</a>
             <a href="/docs/appflow/automation/create">Create Automations</a>
             <a href="/docs/appflow/automation/webhooks">Webhooks</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-cookbook' %}active{% endif %}">
+        <a ng-click="toggle('cookbook')" class="pro-cookbook-link">Cookbook</a>
+        <ul ng-show="sections.cookbook" ng-cloak {% if page.category == 'pro-cookbook' %}ng-init="sections.cookbook = true"{% endif %}>
+          <li>
+            <a href="/docs/appflow/cookbook">Recipes</a>
           </li>
         </ul>
       </li>
