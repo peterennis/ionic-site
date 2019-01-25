@@ -53,6 +53,10 @@ declare global {
       'mobile': boolean;
     }
 
+    interface IonicSlider {
+
+    }
+
     interface IonicSnapBar {
 
     }
@@ -99,6 +103,14 @@ declare global {
     };
     
 
+    interface HTMLIonicSliderElement extends StencilComponents.IonicSlider, HTMLStencilElement {}
+
+    var HTMLIonicSliderElement: {
+      prototype: HTMLIonicSliderElement;
+      new (): HTMLIonicSliderElement;
+    };
+    
+
     interface HTMLIonicSnapBarElement extends StencilComponents.IonicSnapBar, HTMLStencilElement {}
 
     var HTMLIonicSnapBarElement: {
@@ -115,6 +127,7 @@ declare global {
     'ionic-button': JSXElements.IonicButtonAttributes;
     'ionic-newsletter-signup': JSXElements.IonicNewsletterSignupAttributes;
     'ionic-search': JSXElements.IonicSearchAttributes;
+    'ionic-slider': JSXElements.IonicSliderAttributes;
     'ionic-snap-bar': JSXElements.IonicSnapBarAttributes;
     }
   }
@@ -148,6 +161,10 @@ declare global {
       'mobile'?: boolean;
     }
 
+    export interface IonicSliderAttributes extends HTMLAttributes {
+
+    }
+
     export interface IonicSnapBarAttributes extends HTMLAttributes {
 
     }
@@ -159,6 +176,7 @@ declare global {
     'ionic-button': HTMLIonicButtonElement
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement
     'ionic-search': HTMLIonicSearchElement
+    'ionic-slider': HTMLIonicSliderElement
     'ionic-snap-bar': HTMLIonicSnapBarElement
   }
 
@@ -168,6 +186,7 @@ declare global {
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-search': HTMLIonicSearchElement;
+    'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
   }
 }
