@@ -4,6 +4,8 @@ module.exports = {
   PORT: int(process.env.PORT) || 3000,
   PROD: bool(process.env.PROD) || false,
 
+  DOCS_URL: process.env.DOCS_URL || 'https://ionic-docs.herokuapp.com',
+
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,
   CF_TOKEN: process.env.CF_TOKEN || null,
@@ -21,6 +23,10 @@ module.exports = {
   // SALESFORCE CRM
   SALESFORCE_USER: process.env.SALESFORCE_USER || null,
   SALESFORCE_PASSWORD_TOKEN: process.env.SALESFORCE_PASSWORD_TOKEN || null,
+
+  // Sentry error tracking
+  SENTRY_DSN: process.env.SENTRY_DSN || null,
+  SENTRY_ENVIRONMENT: process.env.SENTRY_ENVIRONMENT || null,
 
   // Twilio text messaging
   TWILIO_SID: process.env.TWILIO_SID || null,

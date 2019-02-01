@@ -5,7 +5,6 @@ var v1Directories = getDirectories('_site/docs/v1');
 var v3Directories = getDirectories('_site/docs/v3');
 
 module.exports = function(req, res, next) {
-
   var parts = url.parse(req.url);
   let urlParts = req.path.split('/');
 
@@ -34,8 +33,10 @@ module.exports = function(req, res, next) {
     }
   }
 
-  res.status(404);
-  res.sendFile(__dirname.replace('/server', '') + '/_site/404.html');
+  if(!res.locals.proxy404) {
+    res.status(404);
+    res.sendFile(__dirname.replace('/server', '') + '/_site/404.html');
+  }
 };
 
 function getDirectories(srcpath) {
