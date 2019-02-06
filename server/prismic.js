@@ -1,7 +1,6 @@
 const Cookies     = require('cookies');
 const PrismicDOM  = require('prismic-dom');
 const Prismic     = require('prismic-javascript');
-const { send404 } = require('./router');
 
 const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
@@ -9,6 +8,8 @@ function linkResolver(doc) {
   // Define the url depending on the document type
   if (doc.type === 'webinar') {
     return '/resources/webinars/' + doc.uid;
+  } else if (doc.type === 'article') {
+    return '/resources/articles/' + doc.uid;
   } else if (doc.type === 'case_study') {
     return '/resources/case-studies/' + doc.uid;
   } else if (doc.type === 'integration') {
@@ -99,9 +100,11 @@ module.exports = {
   getPrismic: (req, res, next, type, uid, template) => {
     return new Promise(resolve => {
       return req.prismic.api.getByUID(type, uid)
-      .then(response => res.render(template, {
-        data: response ? {...response.data, uid: uid} : null
-      }))
+      .then(response => {
+        delete req;
+        // console.log(response)
+        return res.render(template, response)
+      })
       .then(resolve)
       .catch(e => {
         console.log(e);
