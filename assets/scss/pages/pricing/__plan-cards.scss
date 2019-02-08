@@ -91,6 +91,12 @@
         display: inline-block;
       }
 
+      .price h6 {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 11px;
+      }
+
       .type {
         font-size: 14px;
         letter-spacing: -0.01em;
@@ -335,6 +341,10 @@
         color: #f6f8fb;
       }
 
+      .plan-card-header .price {
+        color: #bac9d6;
+      }
+
       .plan-card-body .features li {
         color: #E9EDF3;
       }
@@ -358,6 +368,7 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    justify-content: center;
 
     .plan-card {
       h2 {
@@ -438,40 +449,40 @@
       }
     }
 
-    .plan-card:first-child {
-      max-width: 300px;
-      margin: 100px 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+    // .plan-card:first-child {
+    //   max-width: 300px;
+    //   margin: 100px 0;
+    //   border-top-right-radius: 0;
+    //   border-bottom-right-radius: 0;
+    //
+    //   .plan-card-header {
+    //     padding-bottom: 0;
+    //   }
+    //
+    //   .plan-card-body {
+    //     border-top: none;
+    //     padding-top: 0;
+    //   }
+    //
+    //   .plan-card-cta .btn {
+    //     background: #F3F6FC;
+    //     color: #4D8DFF;
+    //     display: block;
+    //     width: 100%;
+    //
+    //     &:hover {
+    //       background: darken(#F3F6FC, 3%);
+    //     }
+    //   }
+    // }
 
-      .plan-card-header {
-        padding-bottom: 0;
-      }
+    .plan-card {
+      max-width: 848px;
 
-      .plan-card-body {
-        border-top: none;
-        padding-top: 0;
-      }
-
-      .plan-card-cta .btn {
-        background: #F3F6FC;
-        color: #4D8DFF;
-        display: block;
-        width: 100%;
-
-        &:hover {
-          background: darken(#F3F6FC, 3%);
-        }
-      }
-    }
-
-    .plan-card:last-child {
       .plan-card-header,
       .plan-card-body {
         display: flex;
       }
-
-
 
       .plan-card-body {
         ul {
@@ -494,6 +505,7 @@
         }
       }
     }
+
 
     @media (max-width: $screen-sm-max) {
       flex-direction: column;
