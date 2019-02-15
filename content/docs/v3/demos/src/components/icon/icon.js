@@ -12,7 +12,7 @@ import { Ion } from '../ion';
  * @description
  * Icons can be used on their own, or inside of a number of Ionic components.
  * For a full list of available icons, check out the
- * [Ionicons docs](../../../../ionicons).
+ * [Ionicons docs](../../../../../ionicons).
  *
  * One feature of Ionicons in Ionic is when icon names are set, the actual icon
  * which is rendered can change slightly depending on the mode the app is
@@ -34,8 +34,8 @@ import { Ion } from '../ion';
  * <ion-icon name="logo-twitter"></ion-icon>
  * ```
  *
- * @demo /docs//demos/src/icon/
- * @see {@link /docs//components#icons Icon Component Docs}
+ * @demo /docs/demos/src/icon/
+ * @see {@link /docs/components#icons Icon Component Docs}
  *
  */
 export var Icon = (function (_super) {

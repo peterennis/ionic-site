@@ -49,7 +49,7 @@ view. By default, it slides in from the left, but the side can be overridden. Th
 will be displayed differently based on the mode, however the display type can be changed
 to any of the available <a href="#menu-types">menu types</a>. The menu element should be a sibling
 to the app&#39;s content element. There can be any number of menus attached to the content.
-These can be controlled from the templates, or programmatically using the <a href="../app/MenuController">MenuController</a>.</p>
+These can be controlled from the templates, or programmatically using the <a href="../../app/MenuController">MenuController</a>.</p>
 
 
 
@@ -84,14 +84,14 @@ programmatically, inject the <a href="../MenuController">MenuController</a> prov
 <p>The menu supports several display types: <code>overlay</code>, <code>reveal</code> and <code>push</code>. By default,
 it will use the correct type based on the mode, but this can be changed. The default
 type for both Material Design and Windows mode is <code>overlay</code>, and <code>reveal</code> is the default
-type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../config/Config">config</a>
+type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../../config/Config">config</a>
 via the <code>menuType</code> property, or passed in the <code>type</code> property on the <code>&lt;ion-menu&gt;</code> element.
 See <a href="#usage">usage</a> below for examples of changing the menu type.</p>
 <h3 id="navigation-bar-behavior">Navigation Bar Behavior</h3>
 <p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../toolbar/Navbar">Navbar</a> of
 a page, the button will only appear when the page it&#39;s in is currently a root page. The
 root page is the initial page loaded in the app, or a page that has been set as the root
-using the <a href="../../nav/NavController/#setRoot">setRoot</a> method on the <a href="../../nav/NavController">NavController</a>.</p>
+using the <a href="../../../navigation/NavController/#setRoot">setRoot</a> method on the <a href="../../../navigation/NavController">NavController</a>.</p>
 <p>For example, say the application has two pages, <code>Page1</code> and <code>Page2</code>, and both have a
 <code>MenuToggle</code> button in their navigation bars. Assume the initial page loaded into the app
 is <code>Page1</code>, making it the root page. <code>Page1</code> will display the <code>MenuToggle</code> button, but once
@@ -228,7 +228,7 @@ and usage information.</p>
       <td>type</td>
       <td><code>string</code></td>
       <td><p> The display type of the menu. Default varies based on the mode,
-see the <code>menuType</code> in the <a href="../../config/Config">config</a>. Available options:
+see the <code>menuType</code> in the <a href="../../../config/Config">config</a>. Available options:
 <code>&quot;overlay&quot;</code>, <code>&quot;reveal&quot;</code>, <code>&quot;push&quot;</code>.</p>
 </td>
     </tr>
@@ -438,7 +438,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 <a href="/docs/v3/components#menus">Menu Component Docs</a>,
 <a href="../../app/MenuController">MenuController API Docs</a>,
 <a href="../../nav/Nav">Nav API Docs</a>,
-<a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->
+<a href="../../../navigation/NavController">NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -55,7 +55,7 @@ take a look at the <a href="../../../navigation/NavController/">NavController AP
 the mode. The tabs are placed at the bottom of the screen
 for iOS and Android, and at the top for Windows by default. The position can
 be configured using the <code>tabsPlacement</code> attribute on the <code>&lt;ion-tabs&gt;</code> component,
-or in an app&#39;s <a href="../../config/Config/">config</a>.
+or in an app&#39;s <a href="../../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
 values of <code>tabsPlacement</code>.</p>
 <h3 id="layout">Layout</h3>
@@ -63,7 +63,7 @@ values of <code>tabsPlacement</code>.</p>
 property. If the individual tab has a title and icon, the icons will
 show on top of the title by default. All tabs can be changed by setting
 the value of <code>tabsLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
-app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful if
+app&#39;s <a href="../../../config/Config/">config</a>. For example, this is useful if
 you want to show tabs with a title only on Android, but show icons
 and a title for iOS. See the <a href="#input-properties">Input Properties</a>
 below for the available values of <code>tabsLayout</code>.</p>
@@ -403,7 +403,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <td><code>string</code></td>
       <td><p> The color to use from your Sass <code>$colors</code> map.
 Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
+For more information, see <a href="/docs/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
@@ -412,7 +412,7 @@ For more information, see <a href="/docs//theming/theming-your-app">Theming your
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
+For more information, see <a href="/docs/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -950,9 +950,9 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#tabs'>Tabs Component Docs</a>,
+<a href='/docs/components#tabs'>Tabs Component Docs</a>,
 <a href='../Tab'>Tab API Docs</a>,
-<a href='../../config/Config'>Config API Docs</a><!-- end content block -->
+<a href='../../../config/Config'>Config API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -239,7 +239,7 @@ export var Alert = (function (_super) {
  * transitions were fired at roughly the same time, it's difficult for the
  * nav controller to cleanly animate multiple transitions that may
  * have been kicked off asynchronously. This is further described in the
- * [`Nav Transition Promises`](../../nav/NavController) section. For alerts,
+ * [`Nav Transition Promises`](../../../navigation/NavController) section. For alerts,
  * this means it's best to wait for the alert to finish its transition
  * out before starting a new transition on the same nav controller.
  *
@@ -287,7 +287,7 @@ export var Alert = (function (_super) {
  * out before starting a new transition.
  *
  *
- * @demo /docs//demos/src/alert/
+ * @demo /docs/demos/src/alert/
  */
 export var AlertController = (function () {
     function AlertController(_app) {
