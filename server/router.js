@@ -31,6 +31,7 @@ router: app => {
   .get('/', (_, res) => res.render('index'))
 
   .get('/about', (_, res) => res.render('about'))
+  .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
 
   .get('/articles/pwa-architects-guide', (_, res) =>
@@ -88,12 +89,11 @@ router: app => {
   .get('/pricing', (_, res) => res.render('pricing/index'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
 
-  .get('/pro', (_, res) => res.render('pro/index'))
   .get('/pro/contact', (_, res) => res.render('pro/contact'))
   .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
   .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
   .get('/pro/package', (_, res) => res.render('pro/package'))
-  // .get('/pro/teams', (_, res) => res.render('pro/teams'))
+  
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 
@@ -118,6 +118,7 @@ router: app => {
   .get('/startups', (_, res) => res.render('startups'))
   .get('/strategysession', (_, res) => res.render('strategysession'))
   .get('/studio', (_, res) => res.render('products/studio'))
+  .get('/subscribe', (_, res) => res.render('subscribe'))
   .get('/support', (_, res) => res.render('support'))
   .get('/survey/2017', (_, res) => res.render('survey/2017'))
   .get('/survey/2018', (_, res) => res.render('survey/2018'))

@@ -18,7 +18,16 @@
   </div>
 </div>
 
-<div class="cta gradient">
+<div class="cta gradient"
+  {% if data.header_background %}
+     style="
+      background-image:
+        url('/img/resource-center/webinars/webinar-bg-img-{{data.header_background}}.jpg'),
+        linear-gradient(120deg, #4864ec, #84aff4);
+      background-size: cover, 100%;
+      background-position: 50% 50%;"
+  {% endif %}>
+
   <hgroup class="container">
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>
@@ -32,8 +41,9 @@
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}">
-          {{host.name}}
-        </a>{% if loop.length > 1 and not loop.last %}, {% endif %}
+          {{host.name}}{#
+      #}</a>{#
+      #}{% if loop.length > 1 and not loop.last %}, {% endif %}
       {% endfor %}
 
     </p>
@@ -46,7 +56,7 @@
         {% if Date.parse(data.when) - now <= 0 %}
           Watch Now
         {% else %}
-          RSVP Now
+          Register Now
         {% endif %}
       </a>
     </div>
@@ -63,7 +73,7 @@
         {% if Date.parse(data.when) - now <= 0 %}
           Watch Now
         {% else %}
-          RSVP Now
+          Register Now
         {% endif %}
       </a>
     </article>
@@ -131,7 +141,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="text-center">
-          <h3>Stream {{data.title}}</h3>
+          <h3>
+            {% if Date.parse(data.when) - now <= 0 %}
+              Stream
+            {% else %}
+              Register for
+            {% endif %}
+            {{data.title}}
+          </h3>
           <p class="lg">You're just a few clicks away from our free webinar.</p>
         </hgroup>
 
