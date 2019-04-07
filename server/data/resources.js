@@ -19,6 +19,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "What is Apache Cordova?",
+        "url": "/resources/articles/what-is-apache-cordova",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-what-is-cordova-phonegap.png",
+        "bgColor": "#51A7FF"
+      },{
+        "type": "Article",
         "title": "3 Common Pitfalls on the Path to Digital Transformation",
         "url": "/resources/articles/digital-transformation-pitfalls",
         "target": "_self",
@@ -260,6 +268,13 @@ const resources = {
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
     items: [
       {
+        "type": "Webinar",
+        "title": "Top Cordova Challenges and How to Tackle Them",
+        "url": "/resources/webinars/top-cordova-challenges-and-how-to-tackle-them",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-top-5-cordova-challenges.png",
+        "bgColor": "#3FDBC6"
+      }, {
         "type": "Webinar",
         "title": "Introducing Ionic Enterprise Edition",
         "url": "/resources/webinars/introducing-ionic-enterprise-edition",

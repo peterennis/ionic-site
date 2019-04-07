@@ -17,8 +17,7 @@
     "node": "10.x.x"
   },
   "cacheDirectories": [
-    "node_modules",
-    "_site"
+    "node_modules"
   ],
   "repository": {
     "type": "git",
@@ -35,14 +34,9 @@
     "@stencil/sass": "0.1.1",
     "@stencil/utils": "latest",
     "@types/node": "10.12.27",
-    "angular": "1.6.8",
-    "angular-animate": "1.6.8",
-    "angular-cookies": "1.6.8",
-    "angular-sanitize": "1.6.8",
     "body-parser": "^1.18.3",
     "bootstrap": "3.3.5",
     "browser-sync": "^2.26.3",
-    "c3": "^0.5.2",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.4",
     "cookies": "^0.7.3",
@@ -55,6 +49,7 @@
     "express-nunjucks": "^2.2.3",
     "express-sanitizer": "^1.0.5",
     "front-matter": "^3.0.1",
+    "gsap": "^2.1.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "3.1.1",
     "gulp-cache-bust": "perrygovier/gulp-cache-bust",
