@@ -7,7 +7,7 @@ const heroFeatured = [
     title: "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
   }, {
     category: "articles",
-    title: "PWA Architects Guide",
+    title: "Ionic vs. React Native: A Comparison Guide",
   }
 ];
 
@@ -268,6 +268,20 @@ const resources = {
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
     items: [
       {
+        "type": "Webinar",
+        "title": "How to build a PWA",
+        "url": "/enterprise/resources/webinars/how-to-build-pwa",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/card-webinar-how-to-build-pwa.png",
+        "bgColor": "#3f72f1"
+      }, {
+        "type": "Webinar",
+        "title": "Hybrid vs. Native",
+        "url": "/enterprise/resources/webinars/hybrid-vs-native",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/card-webinar-hybrid-vs-native.png",
+        "bgColor": "#6372ff"
+      }, {
         "type": "Webinar",
         "title": "Submitting Production-ready Apps to App Stores",
         "url": "/enterprise/resources/webinars/submitting-production-ready-apps-to-app-stores",
