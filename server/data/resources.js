@@ -19,93 +19,109 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Preview - Creating Ionic Applications with StencilJS",
+        "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
+        "target": "_blank",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
+        "bgColor": "#393c49"
+      }, {
+        "type": "Article",
+        "title": "Ionic vs. React Native: A Comparison Guide",
+        "url": "/resources/articles/ionic-vs-react-native-a-comparison-guide",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
+        "bgColor": "#15375f"
+      }, {
+        "type": "Article",
+        "title": "Ionic vs Flutter: A Comparison",
+        "url": "/resources/articles/ionic-vs-flutter-comparison-guide",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/ionic-flutter-card.png",
+        "bgColor": "#479dFF"
+      }, {
+        "type": "Article",
         "title": "What is Apache Cordova?",
-        "url": "/enterprise/resources/articles/what-is-apache-cordova",
+        "url": "/resources/articles/what-is-apache-cordova",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-what-is-cordova-phonegap.png",
         "bgColor": "#51A7FF"
-      },{
+      }, {
         "type": "Article",
         "title": "3 Common Pitfalls on the Path to Digital Transformation",
-        "url": "/enterprise/resources/articles/digital-transformation-pitfalls",
+        "url": "/resources/articles/digital-transformation-pitfalls",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-digitaltransformation.png",
         "bgColor": "#786DF9"
-      },{
+      }, {
         "type": "Article",
         "title": "Why Every Company Needs a Design System",
-        "url": "/enterprise/resources/articles/why-every-company-needs-a-design-system",
+        "url": "/resources/articles/why-every-company-needs-a-design-system",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-why-every-company-needs-a-design-system.png",
         "bgColor": "#31466D"
-      },{
+      }, {
         "type": "Article",
         "title": "What is Cross-Platform App Development?",
-        "url": "/enterprise/resources/articles/what-is-cross-platform-app-development",
+        "url": "/resources/articles/what-is-cross-platform-app-development",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-what-is-cross-platform-development.png",
         "bgColor": "#FFBD00"
-      },{
+      }, {
         "type": "Article",
         "title": "How to Pick the Right Mobile Development Approach",
-        "url": "/enterprise/resources/articles/how-to-pick-the-right-mobile-development-approach",
+        "url": "/resources/articles/how-to-pick-the-right-mobile-development-approach",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-questions-to-ask.png",
         "bgColor": "#5147F0"
-      },{
+      }, {
         "type": "Article",
         "title": "How Hybrid App Development Helps Deliver Great UX",
-        "url": "/enterprise/resources/articles/how-hybrid-app-development-helps-deliver-great-ux",
+        "url": "/resources/articles/how-hybrid-app-development-helps-deliver-great-ux",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-how-hybrid-app-development-delivers-great-ux.png",
         "bgColor": "#9273FF"
-      },{
+      }, {
         "type": "Article",
         "title": "What is a Progressive Web App and Why You Need One",
-        "url": "/enterprise/resources/articles/what-is-a-progressive-web-app-and-why-you-need-one",
+        "url": "/resources/articles/what-is-a-progressive-web-app-and-why-you-need-one",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatisapwa.png",
         "bgColor": "#F95E6F"
-      },{
+      }, {
         "type": "Article",
         "title": "Evaluating Ionic for Enterprise Development",
-        "url": "/enterprise/resources/articles/evaluating-ionic-for-enterprise-development",
+        "url": "/resources/articles/evaluating-ionic-for-enterprise-development",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",
         "bgColor": "#4570E7"
-      },{
+      }, {
         "type": "Article",
         "title": "What is a UI Component Library",
-        "url": "/enterprise/resources/articles/what-is-a-ui-component-library",
+        "url": "/resources/articles/what-is-a-ui-component-library",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatisauicomponentlibrary.png",
         "bgColor": "#F78760"
-      },{
+      }, {
         "type": "Article",
         "title": "What is Hybrid App Development",
-        "url": "/enterprise/resources/articles/what-is-hybrid-app-development",
+        "url": "/resources/articles/what-is-hybrid-app-development",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatishybrid.png",
         "bgColor": "#E85B6A"
-      },{
-        "type": "Article",
-        "title": "Ionic vs. React Native: A Comparison Guide",
-        "url": "/enterprise/resources/articles/ionic-vs-react-native-a-comparison-guide",
-        "target": "_self",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-ionicvsreactnative.png",
-        "bgColor": "#72B8FF"
-      },{
+      }, {
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",
         "url": "/books/hybrid-vs-native",
@@ -115,7 +131,7 @@ const resources = {
       }, {
         "type": "Whitepaper",
         "title": "PWA Architects Guide",
-        "url": "/enterprise/resources/whitepapers/pwa-architects-guide",
+        "url": "/resources/whitepapers/pwa-architects-guide",
         "action": "Read",
         "bgImage": "/img/resource-center/article-pwa-guide.jpg",
         "bgColor": "#4ebff3"
@@ -129,7 +145,7 @@ const resources = {
       }, {
         "type": "Whitepaper",
         "title": "Why Hybrid",
-        "url": "/enterprise/resources/whitepapers/why-hybrid",
+        "url": "/resources/whitepapers/why-hybrid",
         "action": "Read",
         "bgImage": "/img/resource-center/article-why-hybrid.jpg",
         "bgColor": "#7b63b0"
@@ -163,20 +179,18 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-southwest.png",
         "bgColor": "#113F93"
-      },
-      {
+      }, {
         "type": "Case Study",
         "title": "MRA builds its first app in just two months",
-        "url": "/enterprise/resources/case-studies/mauritius-revenue-authority-mra",
+        "url": "/resources/case-studies/mauritius-revenue-authority-mra",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-mra.jpg",
         "bgColor": "#182435"
-      },
-      {
+      }, {
         "type": "Case Study",
         "title": "Building the new Marketwatch app",
-        "url": "/enterprise/resources/case-studies/marketwatch",
+        "url": "/resources/case-studies/marketwatch",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
@@ -184,7 +198,7 @@ const resources = {
       }, {
         "type": "Case Study",
         "title": "Napa Group speeds up development",
-        "url": "/enterprise/resources/case-studies/napa-group-llc",
+        "url": "/resources/case-studies/napa-group-llc",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-napa.jpg",
@@ -192,7 +206,7 @@ const resources = {
       }, {
         "type": "Case Study",
         "title": "Why the world's largest healthcare provider chose Ionic",
-        "url": "/enterprise/resources/case-studies/national-health-service",
+        "url": "/resources/case-studies/national-health-service",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-nhs.jpg",
@@ -200,7 +214,7 @@ const resources = {
       }, {
         "type": "Case Study",
         "title": "Sworkit goes cross platform with Ionic",
-        "url": "/enterprise/resources/case-studies/sworkit",
+        "url": "/resources/case-studies/sworkit",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sworkit.jpg",
@@ -208,7 +222,7 @@ const resources = {
       }, {
         "type": "Case Study",
         "title": "Airbus takes to the skies with Ionic",
-        "url": "/enterprise/resources/case-studies/airbus-helicopter",
+        "url": "/resources/case-studies/airbus-helicopter",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-airbus-helicopter.jpg",
@@ -225,7 +239,7 @@ const resources = {
       {
         "type": "Case Study",
         "title": "Sense Corp accelerates the app lifecycle with Ionic",
-        "url": "/enterprise/resources/case-studies/sense-corp",
+        "url": "/resources/case-studies/sense-corp",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sensecorp.jpg",
@@ -233,7 +247,7 @@ const resources = {
       }, {
         "type": "Case Study",
         "title": "Interactive Gaming Company removes development roadblocks with Ionic",
-        "url": "/enterprise/resources/case-studies/interactive-gaming-company",
+        "url": "/resources/case-studies/interactive-gaming-company",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-interactivegaming.jpg",
@@ -241,7 +255,7 @@ const resources = {
       }, {
         "type": "Case Study",
         "title": "Pacifica dives into hybrid development with Ionic",
-        "url": "/enterprise/resources/case-studies/pacifica",
+        "url": "/resources/case-studies/pacifica",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-pacifica.jpg",
@@ -275,74 +289,81 @@ const resources = {
     description: "Webinars showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta: "Ionic Resources: Webinars for developers and architects",
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
-    items: [{
+    items: [
+      {
+        "type": "Webinar",
+        "title": "Ionic Auth Connect: Single Sign-on Made Easy",
+        "url": "/resources/webinars/auth-connect-native-authentication-made-easy",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-auth-connect.png",
+        "bgColor": "#b396ec"
+      },{
         "type": "Webinar",
         "title": "Capacitor 1.0: A new way to build native mobile apps with Ionic",
-        "url": "/enterprise/resources/webinars/capacitor-version-one-launch-native-pwas-for-all",
+        "url": "/resources/webinars/capacitor-version-one-launch-native-pwas-for-all",
         "action": "Watch",
         "bgImage": "/img/resource-center/capacitor-1-card.png",
         "bgColor": "#010614"
-      },
-      {
+      }, {
         "type": "Webinar",
         "title": "How to build a PWA",
-        "url": "/enterprise/resources/webinars/how-to-build-pwa",
+        "url": "/resources/webinars/how-to-build-pwa",
         "action": "Watch",
         "bgImage": "/img/resource-center/card-webinar-how-to-build-pwa.png",
         "bgColor": "#3f72f1"
       }, {
         "type": "Webinar",
         "title": "Hybrid vs. Native",
-        "url": "/enterprise/resources/webinars/hybrid-vs-native",
+        "url": "/resources/webinars/hybrid-vs-native",
         "action": "Watch",
         "bgImage": "/img/resource-center/card-webinar-hybrid-vs-native.png",
         "bgColor": "#6372ff"
       }, {
         "type": "Webinar",
         "title": "Submitting Production-ready Apps to App Stores",
-        "url": "/enterprise/resources/webinars/submitting-production-ready-apps-to-app-stores",
+        "url": "/resources/webinars/submitting-production-ready-apps-to-app-stores",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-submitting-production-ready-apps.png",
         "bgColor": "#8481FE"
       }, {
         "type": "Webinar",
         "title": "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
-        "url": "/enterprise/resources/webinars/three-trends-that-will-impact-your-mobile-dev-strategy",
+        "url": "/resources/webinars/three-trends-that-will-impact-your-mobile-dev-strategy",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-forrester-3-trends.png",
         "bgColor": "#0E2C62"
       }, {
         "type": "Webinar",
         "title": "Top Cordova Challenges and How to Tackle Them",
-        "url": "/enterprise/resources/webinars/top-cordova-challenges-and-how-to-tackle-them",
+        "url": "/resources/webinars/top-cordova-challenges-and-how-to-tackle-them",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-top-5-cordova-challenges.png",
         "bgColor": "#3FDBC6"
       }, {
         "type": "Webinar",
         "title": "Introducing Ionic Enterprise Edition",
-        "url": "/enterprise/resources/webinars/introducing-ionic-enterprise-edition",
+        "url": "/resources/webinars/introducing-ionic-enterprise-edition",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-introducing-ionic-enterprise-edition.png",
         "bgColor": "#3E527B"
       }, {
         "type": "Webinar",
         "title": "Tackling Continuous Delivery with Appflow",
-        "url": "/enterprise/resources/webinars/tackling-continuous-delivery-with-appflow",
+        "url": "/resources/webinars/tackling-continuous-delivery-with-appflow",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-appflow.png",
         "bgColor": "#5352fe"
       }, {
         "type": "Webinar",
         "title": "Introducing: Ionic Studio & Appflow A Better Way to Build Apps",
-        "url": "/enterprise/resources/webinars/introducing-ionic-studio-appflow",
+        "url": "/resources/webinars/introducing-ionic-studio-appflow",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinars/developer-at-laptop.jpg",
         "bgColor": "#7a86d1"
       }, {
         "type": "Webinar",
         "title": "Reimagining Cordova: Building Cross-Platform Web Apps with Capacitor",
-        "url": "/enterprise/resources/webinars/reimagining-cordova-building-with-capacitor",
+        "url": "/resources/webinars/reimagining-cordova-building-with-capacitor",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinars/webinar-rethinking-cordova-capacitor.png",
         "bgColor": "#02192e"
@@ -357,7 +378,7 @@ const resources = {
         "type": "Webinar",
         "title": "Live app updates with Ionic Deploy",
         "target": "_self",
-        "url": "/enterprise/resources/webinars/continuous-deployment-live-updates-with-ionic-deploy",
+        "url": "/resources/webinars/continuous-deployment-live-updates-with-ionic-deploy",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-deploy.jpg",
         "bgColor": "#272d63"
@@ -365,7 +386,7 @@ const resources = {
         "type": "Webinar",
         "title": "Building iOS and Android binaries with Ionic Package",
         "target": "_self",
-        "url": "/enterprise/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
+        "url": "/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-ionicpackage.jpg",
         "bgColor": "#f8926b"
@@ -373,7 +394,7 @@ const resources = {
         "type": "Webinar",
         "title": "Building Ionic Applications for Zebra Devices",
         "target": "_self",
-        "url": "/enterprise/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
+        "url": "/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-zebradevices.jpg",
         "bgColor": "#121e30"
@@ -395,7 +416,7 @@ const resources = {
         "type": "Webinar",
         "title": "How SWORKIT is driving growth with PWAs and Ionic",
         "target": "_self",
-        "url": "/enterprise/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
+        "url": "/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-sworkit.jpg",
         "bgColor": "#b396ec"
