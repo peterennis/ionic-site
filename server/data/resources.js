@@ -100,7 +100,7 @@ const resources = {
       }, {
         "type": "Article",
         "title": "When & Why to Choose Ionic",
-        "url": "/resources/articles/evaluating-ionic-for-enterprise-development",
+        "url": "/resources/whitepapers/evaluating-ionic-for-enterprise-development",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",
@@ -429,6 +429,13 @@ const resources = {
     meta_description: 'Get the latest videos and tutorials on how to build apps using Ionic. Build amazing cross platform apps with the web.',
     items: [
       {
+        "type": "Video",
+        "title": "The Ionic Show: Episode 10",
+        "url": "https://www.youtube.com/watch?v=DzFLisvjgQ0&t=305s",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/video-ionic-show-10.png",
+        "bgColor": "#f07e74"
+      }, {
         "type": "Video",
         "title": "How Ionic Fueled Sworkit",
         "url": "https://www.youtube.com/watch?v=cTHjJ5-e6YQ",
