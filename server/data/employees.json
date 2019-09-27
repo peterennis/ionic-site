@@ -7,6 +7,13 @@
     "image":"adam.jpg"
   },
   {
+    "name":"Alex Roberts",
+    "dept":"Sales",
+    "description":null,
+    "twitter":null,
+    "image": "alex.jpg"
+  },
+  {
     "name":"Andrew Haire",
     "dept":"VP of Marketing",
     "description":null,
@@ -105,6 +112,13 @@
     "image": "jack.png"
   },
   {
+    "name":"Jade Vargas",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"thejadevargas",
+    "image": "jade.jpg"
+  },
+  {
     "name":"Josh Thomas",
     "dept":"Development",
     "description":"Josh spends most of his spare time listening to programming podcasts, discovering new music genres, or complaining about the Wisconsin winters. This elder Ionic member has a fondness for clean, functional code; strict quality standards; and all things JavaScript.",
@@ -195,6 +209,13 @@
     "image": "max.jpg"
   },
   {
+    "name":"Melissa Raddatz",
+    "dept":"Sales",
+    "description":"",
+    "twitter":"melissaraddatz1",
+    "image": "melissa.jpg"
+  },
+  {
     "name":"Mike Hartington",
     "dept":"Dev Relations",
     "description":"Deep in the frozen North, just before the great wall, a man sits with a laptop, surrounded by several cups of coffee and a glass of whiskey. Traveling across this great kingdom, he enlightens other devs and shares his knowledge through the written and spoken word. When the laptop is not near, he often finds solace in music with his guitar.",
@@ -230,13 +251,6 @@
     "image": "roelf.png"
   },
   {
-    "name": "Ryan Baranowski",
-    "dept": "Sales",
-    "description": null,
-    "twitter": "IonicRyan",
-    "image": "ryan.png"
-  },
-  {
     "name":"Ryan Bowman",
     "dept":"VP of Sales",
     "description":null,
@@ -244,18 +258,18 @@
     "image": "ryan.jpg"
   },
   {
-    "name": "Steve Breese",
-    "dept": "Sales",
-    "description": null,
-    "twitter": "IonicSteve",
-    "image": "steve.jpg"
-  },
-  {
     "name":"Swami Kumaresan",
     "dept":"President & COO",
     "description":null,
     "twitter":"swami78",
     "image": "swami.jpg"
+  },
+  {
+    "name":"Tori Hansel",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":null,
+    "image": "tori.jpg"
   },
   {
     "name":"Tim Lancina",

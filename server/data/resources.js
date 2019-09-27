@@ -169,7 +169,7 @@ const resources = {
   "case-studies": {
     title: "Case Studies",
     description: "Case Studies showcasing best in class Ionic-built apps from some of the best companies in the world.",
-    meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
+    meta_description: 'Read how Ionic customers have leveraged Ionic solutions to achieve success on business critical projects within their organizations.',
     items: [
       {
         "type": "Case Study",
@@ -284,12 +284,35 @@ const resources = {
       }
     ]
   },
+  "customer-stories": {
+    title: "Customer Stories",
+    description: "Customer Stories from developers and companies.",
+    meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
+    items: [
+    ]
+  },
   "webinars": {
     title: "Webinars",
     description: "Webinars showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta: "Ionic Resources: Webinars for developers and architects",
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
     items: [
+      {
+        "type": "Webinar",
+        "title": "Offline Storage: Build secure, offline-first apps",
+        "url": "https://ionicframework.com/resources/webinars/offline-storage-build-secure-offline-first-apps",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-offline-storage.png",
+        "bgColor": "#242C88"
+      },
+      {
+        "type": "Webinar",
+        "title": "Live Demo: Building Capacitor Apps in Appflow",
+        "url": "/resources/webinars/live-demo-building-capacitor-apps-in-appflow",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-capacitor-appflow.png",
+        "bgColor": "#8582FB"
+      },
       {
         "type": "Webinar",
         "title": "Ionic Auth Connect: Single Sign-on Made Easy",
@@ -394,7 +417,7 @@ const resources = {
         "type": "Webinar",
         "title": "Building Ionic Applications for Zebra Devices",
         "target": "_self",
-        "url": "/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
+        "url": "/resources/webinars/zebra-devtalk-building-ionic-applications-for-zebra-devices",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-zebradevices.jpg",
         "bgColor": "#121e30"

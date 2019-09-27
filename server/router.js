@@ -44,6 +44,7 @@ router: app => {
   .get('/about', (_, res) => res.render('about'))
   .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
+  .get('/auth-connect', (_, res) => res.render('auth-connect'))
 
   .get('/books/hybrid-vs-native', (_, res) =>
     res.render('books/hybrid-vs-native'))
@@ -63,35 +64,16 @@ router: app => {
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
   .get('/enterprise/customers', (_, res) => res.render('enterprise/customers'))
   .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
-  .get('/enterprise/identity-vault', (_, res) =>
-    res.render('enterprise/identity-vault'))
   .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
-  .get('/resources', (_, res) =>
-    res.render('resources/index', {currentCategory: 'featured'}))
-  .get('/resources/:category', (req, res) =>
-    res.render('resources/category', {currentCategory: req.params.category}))
-  .get('/resources/articles/:article', (req, res, next) =>
-    getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
-  .get('/resources/case-studies/:caseStudy', (req, res, next) =>
-    getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
-  .get('/resources/podcasts/:podcast', (req, res, next) =>
-    getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
-  .get('/resources/videos/:video', (req, res, next) =>
-    getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
-  .get('/resources/webinars/:webinar', (req, res, next) =>
-    getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
-  .get('/resources/whitepapers/:whitepaper', (req, res, next) =>
-    getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
   .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
   .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
   .get('/enterprise/solutions/design-systems', (_, res) => res.render('enterprise/solutions/design-systems'))
-  .get('/enterprise/solutions/pwa', (_, res) => res.render('enterprise/solutions/pwa'))
 
+  .get('/enterprise/strategy-session', (_, res) => res.render('enterprise/strategy-session'))
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
   .get('/enterprise/why-ionic', (_, res) => res.render('enterprise/why-ionic'))
-  .get('/enterprise-edition', (_, res) => res.render('products/enterprise-edition'))
   .get('/enterprise-license-agreement', (_, res) => markdown(res, 'enterprise-license-agreement'))
   .get('/framework', (_, res) => res.render('framework'))
   .get('/getting-started', (_, res) => res.render('getting-started'))
@@ -105,11 +87,11 @@ router: app => {
 
   .get('/go/why-hybrid', (_, res) => res.render('go/why-hybrid/index'))
   .post('/go/why-hybrid', (_, res) => res.render('go/why-hybrid/thank-you'))
-  .get('/go/why-hybrid/thank-you', (_, res) =>
-    res.render('go/why-hybrid/thank-you'))
+  .get('/go/why-hybrid/thank-you', (_, res) => res.render('go/why-hybrid/thank-you'))
 
   .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
 
+  .get('/identity-vault', (_, res) => res.render('identity-vault'))
   .get('/integrations', (req, res, next) =>
     getIntegrations(req, res, next))
   .get('/integrations/category/:category', (req, res, next) =>
@@ -118,6 +100,7 @@ router: app => {
     getIntegration(req, res, next, req.params.integration))
 
   .get('/jobs', (_, res) => res.render('jobs'))
+  .get('/offline-storage', (_, res) => res.render('offline-storage'))
   .get('/press', (_, res) => res.render('press'))
   .get('/pricing', (_, res) => res.render('pricing/index'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
@@ -130,9 +113,27 @@ router: app => {
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 
+  .get('/resources', (_, res) =>
+    res.render('resources/index', {currentCategory: 'featured'}))
+  .get('/resources/:category', (req, res) =>
+    res.render('resources/category', {currentCategory: req.params.category}))
+  .get('/resources/articles/:article', (req, res, next) =>
+    getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
+  .get('/resources/case-studies/:caseStudy', (req, res, next) =>
+    getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
+    .get('/resources/customer-stories/:customerStory', (req, res, next) =>
+      getPrismic(req, res, next, 'customer_story', req.params['customerStory'], 'resources/customer-stories'))
+  .get('/resources/podcasts/:podcast', (req, res, next) =>
+    getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
+  .get('/resources/videos/:video', (req, res, next) =>
+    getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
+  .get('/resources/webinars/:webinar', (req, res, next) =>
+    getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
+  .get('/resources/whitepapers/:whitepaper', (req, res, next) =>
+    getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
+
   .get('/sales', (_, res) => res.render('sales'))
   .get('/startups', (_, res) => res.render('startups'))
-  .get('/strategysession', (_, res) => res.render('strategysession'))
   .get('/studio', (_, res) => res.render('products/studio'))
   .get('/subscribe', (_, res) => res.render('subscribe'))
   .get('/support', (_, res) => res.render('support'))
@@ -161,6 +162,8 @@ router: app => {
     (_, res) => markdown(res, 'pr-1704222-latest-version-of-ionic-provides-universal-design-system-for-enterprises'))
   .get('/press/release/2019/ionic-framework-4-release',
     (_, res) => markdown(res, 'pr-ionic-framework-4-release'))
+  .get('/press/release/2019/ionic-alan-announce-integration',
+    (_, res) => markdown(res, 'pr-ionic-alan-announce-integration'))
 
   // JSON endpoints
   .post('/contact', bp.json(), es(), contactCtrl)

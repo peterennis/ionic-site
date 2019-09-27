@@ -41,18 +41,28 @@
           </a>
         </li>
         <li>
-          <a href="/enterprise/solutions/cross-platform" class="dropdown-menu__text--l3">
-            Cross Platform Apps
+          <a href="/offline-storage" class="dropdown-menu__text--l3">
+            Offline Storage
           </a>
         </li>
         <li>
-          <a href="/enterprise/identity-vault" class="dropdown-menu__text--l3">
+          <a href="/identity-vault" class="dropdown-menu__text--l3">
             Biometric Sign In
           </a>
         </li>
         <li>
-          <a href="/enterprise/solutions/pwa" class="dropdown-menu__text--l3">
+          <a href="/auth-connect" class="dropdown-menu__text--l3">
+            User Authentication
+          </a>
+        </li>
+        <li>
+          <a href="/pwa/toolkit" class="dropdown-menu__text--l3">
             Progressive Web Apps
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/solutions/cross-platform" class="dropdown-menu__text--l3">
+            Cross Platform Apps
           </a>
         </li>
       </ul>
@@ -361,6 +371,6 @@
   <a href="/pricing" id="btn-header-pricing">Pricing</a>
 </li>
 
-<li><a href="/enterprise">Enterprise</a></li>
+<li{% if id == 'enterprise' %} class="active"{% endif %}><a href="/enterprise">Enterprise</a></li>
 
 <li><a href="/blog" id="btn-header-ecosystem-blog">Blog</a></li>

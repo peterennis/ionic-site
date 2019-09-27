@@ -6,6 +6,7 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/products-appflow-og.png'%}
 {% set meta_description = 'Ionic Appflow is a powerful suite of tools, services, and automation that streamlines agile development to help teams focus on building apps, while we take care of the rest. ' %}
 {% set cssPath = 'products/appflow' %}
+{% set hide_pre_header = true %}
 
 {% block header_style %}transparent{% endblock %}
 
@@ -15,18 +16,14 @@
 
 {% block main %}
 
-<div class="sub-header">
-  <div class="container">
-    <ul class="left breadcrumbs">
-      <li>Ionic Appflow</li>
-    </ul>
-    <ul class="right">
-      <li><a href="/appflow" class="active">Overview</a></li>
-      <li><a href="/pricing#appflow">Pricing</a></li>
-      <li><a href="/docs/appflow">Docs</a></li>
-    </ul>
-  </div>
-</div>
+<ionic-sub-header class="ionic-sub-header--not-sticky">
+  <a slot="title" href="#">Appflow</a>
+  <ul slot="right">
+    <li><a href="/appflow" class="active">Overview</a></li>
+    <li><a href="/pricing#appflow">Pricing</a></li>
+    <li><a href="/docs/appflow">Docs</a></li>
+  </ul>
+</ionic-sub-header>
 
 <div class="cta gradient">
   <div class="cta__background">
@@ -64,7 +61,7 @@
     </div>
     <span>Live Updates</span>
   </a>
-  <a slot="2" 
+  <a slot="2"
      class="anchor native"
      onClick="scrollToEl('#build')"
      data-screenshot="/img/appflow/screen-native-builds.png">
@@ -342,7 +339,7 @@
     </div>
   </section>
 </main>
-  
+
 {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 

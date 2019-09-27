@@ -8,6 +8,21 @@
   min-height: 860px;
   position: relative;
 
+  &::before {
+    position: absolute;
+    border-bottom: 1px solid rgba(0, 26, 60, 0.1);
+    content: '';
+    display: block;
+    width: 100vw;
+    left: 0;
+    bottom: 28px;
+    z-index: 1;
+
+    @media (max-width: $screen-sm-max) {
+      bottom: 0;
+    }
+  }
+
   [slot="slide-0"] {
     display: block;
   }
@@ -347,15 +362,7 @@
     background: white;
     position: relative;
     min-height: 840px;
-
-    // &::before {
-    //   position: absolute;
-    //   content: '';
-    //   display: block;
-    //   width: 1vw;
-    //   left: 1vw;
-    //   right: 1vw;
-    // }
+    border-bottom: none;
 
     .notification {
       display: inline-block;
@@ -409,7 +416,7 @@
         margin-top: 12px;
         font-size: 15px;
         line-height: 21px;
-        padding: 16px 16px 12px;
+        padding: 14px 16px 12px;
         letter-spacing: 0.08em;
 
         &:hover {
@@ -458,25 +465,25 @@
 
       @media (max-width: $screen-xs-max) {
         max-width: 100%;
-        text-align: center;
+        text-align: left;
         margin-top: 64px;
       }
     }
 
     .graphic {
       position: absolute;
-      right: 20px;
-      top: 120px;
-      height: 563px;
-      width: 590px;
+      right: -20px;
+      top: 80px;
+      height: 667px;
+      width: 682px;
 
       @media (max-width: $screen-md-max) {
-        top: 128px;
+        top: 120px;
         right: -64px;
       }
 
       @media (max-width: $screen-sm-max) {
-        width: 302px;
+        width: 334px;
         height: auto;
         top: 180px;
       }
@@ -559,26 +566,49 @@
   @media (max-width: $screen-sm-max) {
     min-height: 0;
   }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 48px;
+  }
 }
 
 #page-home {
-  #used-by {
-    border-top: 1px #EFF3F8 solid;
-    padding-top: 60px;
-    padding-bottom: 58px;
-    border-bottom: 1px solid #EFF3F8;
+  .option {
+    display: none;
 
-    .container {
-      display: block;
-      max-width: 950px;
+    &--a { 
+      display: block; 
+    }
+  }
 
-      @media (max-width: $screen-sm-max) {
-        width: 100%;
-      }
+  .options {
+    &.show-b,
+    &.show-c,
+    &.show-d {
+      .option--a { display: none; }
     }
 
+    &.show-b .option--b,
+    &.show-c .option--c,
+    &.show-d .option--d { display: block; }
+  }
+
+  .options {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out .5s forwards;
+  }
+
+  main {
+    overflow: visible;
+  }
+
+  #promo--hybrid-vs-native {
+    margin-top: -28px;
+
     @media (max-width: $screen-sm-max) {
-      display: none;
+      margin-top: 0;
     }
   }
 
@@ -695,7 +725,7 @@
     @media (max-width: $screen-sm-max) {
       .content {
         width: 100%;
-        text-align: center;
+        text-align: left;
       }
     }
   }
@@ -705,6 +735,10 @@
 
     hgroup {
       max-width: 740px;
+
+      @media (max-width: $screen-sm-max) {
+        text-align: left;
+      }
     }
 
     ul {
@@ -878,7 +912,7 @@
 
       .content {
         width: 100%;
-        text-align: center;
+        text-align: left;
 
         .frameworks {
           justify-content: center;
@@ -1115,7 +1149,7 @@
     }
 
     @media (max-width: $screen-xs-max) {
-      text-align: center;
+      text-align: left;
 
       .why {
         justify-content: space-around;
@@ -1309,6 +1343,7 @@
     }
 
     @media (max-width: $screen-xs-max) {
+      text-align: left;
 
       .case-studies {
         justify-content: space-around;

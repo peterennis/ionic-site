@@ -184,6 +184,46 @@ hljs.initHighlightingOnLoad();
   }
 }());
 
+// determine if sticky sub-nav is stuck 
+// *intersection observer and position:sticky browser support match
+const subHeader = {
+  el: document.getElementById('sub-header'),
+  stuck: false,
+  queued: false,
+  observer: new IntersectionObserver(function(entries) {
+    if (subHeader.queued) return;
+
+    // no intersection with screen
+  	if(!subHeader.stuck && entries[0].intersectionRatio === 0) {
+      subHeader.queued = true;
+      requestAnimationFrame(function() {
+        subHeader.el.classList.add('sub-header--stuck');
+        subHeader.stuck = true;
+        subHeader.queued = false;
+      });
+
+  	// fully intersects with screen
+    } else if(subHeader.stuck && entries[0].intersectionRatio === 1) {
+      subHeader.queued = true;
+      requestAnimationFrame(function() {
+        subHeader.el.classList.remove('sub-header--stuck');
+        subHeader.stuck = false;
+        subHeader.queued = false;
+      })
+    }
+  }, { threshold: [0,1] }),
+  init: function() {
+    if (subHeader.el) {
+      subHeader.observer.observe(document.getElementById('sub-header__trigger'));
+      setTimeout(function() {
+        subHeader.el.classList.add('sub-header_initialized');
+        document.querySelector('.navbar-default').classList.add('navbar--not-fixed');
+      }, 405)
+    }
+  }
+}
+subHeader.init();
+
 // Smooth Scroll To anchor links with the .anchor class
 $('a.anchor[href*="#"]').click(function(event) {
   // On-page links
@@ -201,10 +241,10 @@ $('a.anchor[href*="#"]').click(function(event) {
     if (target.length) {
       var offset = event.target.dataset && event.target.dataset.offset
         ? event.target.dataset.offset : 100
-      scrollToY(target.offset().top - offset, 600);
+      scrollToY(target.offset().top - offset, 2000);
     } else {
       // otherwise scroll to the top of the page
-      scrollToY(0, 600);
+      scrollToY(0, 2000);
     }
     history.pushState && history.pushState(null, null, this.hash)
     return false;
@@ -231,7 +271,6 @@ window.scrollToY = function(scrollTargetY, speed, easing) {
         speed = speed || 2000,
         easing = easing || 'easeOutSine',
         currentTime = 0;
-
     // min time .1, max time .8 seconds
     var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
 
@@ -407,8 +446,12 @@ window.pjx = {
     this.urlRoot = urlRoot;
     this.navLinks = document.querySelectorAll('.pjxNavLink');
     this.hooks = hooks || {};
+    this.delegator = document.querySelector(delegatorID);
 
-    document.querySelector(delegatorID).addEventListener('click', function(ev){
+    // If delegator does not exist, bail
+    if (!this.delegator) return;
+
+    this.delegator.addEventListener('click', function(ev){
       var el = ev.target;
       while (el && !el.matches('a.pjxLink')) {
         el = el.parentNode;

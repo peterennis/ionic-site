@@ -1,3 +1,5 @@
+import { h } from '@stencil/core';
+
 export const Close = () => (
 	<svg version="1.1"
 			 xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +8,12 @@ export const Close = () => (
 			 style={{'enable-background':'new 0 0 512 512'}}>
     <path d="M256,307c-2.4,0-4.8-0.4-7-1.2L78.3,246.3c-11.1-3.9-17-16-13.1-27.1c3.9-11.1,16.1-16.9,27.2-13l157.9,55.1 c3.7,1.3,7.7,1.3,11.3,0l157.9-55.1c11.1-3.9,23.3,2,27.2,13c3.9,11.1-2,23.2-13.1,27.1L263,305.8C260.8,306.6,258.4,307,256,307z"/>
 	</svg>
+);
+
+export const ChevronDown = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20" width="20">
+    <path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"/>
+  </svg>
 );
 
 export const EmailIcon = () => (

@@ -21,23 +21,7 @@
 
   <div class="container">
     <ul class="rounded-tabs">
-      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="account" id="get-started-tab-create-account">
-        <div class="rounded-tabs__tab-inner">
-          <svg width="20px" height="20px" viewBox="0 0 20 20">
-            <g transform="translate(-309.000000, -479.000000)">
-              <g transform="translate(309.000000, 479.000000)">
-                <circle class="back" cx="10" cy="10" r="10"></circle>
-                <g class="front" transform="translate(5.000000, 1.000000)">
-                  <circle cx="5" cy="9" r="5"></circle>
-                  <circle cx="11.5" cy="2.5" r="2.5"></circle>
-                </g>
-              </g>
-            </g>
-          </svg>
-          <span>Create Ionic account</span>
-        </div>
-      </li>
-      <li class="rounded-tabs__tab" data-tab-content="cli" id="get-started-tab-cli">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="cli" id="get-started-tab-cli">
         <div class="rounded-tabs__tab-inner">
           <svg width="20px" height="18px" viewBox="0 0 20 18">
             <g transform="translate(-567.000000, -480.000000)">
@@ -54,6 +38,22 @@
             </g>
           </svg>
           <span>Install with CLI</span>
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="account" id="get-started-tab-create-account">
+        <div class="rounded-tabs__tab-inner">
+          <svg width="20px" height="20px" viewBox="0 0 20 20">
+            <g transform="translate(-309.000000, -479.000000)">
+              <g transform="translate(309.000000, 479.000000)">
+                <circle class="back" cx="10" cy="10" r="10"></circle>
+                <g class="front" transform="translate(5.000000, 1.000000)">
+                  <circle cx="5" cy="9" r="5"></circle>
+                  <circle cx="11.5" cy="2.5" r="2.5"></circle>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <span>Create Ionic account</span>
         </div>
       </li>
       <li class="rounded-tabs__tab" data-tab-content="studio" id="get-started-tab-studio">
@@ -75,7 +75,7 @@
 </div>
 
 <main>
-  <section class="tab-content" id="content-cli">
+  <section class="tab-content tab-content--active" id="content-cli">
     <div class="container">
       <ol>
         <li>
@@ -190,7 +190,7 @@
     </div>
   </section>
 
-  <section class="tab-content tab-content--active" id="content-account">
+  <section class="tab-content" id="content-account">
     <div class="container">
       <div class="form-row">
         <div class="col form-wrapper">
@@ -291,6 +291,7 @@
 </main>
 
 {% endblock %} {% block scripts %}
+<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
 <script>
 
   (function() {
@@ -323,44 +324,50 @@
       // handle sign up form submission
       document.getElementById("signup-form").addEventListener("submit", function(e) {
         e.preventDefault();
-        var data = {
-          name: document.getElementById('id_name').value,
-          email: document.getElementById('id_email').value,
-          username: document.getElementById('id_username').value,
-          password: document.getElementById('id_password').value,
-          source: 'framework-getting-started'
-        };
+        (typeof grecaptcha !== 'undefined' && typeof grecaptcha.execute !== 'undefined'
+          ? grecaptcha.execute('6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ', { action: 'signup' })
+          : $.when('')
+        ).then(function(recaptcha) {
+          var data = {
+            name: document.getElementById('id_name').value,
+            email: document.getElementById('id_email').value,
+            username: document.getElementById('id_username').value,
+            password: document.getElementById('id_password').value,
+            recaptcha: recaptcha,
+            source: 'framework-getting-started'
+          };
 
-        ajaxPost('https://api.ionicjs.com/signup', JSON.stringify(data), function(res, xhr) {
-          var response = JSON.parse(res);
+          ajaxPost('https://api.ionicjs.com/signup', JSON.stringify(data), function(res, xhr) {
+            var response = JSON.parse(res);
 
-          if (xhr.status === 201) {
-            console.log(response.data.token);
+            if (xhr.status === 201) {
+              console.log(response.data.token);
 
-            window.c('Get started', 'btn-get-started-signup-submit');
-            var _hsq = window._hsq = window._hsq || [];
-            _hsq.push(["identify", {
-              email: response.data.user.email,
-              id: response.data.user.id
-            }]);
-            _hsq.push(["trackEvent", {
-              id: "000006040735"
-            }]);
+              window.c('Get started', 'btn-get-started-signup-submit');
+              var _hsq = window._hsq = window._hsq || [];
+              _hsq.push(["identify", {
+                email: response.data.user.email,
+                id: response.data.user.id
+              }]);
+              _hsq.push(["trackEvent", {
+                id: "000006040735"
+              }]);
 
-            setCookie('_ionic_token', response.data.token);
-            setCookie('_ionic_user_id', response.data.user.id);
+              setCookie('_ionic_token', response.data.token);
+              setCookie('_ionic_user_id', response.data.user.id);
 
-            var href = 'https://dashboard.ionicframework.com/select-plan?plan=starter';
-            var hsutk = window.getCookie('hubspotutk');
-            if (hsutk) {
-              href += '&hsid=' + encodeURIComponent(hsutk);
+              var href = 'https://dashboard.ionicframework.com/select-plan?plan=starter';
+              var hsutk = window.getCookie('hubspotutk');
+              if (hsutk) {
+                href += '&hsid=' + encodeURIComponent(hsutk);
+              }
+              window.location = href;
+            } else {
+              console.error('err', response);
+              clearErrors();
+              handleError(response.error);
             }
-            window.location = href;
-          } else {
-            console.error('err', response);
-            clearErrors();
-            handleError(response.error);
-          }
+          });
         });
 
         function ajaxPost(url, data, callback, x) {
