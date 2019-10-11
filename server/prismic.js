@@ -1,6 +1,7 @@
 const Cookies     = require('cookies');
 const PrismicDOM  = require('prismic-dom');
 const Prismic     = require('prismic-javascript');
+const Sentry             = require('@sentry/node');
 let prismicAPI = null;
 
 const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
@@ -71,6 +72,7 @@ async function getOne(key, value, size = 10, ordering = '') {
       { pageSize : size, orderings: ordering}
     )
   })
+  .catch(error => Sentry.captureException(new Error(error)))
 }
 
 module.exports = {
@@ -127,9 +129,8 @@ module.exports = {
         return res.render(template, response)
       })
       .then(resolve)
-      .catch(e => {
-        console.error(e);
-        next();
+      .catch(error => {
+        next(error.message);
       });
     });
   },
