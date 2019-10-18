@@ -100,6 +100,143 @@
     }
   }
 
+  #slide-ionic-react {
+    background: white;
+    padding-top: 120px;
+
+    hgroup {
+      margin-bottom: 80px;
+    }
+
+    h4 {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        background: url('/img/homepage/ico-ionic-react.png');
+        background-size: 100%;
+        content: '';
+        display: inline-block;
+        height: 48px;
+        width: 45px;
+        margin-right: 8px;
+      }
+    }
+
+    h1 {
+      font-size: 64px;
+      max-width: 440px;
+      line-height: 70px;
+      letter-spacing: -.04em;
+      color: #020814;
+      font-weight: 600;
+      margin-top: 32px;
+
+      strong {
+        color: #44B4FF;
+        font-weight: 600;
+        display: block;
+      }
+    }
+
+    ul {
+      padding: 0;
+      margin-top: 24px;
+      margin-bottom: 32px;
+    }
+
+    li {
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -.02em;
+      color: rgba(#2f3a48, .9);
+      list-style: none;
+      margin-bottom: 12px;
+
+      &::before {
+        color: #44B4FF;
+        content: url('/img/homepage/checkmark.svg');
+        display: inline-block;
+        height: 14px;
+        width: 11px;
+        margin-right: 16px;
+      }
+
+      code {
+        color: #020814;
+        padding-right: 6px;
+        padding-left: 6px;
+      }
+    }
+
+    .btn {
+      background: #44B4FF;
+      border-radius: 10px;
+    }
+
+    .graphic {
+      height: 560px;
+      width: 480px;
+      position: absolute;
+      right: 16px;
+      top: 160px;
+      border-radius: 16px;
+      box-shadow: 
+        0px 20px 40px rgba(2, 8, 20, 0.1), 
+        0px 0px 16px rgba(2, 8, 20, 0.08);
+
+      &__container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      #ionic-react-app {
+        width: 480px;
+        height: 560px;
+      }
+
+      #ionic-react-code {
+        top: -12px;
+        left: -24px;
+        width: 528px;
+        height: 608px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      hgroup {
+        margin-bottom: 620px;
+      }
+
+      .graphic {
+        right: auto;
+        top: auto;
+        bottom: 174px;
+        left: calc(50% - 240px);
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      overflow: hidden;
+      padding-top: 120px;
+
+      .graphic {
+        bottom: 120px;
+      }
+    }
+  }
+
   #slide-limitless {
     background: #548fff linear-gradient(to right, #4278ff, #67a7ff);
     background-size: 100%;
@@ -493,63 +630,6 @@
       }
     }
 
-    .stats {
-      padding: 0;
-      position: absolute;
-      bottom: 21px;
-      left: 0;
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-  
-      a {
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: -0.02em;
-        color: #92A1B3;
-        padding: 0 18px;
-        transition: .3s color;
-  
-        svg {
-          vertical-align: -3px;
-
-          path {
-            transition: .3s fill;
-          }
-        }
-  
-        &:hover {
-          color: darken(#92A1B3, 10);
-  
-          svg path {
-            fill: darken(#92A1B3, 10);
-          }
-        }
-      }
-
-      @media (max-width: $screen-xs-max) {
-        left: calc(50% - 140px);
-      }
-    }
-
-    ionic-newsletter-signup {
-      width: 400px;
-      position: absolute;
-      bottom: 29px;
-      right: 20px;
-      max-width: calc(100% - 30px);
-  
-      @media (max-width: $screen-xs-max) {
-        bottom: -26px;
-        right: auto;
-        left: calc(50% - 200px);
-      }
-
-      @media (max-width: 460px) {
-        left: 15px;
-      }
-    }
-
     @media (max-width: $screen-sm-max) {
       padding-top: 100px;
       padding-bottom: 100px;
@@ -569,6 +649,75 @@
 
   @media (max-width: $screen-xs-max) {
     padding-bottom: 48px;
+  }
+
+  aside {
+    position: absolute;
+    bottom: 64px;
+    left: 0;
+    right: 0;
+
+    .container  {
+      position: relative;
+    }
+  }
+
+  .stats {
+    padding: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: -0.02em;
+      color: #92A1B3;
+      padding: 0 18px;
+      transition: .3s color;
+
+      svg {
+        vertical-align: -3px;
+
+        path {
+          transition: .3s fill;
+        }
+      }
+
+      &:hover {
+        color: darken(#92A1B3, 10);
+
+        svg path {
+          fill: darken(#92A1B3, 10);
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      left: calc(50% - 140px);
+      bottom: 40px;
+    }
+  }
+
+  ionic-newsletter-signup {
+    width: 400px;
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    max-width: calc(100% - 30px);
+
+    @media (max-width: $screen-xs-max) {
+      bottom: -26px;
+      right: auto;
+      left: calc(50% - 200px);
+    }
+
+    @media (max-width: 460px) {
+      left: 15px;
+    }
   }
 }
 
@@ -602,6 +751,14 @@
 
   main {
     overflow: visible;
+
+    section {
+      overflow: hidden;
+    }
+
+    .promo {
+      overflow-x: hidden;
+    }
   }
 
   #promo--hybrid-vs-native {
@@ -615,7 +772,7 @@
   section {
     padding-top: 170px;
     line-height: 1.75em;
-    padding-bottom: 170px;
+    padding-bottom: 200px;
     position: relative;
 
     &.center {
