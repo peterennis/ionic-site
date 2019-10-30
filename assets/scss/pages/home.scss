@@ -149,9 +149,11 @@
       font-size: 20px;
       line-height: 32px;
       letter-spacing: -.02em;
+      padding-left: 28px;
       color: rgba(#2f3a48, .9);
       list-style: none;
       margin-bottom: 12px;
+      position: relative;
 
       &::before {
         color: #44B4FF;
@@ -159,7 +161,8 @@
         display: inline-block;
         height: 14px;
         width: 11px;
-        margin-right: 16px;
+        position: absolute;
+        left: 0;
       }
 
       code {
@@ -752,6 +755,10 @@
   main {
     overflow: visible;
 
+    .container {
+      position: relative;
+    }
+
     section {
       overflow: hidden;
     }
@@ -960,9 +967,14 @@
   }
 
   #oss {
-    padding-top: 176px;
-    padding-bottom: 400px;
+    padding-top: 0;
+    padding-bottom: 0;
     margin-top: 100px;
+
+    .container {
+      padding-top: 176px;
+      padding-bottom: 400px;
+    }
 
     .frameworks {
       margin-bottom: 33px;
@@ -1049,7 +1061,9 @@
 
 
     @media (max-width: $screen-md-max) {
-      padding-top: 120px;
+      .container {
+        padding-top: 120px;
+      }
 
       .content {
         width: 380px;
@@ -1064,8 +1078,10 @@
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 0px;
-      padding-bottom: 328px;
+      .container {
+        padding-top: 0px;
+        padding-bottom: 328px;
+      }
 
       .content {
         width: 100%;
@@ -1104,8 +1120,13 @@
   }
 
   #devops {
-    padding-top: 204px;
-    padding-bottom: 252px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .container {
+      padding-top: 204px;
+      padding-bottom: 252px;
+    }
 
     .content {
       position: relative;
@@ -1141,7 +1162,9 @@
     }
 
     @media (max-width: $screen-md-max) {
-      padding-top: 60px;
+      .container {
+        padding-top: 60px;
+      }
 
       .graphics {
         width: 933px;
@@ -1156,8 +1179,10 @@
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 160px;
-      padding-bottom: 420px;
+      .container {
+        padding-top: 160px;
+        padding-bottom: 420px;
+      }
 
       .content {
         width: 100%;
