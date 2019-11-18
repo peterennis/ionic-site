@@ -1,6 +1,6 @@
 @import '../../../vars';
 @import '../../../mixins';
-@import '../../../bootstrap/variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 @import '../shared';
 @import './shared';
@@ -42,7 +42,7 @@
     width: 594px;
     height: 772px;
     position: absolute;
-    left: -4px;
+    left: -38px;
     top: 207px;
     content: '';
   }

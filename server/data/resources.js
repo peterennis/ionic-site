@@ -173,6 +173,28 @@ const resources = {
     items: [
       {
         "type": "Case Study",
+        "title": "Reducing time-to-market by 50% with Ionic Enterprise",
+        "url": "/resources/case-studies/jnesis",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-jnesis.jpg",
+        "bgColor": "#2a3341"
+      }, {
+        "type": "Customer Interviews",
+        "title": "Seth at K12",
+        "url": "/resources/customer-interviews/seth-k12",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-k12.jpg",
+        "bgColor": "#9d9849"
+      }, {
+        "type": "Customer Interviews",
+        "title": "Danya at CGI",
+        "url": "/resources/customer-interviews/danya-cgi",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
+        "bgColor": "#e2465c"
+      }, {
+        "type": "Case Study",
         "title": "Southwest Airlines delights new hires with onboarding app",
         "url": "https://meetmaestro.com/work/southwest/",
         "target": "_blank",
@@ -284,11 +306,26 @@ const resources = {
       }
     ]
   },
-  "customer-stories": {
-    title: "Customer Stories",
-    description: "Customer Stories from developers and companies.",
+  "customer-interviews": {
+    title: "Customer Interviews",
+    description: "Customer Interviews from developers and companies.",
     meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
     items: [
+      {
+        "type": "Customer Interviews",
+        "title": "Seth at K12",
+        "url": "/resources/customer-interviews/seth-k12",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-k12.jpg",
+        "bgColor": "#9d9849"
+      }, {
+        "type": "Customer Interviews",
+        "title": "Danya at CGI",
+        "url": "/resources/customer-interviews/danya-cgi",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
+        "bgColor": "#e2465c"
+      }
     ]
   },
   "webinars": {
@@ -297,6 +334,14 @@ const resources = {
     meta: "Ionic Resources: Webinars for developers and architects",
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
     items: [
+      {
+        "type": "Webinar",
+        "title": "Ionic Native: Native-powered apps, without the hassle",
+        "url": "https://ionicframework.com/resources/webinars/ionic-native-native-powered-apps-without-hassle",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-ionic-native.png",
+        "bgColor": "#BB49B2"
+      },
       {
         "type": "Webinar",
         "title": "Ionic Advisory: Your trusted development partner",

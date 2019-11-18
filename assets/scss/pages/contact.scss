@@ -1,5 +1,5 @@
 @import '../vars';
-@import '../bootstrap/variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 #page-contact {
   .navbar ~ .banner {
@@ -28,7 +28,7 @@
     justify-content: space-around;
 
     a {
-      flex: 0 1 255px;
+      flex: 0 1 240px;
       padding: 150px 25px 15px;
       margin: 0 auto 100px;
       position: relative;

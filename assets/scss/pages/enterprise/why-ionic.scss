@@ -1,5 +1,5 @@
 @import '../../vars';
-@import '../../bootstrap/variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import 'shared';
 
 #experiences {
@@ -39,7 +39,7 @@
 }
 
 #talent .graphics {
-  width: 560px;
+  width: 500px;
 
   @media (max-width: $screen-md-max) {
     width: calc(100% - 520px);
