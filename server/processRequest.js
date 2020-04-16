@@ -1,9 +1,11 @@
+var config          = require('./config');
 var employees       = require('./data/employees');
 var resources       = require('./data/resources');
 var frameworkInfo   = require('./data/framework-info');
 var trustedPartners = require('./data/trusted-partners');
 var followerCount   = null;
-var tools           = require('./tools').getTwitterProfile().then(user => {
+
+require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
 });
 
@@ -59,6 +61,8 @@ module.exports = {
   loadLocalVars: async (req, res, next) => {
     // Setting default Page Vars
     res.locals = Object.assign({}, res.locals, {
+      API_URL: config.API_URL,
+      DASHBOARD_URL: config.DASHBOARD_URL,
       header_style: 'transparent',
       id: req.originalUrl.split('/').join('-'),
       employees: shuffle(employees),

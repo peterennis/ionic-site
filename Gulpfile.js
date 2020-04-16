@@ -1,38 +1,23 @@
-const gulp         = require('gulp');
-const $            = require('gulp-load-plugins')();
-const browserSync  = require('browser-sync');
-const cachebust    = require('gulp-cache-bust');
-const cleanCSS     = require('gulp-clean-css');
-const concat       = require('gulp-concat');
-const cp           = require('child_process');
-const del          = require('del');
-const es           = require('event-stream');
-const footer       = require('gulp-footer');
-const header       = require('gulp-header');
-const lib          = require('./assets/3rd-party-libs.json');
-const path         = require('path');
-const pkg          = require('./package.json');
-const prefix       = require('gulp-autoprefixer');
-const rename       = require('gulp-rename');
-const runSequence  = require('run-sequence');
-const sass         = require('gulp-sass');
-const server       = require('gulp-develop-server');
-const shell        = require('gulp-shell');
-const sitemappings = require('./scripts/sitemappings.json');
-const uglify       = require('gulp-uglify');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+const browserSync = require('browser-sync');
+const cachebust = require('gulp-cache-bust');
+const cleanCSS = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const cp = require('child_process');
+const del = require('del');
+const es = require('event-stream');
+const footer = require('gulp-footer');
+const header = require('gulp-header');
+const lib = require('./assets/3rd-party-libs.json');
+const nodemon = require('gulp-nodemon');
+const path = require('path');
+const pkg = require('./package.json');
+const prefix = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
 
-var bustingCache = false;
-
-
-var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ff >= 45',
-  'chrome >= 54',
-  'safari >= 9',
-  'opera >= 23',
-  'ios >= 9',
-  'android >= 4.4'
-];
 var closureStart =
   '/*!\n' +
   ' * Ionic \n' +
@@ -41,19 +26,20 @@ var closureStart =
   '(function() {\n';
 var closureEnd = '\n})();\n';
 var version = pkg.version;
+let server;
 
-function bustCache() {
+const bustCache = async () => {
 
   function cacheBust(path, fileName) {
     return gulp.src(path + fileName)
       .pipe(cachebust({
         basePath: 'dist'
       }))
-      .pipe(rename({extname: '.prod.html'}))
+      .pipe(rename({ extname: '.prod.html' }))
       .pipe(gulp.dest('./' + path));
   }
 
-  var bustArray = function() {
+  var bustArray = function () {
     return [
       cacheBust('server/pages/_includes/', 'head.html'),
       cacheBust('server/pages/_includes/', 'scripts.html'),
@@ -64,7 +50,7 @@ function bustCache() {
 }
 
 function bustCacheAndReload(done) {
-  bustCache().on('end', function() {
+  bustCache().on('end', function () {
     done();
     browserSync.reload();
     // apply the template change in the background
@@ -73,24 +59,23 @@ function bustCacheAndReload(done) {
 }
 
 function restartAndReload(done) {
-  server.restart(function(err) {
-    if (!err) {
-      done();
-      browserSync.reload();
-    }
-  });
+  server.emit('restart');
+  if (typeof done === 'function') {
+    done();
+  }
+  browserSync.reload();
 }
 
 function justReload(done) {
   // server.restart(function(err) {
-    // if (!err) {
-      done();
-      browserSync.reload();
-    // }
+  // if (!err) {
+  done();
+  browserSync.reload();
+  // }
   // });
 }
 
-gulp.task('styles:others', function() {
+const stylesOthers = () => {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'assets/scss/**/*.scss',
@@ -102,171 +87,148 @@ gulp.task('styles:others', function() {
       onError: console.error.bind(console, 'Sass error:'),
       includePaths: [path.join(__dirname, 'node_modules')]
     }))
-    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix())
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(rename({extname: '.min.css'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('dist/css/'))
-    .pipe($.size({title: 'styles'}));
-});
+    .pipe($.size({ title: 'styles' }));
+};
 
-gulp.task('styles:v2', function() {
+const stylesMain = () => {
   // For best performance, don't add Sass partials to `gulp.src`
-  return  gulp.src(
+  return gulp.src(
     ['assets/scss/styles.scss'].concat(lib.css)
-  ) .pipe($.sourcemaps.init())
+  ).pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:'),
       includePaths: [path.join(__dirname, 'node_modules')]
     }))
-    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix())
     .pipe(concat('styles.css'))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(rename({extname: '.min.css'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('dist/css/'))
-    .pipe($.size({title: 'styles'}));
-});
+    .pipe($.size({ title: 'styles' }));
+};
 
 // compress and concat JS
-gulp.task('js', function() {
+const js = () => {
   return gulp.src(lib.js.concat(['assets/js/**/*.js']))
     .pipe($.sourcemaps.init())
-    .pipe(concat('ionic-site.js', {newLine: ';'}))
+    .pipe(concat('ionic-site.js', { newLine: ';' }))
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/js'))
     .pipe(uglify())
-    .pipe(rename({extname: '.min.js'}))
+    .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('dist/js'))
-    .pipe($.size({title: 'js'}));
-});
+    .pipe($.size({ title: 'js' }));
+};
 
 
-
-gulp.task('stencil', function(done) {
-  return cp.spawn('node_modules/.bin/stencil',
+const stencil = (done) => {
+  return cp.spawn(path.join('node_modules', '.bin', 'stencil'),
     ['build', process.env.PROD ? '' : '--dev'],
     {
       cwd: process.cwd(),
       env: {
-          PATH: process.env.PATH
+        PATH: process.env.PATH
       },
+      shell: true,
       stdio: 'inherit'
     }
   )
-  .on('close', async () => {
 
-    done();
-  }).on('error', function(err) {
-    console.log(err)
-    throw err; 
-  });
-});
+    .on('close', async () => {
+      done();
 
-gulp.task('stencil:clean', function(done) {
-  return runSequence('stencil', 'js', done);
-})
+    }).on('error', function (err) {
+      console.log(err)
+      throw err;
+    });
+};
 
-/**
- * Run Generate linkchecker page
- */
-gulp.task('linkchecker', ['build'],
-  shell.task('_scripts/linkchecker.sh', {verbose: true})
-);
-
-
-gulp.task('server-listen', function() {
-  return server.listen({'path': './server.js', 'execArgv': ['--inspect']},
-  function(error) {
-    if (!error) {
-      browserSync({'proxy': 'http://localhost:3000', 'port': 3003});
+const serverStart = (done) => {
+  server = nodemon({
+    script: 'server.js',
+    watch: 'server',
+  }).on('start', () => {
+    if (browserSync.active) {
+      setTimeout(browserSync.reload, 3050);
+    } else {
+      // giving the server 2 seconds to start
+      setTimeout(done, 2000);
     }
-  });
-});
-
-/**
- * Wait for jekyll-build, then launch the Server
- */
-gulp.task('server', ['build'], function() {
-  return runSequence('server-listen');
-});
-
-gulp.task('server:server', restartAndReload);
-
-gulp.task('server:stylesv2', ['styles:v2'], justReload);
-gulp.task('server:others', ['styles:others'], justReload);
-gulp.task('server:stencil', ['stencil'], justReload);
-gulp.task('server:js', ['js'], justReload);
-
-gulp.task('watch.max', ['server'], function() {
-  gulp.watch(['server.js','server/**/*'], ['server:server']);
-  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
-    ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
-    '!assets/scss/**/_*.scss'], ['server:others']);
-  gulp.watch(['assets/js/**/*.js'], ['server:js']);
-});
-
-gulp.task('watch', ['server'], function() {
-  gulp.watch(['server.js','server/**/*'], ['server:server']);
-  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
-    ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['server:others']);
-  gulp.watch(['assets/js/**/*.js'], ['server:js']);
-  gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], 
-    ['server:stencil']);
-});
-
-gulp.task('sitemap', function () {
-  gulp.src([
-    'server/pages/**/*.html',
-    '!server/pages/_*/**/*'
-  ], {
-    read: false
   })
-  .pipe($.sitemap({
-    siteUrl: 'https://www.ionicframework.com',
-     getLoc: function(siteUrl, loc, entry) {
-      return loc.replace(/\.\w+$/, '').replace(/\/$/, '').replace(/(.*)\/index$/, '$1');
-    },
-    mappings: sitemappings,
-    // verbose: true,
-    lastmod: false
-  }))
-  .pipe(gulp.dest('dist/'));
-});
+    .on('crash', function () {
+      console.error('Application has crashed!\n')
+      server.emit('restart', 10)  // restart the server in 10 seconds
+    });
+};
 
-gulp.task('build', ['build-prep'], function(done) {
-  // runSequence('jekyll-build', function() {
-    done();
-  // })
-});
 
-gulp.task('build.clean', ['build-prep'], function(done) {
-  // runSequence('jekyll-build.clean', function() {
-    done();
-  // });
-});
-
-gulp.task('slug.prep', function () {
+const slugPrep = () => {
   return del(['assets']);
-});
+};
 
-gulp.task(
-  'build-prep',
-  [
-    'stencil:clean',
-    'styles:v2',
-    'styles:others',
-  ],
+const build = gulp.series(
+  gulp.parallel(
+    gulp.series(
+      stencil,
+      js
+    ),
+    stylesMain,
+    stylesOthers
+  ),
   bustCache
+)
+
+const run = gulp.parallel(
+  build,
+  serverStart
+)
+
+const watchServer = async () => gulp.watch(['server.js', 'server/**/*'], restartAndReload);
+const watchStylesMain = async () => gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], gulp.series(stylesMain, justReload))
+const watchStylesOthers = async () => gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', '!assets/scss/**/_*.scss'], gulp.series(stylesOthers, justReload))
+const watchJS = async () => gulp.watch(['assets/js/**/*.js'], gulp.series(js, justReload));
+const watchStencil = async () => gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], gulp.series(stencil, justReload));
+
+const watch = gulp.series(
+  run,
+  // serverStart,
+  gulp.parallel(
+    watchServer,
+    watchStylesMain,
+    watchStylesOthers,
+    watchJS,
+    watchStencil
+  ),
+  async () => {
+    return browserSync.init({ 'proxy': 'http://localhost:3000', 'port': 3003 })
+  }
 );
 
-gulp.task('default', ['build']);
+
+// gulp.task('default', ['build']);
+
+module.exports = {
+  build,
+  bustCache,
+  js,
+  run,
+  serverStart,
+  slugPrep,
+  stencil,
+  stylesMain,
+  stylesOthers,
+  watch,
+};

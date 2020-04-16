@@ -13,6 +13,7 @@
   // @import '../../content/docs/demos/css/ionic.css';
 }
 
+@import 'theme';
 @import 'vars';
 @import 'fonts';
 
@@ -94,7 +95,7 @@
 @import 'components/toc';
 @import 'components/docs_content';
 @import 'components/pro_docs_content';
-@import 'components/promo';
+@import 'components/promos/index';
 @import 'components/mobile-nav';
 @import 'components/responsive_docs';
 @import 'components/resource-card';
@@ -114,7 +115,7 @@
 // @import 'pages/about';
 // @import 'pages/articles/pwa-architects-guide';
 @import 'pages/articles/why-hybrid';
-@import 'pages/books/hybrid-vs-native';
+// @import 'pages/books/hybrid-vs-native';
 @import 'pages/books/preview';
 @import 'pages/community';
 // @import 'pages/contact';
@@ -126,9 +127,10 @@
 // @import 'pages/enterprise/support';
 @import 'pages/enterprise/training';
 @import 'pages/getting-started';
+@import 'pages/start';
 @import 'pages/go/pwa-architects-guide';
 @import 'pages/go/why-hybrid';
-@import 'pages/home';
+// @import 'pages/home';
 // @import 'pages/jobs';
 @import 'pages/login';
 // @import 'pages/press/index';

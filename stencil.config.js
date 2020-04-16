@@ -5,9 +5,6 @@ exports.config = {
   plugins: [
     sass()
   ],
-  copy: [
-    { src: '../../node_modules/ionicons/dist/collection/icon/svg' }
-  ],
   outputTargets: [
     // {
     //   type: 'dist',
@@ -16,6 +13,20 @@ exports.config = {
     {
       type: 'dist',
       dir: 'dist/js/stencil',
+      copy: [
+        { 
+          src: '../../node_modules/ionicons/dist/svg',
+          dest: '../svg'
+        },
+        {
+          src: '../../node_modules/emoji-datasource-twitter/emoji.json',
+          dest: '../emoji.json'
+        },
+        {
+          src: '../../node_modules/emoji-datasource-twitter/img/twitter/sheets-256/64.png',
+          dest: '../emoji-sheet-twitter-256-64.png'
+        }
+      ],
     },
   ],
   srcDir: 'assets/stencil'

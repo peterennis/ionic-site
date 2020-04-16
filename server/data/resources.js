@@ -4,10 +4,10 @@ const heroFeatured = [
     title: "Hybrid vs. Native Ebook",
   }, {
     category: "articles",
-    title: "When & Why to Choose Ionic",
+    title: "Evaluating Ionic for Enterprise",
   }, {
     category: "articles",
-    title: "Ionic vs. React Native: A Comparison Guide",
+    title: "Ionic React vs React Native"
   }
 ];
 
@@ -19,13 +19,41 @@ const resources = {
     items: [
       {
         "type": "Article",
-        "title": "Preview - Creating Ionic Applications with StencilJS",
-        "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
-        "target": "_blank",
+        "title": "The ROI of Hybrid vs. Native",
+        "url": "/resources/articles/roi-hybrid-vs-native",
+        "target": "_self",
         "action": "Read",
-        "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
-        "bgColor": "#393c49"
-      }, {
+        "bgImage": "/img/resource-center/roi-hybrid-native-card.png",
+        "bgColor": "#4F82FF"
+      },
+      {
+        "type": "Article",
+        "title": "Why Developers Love Ionic",
+        "url": "/resources/articles/why-developers-love-ionic",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-why-developers-love-ionic.png",
+        "bgColor": "#4F82FF"
+      },
+      {
+        "type": "Article",
+        "title": "Ionic React vs React Native",
+        "url": "/resources/articles/ionic-react-vs-react-native",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-ionic-react-vs-react-native.png",
+        "bgColor": "#282E37"
+      },
+      {
+        "type": "Article",
+        "title": "Capacitor vs Cordova: Modern Hybrid App Development",
+        "url": "/resources/articles/capacitor-vs-cordova-modern-hybrid-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-capacitor-vs-cordova.png",
+        "bgColor": "#51A7FF"
+      },
+      {
         "type": "Article",
         "title": "Ionic vs. React Native: A Comparison Guide",
         "url": "/resources/articles/ionic-vs-react-native-a-comparison-guide",
@@ -33,6 +61,14 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
         "bgColor": "#15375f"
+      }, {
+        "type": "Article",
+        "title": "What is Hybrid App Development",
+        "url": "/resources/articles/what-is-hybrid-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatishybrid.png",
+        "bgColor": "#E85B6A"
       }, {
         "type": "Article",
         "title": "Ionic vs Flutter: A Comparison",
@@ -57,6 +93,14 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-digitaltransformation.png",
         "bgColor": "#786DF9"
+      }, {
+        "type": "Article",
+        "title": "Preview - Creating Ionic Applications with StencilJS",
+        "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
+        "target": "_blank",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
+        "bgColor": "#393c49"
       }, {
         "type": "Article",
         "title": "Why Every Company Needs a Design System",
@@ -99,8 +143,8 @@ const resources = {
         "bgColor": "#F95E6F"
       }, {
         "type": "Article",
-        "title": "When & Why to Choose Ionic",
-        "url": "/resources/whitepapers/evaluating-ionic-for-enterprise-development",
+        "title": "Evaluating Ionic for Enterprise",
+        "url": "https://go.ionicframework.com/enterprise-eval-guide",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",
@@ -113,14 +157,6 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatisauicomponentlibrary.png",
         "bgColor": "#F78760"
-      }, {
-        "type": "Article",
-        "title": "What is Hybrid App Development",
-        "url": "/resources/articles/what-is-hybrid-app-development",
-        "target": "_self",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-whatishybrid.png",
-        "bgColor": "#E85B6A"
       }, {
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",
@@ -173,29 +209,31 @@ const resources = {
     items: [
       {
         "type": "Case Study",
-        "title": "Reducing time-to-market by 50% with Ionic Enterprise",
+        "title": "Amtrak",
+        "url": "/resources/case-studies/passenger-rail-co",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/amtrak-card.png",
+        "bgColor": "#2C4186"
+      }, {
+        "type": "Case Study",
+        "title": "Jnesis",
         "url": "/resources/case-studies/jnesis",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-jnesis.jpg",
         "bgColor": "#2a3341"
       }, {
-        "type": "Customer Interviews",
-        "title": "Seth at K12",
-        "url": "/resources/customer-interviews/seth-k12",
+        "type": "Case Study",
+        "title": "Siberian CMS",
+        "url": "/resources/case-studies/siberian-cms",
+        "target": "_self",
         "action": "Read",
-        "bgImage": "/img/resource-center/customer-interview-k12.jpg",
-        "bgColor": "#9d9849"
-      }, {
-        "type": "Customer Interviews",
-        "title": "Danya at CGI",
-        "url": "/resources/customer-interviews/danya-cgi",
-        "action": "Read",
-        "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
-        "bgColor": "#e2465c"
+        "bgImage": "/img/resource-center/siberian-cms-card.png",
+        "bgColor": "#5147F0"
       }, {
         "type": "Case Study",
-        "title": "Southwest Airlines delights new hires with onboarding app",
+        "title": "Southwest Airlines",
         "url": "https://meetmaestro.com/work/southwest/",
         "target": "_blank",
         "action": "Read",
@@ -203,7 +241,37 @@ const resources = {
         "bgColor": "#113F93"
       }, {
         "type": "Case Study",
-        "title": "MRA builds its first app in just two months",
+        "title": "Mobile Measures",
+        "url": "/resources/case-studies/mobile-measures",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/mobile-measures-card.png",
+        "bgColor": "#2C4186"
+      }, {
+        "type": "Case Study",
+        "title": "Samaritan's Purse",
+        "url": "/resources/case-studies/occ",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/samaritans-purse-card.png",
+        "bgColor": "#2a3341"
+      }, {
+        "type": "Customer Interviews",
+        "title": "K12",
+        "url": "/resources/customer-interviews/seth-k12",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-k12.jpg",
+        "bgColor": "#9d9849"
+      }, {
+        "type": "Customer Interviews",
+        "title": "CGI",
+        "url": "/resources/customer-interviews/danya-cgi",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
+        "bgColor": "#e2465c"
+      }, {
+        "type": "Case Study",
+        "title": "Mauritius Revenue Authority",
         "url": "/resources/case-studies/mauritius-revenue-authority-mra",
         "target": "_self",
         "action": "Read",
@@ -211,15 +279,7 @@ const resources = {
         "bgColor": "#182435"
       }, {
         "type": "Case Study",
-        "title": "Building the new Marketwatch app",
-        "url": "/resources/case-studies/marketwatch",
-        "target": "_self",
-        "action": "Read",
-        "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
-        "bgColor": "#000000"
-      }, {
-        "type": "Case Study",
-        "title": "Napa Group speeds up development",
+        "title": "Napa Group",
         "url": "/resources/case-studies/napa-group-llc",
         "target": "_self",
         "action": "Read",
@@ -227,7 +287,7 @@ const resources = {
         "bgColor": "#7479e4"
       }, {
         "type": "Case Study",
-        "title": "Why the world's largest healthcare provider chose Ionic",
+        "title": "National Health Service",
         "url": "/resources/case-studies/national-health-service",
         "target": "_self",
         "action": "Read",
@@ -235,7 +295,7 @@ const resources = {
         "bgColor": "#0163ac"
       }, {
         "type": "Case Study",
-        "title": "Sworkit goes cross platform with Ionic",
+        "title": "Sworkit",
         "url": "/resources/case-studies/sworkit",
         "target": "_self",
         "action": "Read",
@@ -243,7 +303,7 @@ const resources = {
         "bgColor": "#fbb363"
       }, {
         "type": "Case Study",
-        "title": "Airbus takes to the skies with Ionic",
+        "title": "Airbus",
         "url": "/resources/case-studies/airbus-helicopter",
         "target": "_self",
         "action": "Read",
@@ -260,7 +320,7 @@ const resources = {
       // },
       {
         "type": "Case Study",
-        "title": "Sense Corp accelerates the app lifecycle with Ionic",
+        "title": "Sense Corp",
         "url": "/resources/case-studies/sense-corp",
         "target": "_self",
         "action": "Read",
@@ -268,7 +328,7 @@ const resources = {
         "bgColor": "#394a6f"
       }, {
         "type": "Case Study",
-        "title": "Interactive Gaming Company removes development roadblocks with Ionic",
+        "title": "Interactive Gaming Company",
         "url": "/resources/case-studies/interactive-gaming-company",
         "target": "_self",
         "action": "Read",
@@ -276,7 +336,7 @@ const resources = {
         "bgColor": "#535582"
       }, {
         "type": "Case Study",
-        "title": "Pacifica dives into hybrid development with Ionic",
+        "title": "Pacifica",
         "url": "/resources/case-studies/pacifica",
         "target": "_self",
         "action": "Read",
@@ -284,14 +344,14 @@ const resources = {
         "bgColor": "#044d63"
       }, {
         "type": "Case Study",
-        "title": "Untapp'd taps the power of Ionic ",
+        "title": "Untapp'd",
         "url": "https://blog.ionicframework.com/built-with-ionic-untappd/",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-untappd.jpg",
         "bgColor": "#f8926b"
       }, {
         "type": "Case Study",
-        "title": "Diesel brings their Salesforce CRM to mobile with Ionic",
+        "title": "Diesel",
         "url": "https://blog.ionicframework.com/built-with-ionic-diesel-mobile-app/",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-diesel.jpg",
@@ -336,6 +396,30 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Appflow: Push to App Stores",
+        "url": "https://ionicframework.com/resources/webinars/appflow-push-to-app-stores",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-deploy-to-appstore.png",
+        "bgColor": "#6966f3"
+      },
+      {
+        "type": "Webinar",
+        "title": "Build your own Ionic-React app",
+        "url": "https://ionicframework.com/resources/webinars/ionic-react",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-ionic-react.png",
+        "bgColor": "#5ba2fc"
+      },
+      {
+        "type": "Webinar",
+        "title": "Ionic 5: Live Demo and Q&A",
+        "url": "https://ionicframework.com/resources/webinars/announcing-ionic-5",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/ionic-5.png",
+        "bgColor": "#6372ff"
+      },
+      {
+        "type": "Webinar",
         "title": "Ionic Native: Native-powered apps, without the hassle",
         "url": "https://ionicframework.com/resources/webinars/ionic-native-native-powered-apps-without-hassle",
         "action": "Watch",
@@ -373,7 +457,7 @@ const resources = {
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-auth-connect.png",
         "bgColor": "#b396ec"
-      },{
+      }, {
         "type": "Webinar",
         "title": "Capacitor 1.0: A new way to build native mobile apps with Ionic",
         "url": "/resources/webinars/capacitor-version-one-launch-native-pwas-for-all",
@@ -560,7 +644,7 @@ const resources = {
         "action": "View",
         "bgImage": "/img/resource-center/presentation-ionic-stencil.jpg",
         "bgColor": "#555d81"
-      },  {
+      }, {
         "type": "Video",
         "title": "Building production PWAs with Ionic",
         "url": "https://www.youtube.com/watch?v=aVZ_HyA6XjA",
@@ -603,7 +687,7 @@ Object.keys(resources).forEach((category, index) => {
   heroFeatured.map(resource => {
     if (resource.category === category)
       candidates = candidates.filter(o => o.title !== resource.title);
-    }
+  }
   );
   sectionFeatured[category] = candidates.slice(0, 4);
 });
@@ -614,7 +698,7 @@ let gallery = [{
   title: "Hybrid Vs. Native ebook",
 }, {
   category: "case-studies",
-  title: "Building the new Marketwatch app",
+  title: "Amtrak",
 }, {
   category: "articles",
   title: "PWA Architects Guide",
