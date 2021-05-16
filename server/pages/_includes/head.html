@@ -3,13 +3,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {% if dev %}
+  {% if not noGlobalStyles %}
   <link href="/css/styles.css" rel="stylesheet">
+  {% endif %}
 {% else %}
+  {% if not noGlobalStyles %}
   <link href="/css/styles.min.css" rel="stylesheet">
+  {% endif %}
 {% endif %}
 
 {% if cssPath %}
-  {{ macros.pageSpecificCSS(dev, cssPath) }}
+  {{ macros.pageSpecificCSS(dev, cssPath, cssVersion) }}
 {% endif %}
 
 {% if title %}
@@ -84,6 +88,7 @@
 <meta property="og:locale" content="en_US" />
 <link href="https://plus.google.com/+Ionicframework" rel="publisher" />
 
+
 <link rel="apple-touch-icon" sizes="57x57" href="/img/meta/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/img/meta/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/img/meta/apple-touch-icon-72x72.png">
@@ -93,17 +98,34 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/img/meta/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/img/meta/apple-touch-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/meta/apple-touch-icon-180x180.png">
+{% if favicons %}
+{% for icon in favicons %}
+<link rel="icon" type="image/png" href="{{icon[0]}}" sizes="{{icon[1]}}">
+{% endfor %}
+{% else %}
 <link rel="icon" type="image/png" href="/img/meta/favicon-16x16.png" sizes="16x16">
 <link rel="icon" type="image/png" href="/img/meta/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/img/meta/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/img/meta/favicon-192x192.png" sizes="192x192">
+{% endif %}
 <link rel="manifest" href="/manifest.json">
+
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/img/meta/ms-icon-70x70.png">
 <meta name="msapplication-TileImage" content="/img/meta/ms-icon-144x144.png">
+{% if not themeColor %}
 <meta name="theme-color" content="#4c8fff">
+{% else %}
+<meta name="theme-color" content="{{themeColor}}">
+{% endif %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+{% if recaptcha %}
+<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
+{% endif %}
+
+{% if not noGlobalStencil %}
 <script type="module" src="/js/stencil/ionic-site-components/ionic-site-components.esm.js"></script>
 <script nomodule src="/js/stencil/ionic-site-components.js"></script>
+{% endif %}

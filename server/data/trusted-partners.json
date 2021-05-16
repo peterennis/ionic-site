@@ -1,17 +1,5 @@
 [
   {
-    "slug":"bendyworks",
-    "name":"Bendyworks",
-    "level":"gold",
-    "link":"https://bendyworks.com/",
-    "short-description":"<strong>Bendyworks</strong> provides enterprise-level Ionic app development, app lifecycle management, and mobile solutions guidance.",
-    "long-description":"<p>We at Bendyworks are excited to bring our long history of web application development to the phone with Ionic. From business intelligence apps to everyday employee tools and everywhere in between, we love breathing life into our clients' ideas.</p><p>Given our experience, we are exceptionally positioned to deliver high quality Ionic apps with comprehensive server backends, though we love constructing without a backend, too. When you're looking to build a mobile asset for your business, look no further than Bendyworks</p>",
-    "address":"106 E Doty St #200<br>Madison, WI 53703, USA",
-    "features":null,
-    "coordinates":[23.3,35.9],
-    "company-size": "5-20"
-  },
-  {
     "slug":"benoveltylimited",
     "name":"beNovelty Limited",
     "level":"gold",
@@ -24,16 +12,16 @@
     "company-size": "5-20"
   },
   {
-    "slug":"briebug",
-    "name":"Briebug",
-    "level":"platinum",
-    "link":"https://briebug.com",
-    "short-description":"<strong>Briebug</strong> provides best practice Angular development expertise to enterprise software engineering leaders and their teams that streamline in their environment, accelerate the release of digital products, and guarantee their success.",
-    "long-description":"<p>We are premier brokers of technology solutions. We have built a team of talented developers dedicated to delivering cutting edge enterprise solutions that will provide years of value to our clients.</p><p>BrieBug creates next generation web pages and mobile apps that are responsive and client focused using the latest technologies, including Mongo, Express, Angular and Node (MEAN stack). We deliver projects on time and on budget!</p><p>BrieBug ranks as the premier web/mobile application consulting firm creating solutions that define the next generation of technology. We provide top level consulting teams that are hand picked, groomed, trained, and company supported to meet your needs from day one.</p>",
-    "address":"12596 W Bayaud Ave #201<br>Lakewood, CO 80228",
+    "slug":"clearlyinnovative",
+    "name":"Clearly Innovative",
+    "level":"gold",
+    "link":"https://clearlyinnovative.com",
+    "short-description":"<strong>Clearly Innovative</strong> create highly integrated solutions that empower our clients to be effective, innovative industry leaders.",
+    "long-description":"<p>Clearly Innovative is a minority-owned solutions provider that develops digital products. Our clients range from dynamic startups to inspiring enterprise-level organizations.</p><p>Driven by our team's collective creativity and passion for technology we strive to transform your vision into a winning product. As a leader in early adaption and implementation of cutting edge technologies, we provide services focused on strategy, user experience, design and development.</p>",
+    "address":"2301-D Georgia Ave NW<br>Washington, DC 20001",
     "features": null,
-    "coordinates":[19.5,38],
-    "company-size": "50-200"
+    "coordinates":null,
+    "company-size": "5-20"
   },
   {
     "slug":"hybridmob",
@@ -59,6 +47,18 @@
     "features":["Angular 1 to 7", "Ionic 1 to 4", "App design", "App development", "Consulting", "Training", "Java & Node.js back-end"],
     "coordinates":[48.5,34.4],
     "company-size": "50-200"
+  },
+  {
+    "slug":"modus",
+    "name":"Modus Create",
+    "level":"platinum",
+    "link":"https://moduscreate.com/contact/",
+    "short-description":"<strong>Modus Create</strong> builds customer-centric products, processes, and platforms to help the world’s biggest brands succeed in the digital economy. We work in an iterative, outcome-driven way to support our clients with product strategy, customer experience (CX), full stack Agile software development, and security.",
+    "long-description":"<p>Modus Create builds customer-centric products, processes, and platforms to help the world’s biggest brands succeed in the digital economy. We work in an iterative, outcome-driven way to support our clients with product strategy, customer experience (CX), full stack Agile software development, and security.</p>",
+    "address":"12100 Sunset Hills Road<br>Suite 150<br>Reston, Virginia, 20190",
+    "features":null,
+    "coordinates":[27.3,37.5],
+    "company-size": "10-50"
   },
   {
     "slug":"openforge",

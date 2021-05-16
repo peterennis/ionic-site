@@ -1,208 +1,64 @@
 {% extends '_layouts/base.html' %}
-{% set title = "Ionic - Cross-Platform Mobile App Development" %}
+{% set title = "Cross-Platform Mobile App Development: Ionic Framework" %}
 {% set id = "home" %}
 {% set pre_footer = false %}
 {% set header_style = 'transparent light' %}
-{% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
+{% set meta_description = "Ionic Framework's app development platform builds amazing cross-platform mobile, web, and desktop apps all with one shared code base and open-web standards." %}
 {% set stickyNav = true %}
 {% set cssPath = 'home' %}
+{% set cssVersion = 6 %}
 
-{% block main %}
+{% block header_includes %}
+<link rel="preconnect" href="https://images.prismic.io">
+<link rel="preconnect" href="https://js.hsforms.net">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+{% endblock %} 
+
+{% block main %} 
 <div id="ionic-slider">
-  <section id="slide-ionic-5" class="container">
-    <hgroup>
-      <h4 class="activateOnScroll">Ionic Framework 5</h4>
+  <section id="slide-ionic-react" class="container">
+    <div class="landing__content">
       <h1>
-        <span class="activateOnScroll">Design.</span>
-        <span class="activateOnScroll">Animation.</span>
-        <span class="activateOnScroll">Performance.</span>
+        <span class="activateOnScroll">One codebase.</span>
+        <span class="activateOnScroll">Any platform.</span>
+        <span class="activateOnScroll">
+          Now in
+          <span class="words">
+            <a href="/vue" class="underline vue">Vue.</a>
+            <a href="/docs/angular/overview" class="underline angular">Angular.</a>
+            <a href="/react" class="underline react">React.</a>
+          </span>
+        </span>
       </h1>
-      <ul>
-        <li class="activateOnScroll">New UI components and gestures</li>
-        <li class="activateOnScroll">Brand new custom animations API </li>
-        <li class="activateOnScroll">New icons, colors, and theming</li>
-        <li class="activateOnScroll">
-          Official <a href="https://ionicframework.com/react">React</a> &amp; 
-          <a href="https://ionicframework.com/docs/angular/your-first-app">Angular</a> integrations
-        </li>
-      </ul>
-      <div class="activateOnScroll btn-wrapper">
-        <a href="/getting-started" 
-           class="btn blue sm btn-cta" 
-           id="btn-home-get-started">
-          Get Started <img src="/img/homepage/ico-cli.png" width="16"/></a>
-          &nbsp; <a href="https://ionicframework.com/start" class="cta">Try the new App Wizard!</a>
+      <p class="activateOnScroll">An open source mobile UI toolkit for building high quality, cross-platform native and web app experiences. Move faster with a single code base, running everywhere with JavaScript and the Web.</p>
+      <div class="btn__group activateOnScroll">
+        <a href="/signup?page_layout=split">Get started <span class="arrow"> -></span></a>
+        <a href="/docs">Explore the docs <span class="arrow"> -></span></a>  
       </div>
-    </hgroup>
-    <div class="graphic">
-      <img src="/img/homepage/v5-components/alert.png" 
-           srcset="/img/homepage/v5-components/alert-1x.png 1x, /img/homepage/v5-components/alert.png 2x" 
-           alt="ion-alert" width="240">
-      <img src="/img/homepage/v5-components/arrows.png" 
-           srcset="/img/homepage/v5-components/arrows-1x.png 1x, /img/homepage/v5-components/arrows.png 2x" 
-           alt="ion-arrows" width="112">
-      <img src="/img/homepage/v5-components/btn.png" 
-           srcset="/img/homepage/v5-components/btn-1x.png 1x, /img/homepage/v5-components/btn.png 2x" 
-           alt="ion-button" width="96">
-      <img src="/img/homepage/v5-components/camera.png" 
-           srcset="/img/homepage/v5-components/camera-1x.png 1x, /img/homepage/v5-components/camera.png 2x" 
-           alt="ion-camera" width="34">
-      <img src="/img/homepage/v5-components/chat.png" 
-           srcset="/img/homepage/v5-components/chat-1x.png 1x, /img/homepage/v5-components/chat.png 2x" 
-           alt="ion-chat" width="26">
-      <img src="/img/homepage/v5-components/checkbox.png" 
-           srcset="/img/homepage/v5-components/checkbox-1x.png 1x, /img/homepage/v5-components/checkbox.png 2x" 
-           alt="ion-checkbox" width="56">
-      <img src="/img/homepage/v5-components/chip.png" 
-           srcset="/img/homepage/v5-components/chip-1x.png 1x, /img/homepage/v5-components/chip.png 2x" 
-           alt="ion-chip" width="160">
-      <img src="/img/homepage/v5-components/fab.png" 
-           srcset="/img/homepage/v5-components/fab-1x.png 1x, /img/homepage/v5-components/fab.png 2x" 
-           alt="ion-fab" width="112">
-      <img src="/img/homepage/v5-components/github.png" 
-           srcset="/img/homepage/v5-components/github-1x.png 1x, /img/homepage/v5-components/github.png 2x" 
-           alt="github" width="118">
-      <img src="/img/homepage/v5-components/keanu-list-item.png" 
-           srcset="/img/homepage/v5-components/keanu-list-item-1x.png 1x, /img/homepage/v5-components/keanu-list-item.png 2x" 
-           alt="ion-keanu-list-item" width="392">
-      <img src="/img/homepage/v5-components/large-title.png" 
-           srcset="/img/homepage/v5-components/large-title-1x.png 1x, /img/homepage/v5-components/large-title.png 2x" 
-           alt="ion-large-title" width="328">
-      <img src="/img/homepage/v5-components/person.png" 
-           srcset="/img/homepage/v5-components/person-1x.png 1x, /img/homepage/v5-components/person.png 2x" 
-           alt="ion-person" width="28">
-      <img src="/img/homepage/v5-components/range.png" 
-           srcset="/img/homepage/v5-components/range-1x.png 1x, /img/homepage/v5-components/range.png 2x" 
-           alt="ion-range" width="288">
-      <img src="/img/homepage/v5-components/search.png" 
-           srcset="/img/homepage/v5-components/search-1x.png 1x, /img/homepage/v5-components/search.png 2x" 
-           alt="ion-search" width="256">
-      <img src="/img/homepage/v5-components/segment.png" 
-           srcset="/img/homepage/v5-components/segment-1x.png 1x, /img/homepage/v5-components/segment.png 2x" 
-           alt="ion-segment" width="228">
-      <img src="/img/homepage/v5-components/share.png" 
-           srcset="/img/homepage/v5-components/share-1x.png 1x, /img/homepage/v5-components/share.png 2x" 
-           alt="ion-share" width="24">
-      <img src="/img/homepage/v5-components/spinner.png" 
-           srcset="/img/homepage/v5-components/spinner-1x.png 1x, /img/homepage/v5-components/spinner.png 2x" 
-           alt="ion-spinner" width="32">
-      <img src="/img/homepage/v5-components/tabs.png" 
-           srcset="/img/homepage/v5-components/tabs-1x.png 1x, /img/homepage/v5-components/tabs.png 2x" 
-           alt="ion-tabs" width="360">
-      <img src="/img/homepage/v5-components/toggle.png" 
-           srcset="/img/homepage/v5-components/toggle-1x.png 1x, /img/homepage/v5-components/toggle.png 2x" 
-           alt="ion-toggle" width="54">
+    </div>  
+    <div class="landing__img">
+      <img  class="react active"
+            src="https://images.prismic.io/ionicframeworkcom/13ff7b23-d3b5-400f-98c3-3b31f2912743_hero-ionic-react%402x.png?auto=compress,format"
+            srcset="https://images.prismic.io/ionicframeworkcom/c38fc467-0fcf-4afc-ade4-6337502ba236_hero-ionic-react.png?auto=compress,format 1x,
+                    https://images.prismic.io/ionicframeworkcom/13ff7b23-d3b5-400f-98c3-3b31f2912743_hero-ionic-react%402x.png?auto=compress,format 2x"
+            width="525" height="542">
+      <img  class="vue"
+            loading="lazy"
+            src="https://images.prismic.io/ionicframeworkcom/bbb24dd3-f799-4a98-b840-f53b13ceaa06_hero-ionic-vue%402x.png?auto=compress,format"
+            srcset="https://images.prismic.io/ionicframeworkcom/31c87982-d0c2-4322-876c-ecb4b59af7c9_hero-ionic-vue.png?auto=compress,format 1x,
+                    https://images.prismic.io/ionicframeworkcom/bbb24dd3-f799-4a98-b840-f53b13ceaa06_hero-ionic-vue%402x.png?auto=compress,format 2x"
+            width="525" height="542">
+      <img  class="angular"
+            loading="lazy"
+            src="https://images.prismic.io/ionicframeworkcom/99b1d5e6-4a0a-4d8f-a45f-521f0643d8ac_hero-ionic-angular%402x.png?auto=compress,format.png"
+            srcset="https://images.prismic.io/ionicframeworkcom/8477a3bc-f092-4f87-899d-85569bada39e_hero-ionic-angular.png?auto=compress,format 1x,
+                    https://images.prismic.io/ionicframeworkcom/99b1d5e6-4a0a-4d8f-a45f-521f0643d8ac_hero-ionic-angular%402x.png?auto=compress,format 2x"
+            width="525" height="542">
     </div>
   </section>
-  {# <section id="slide-ionic-react" class="container">
-    <hgroup>
-      <h4>Introducing Ionic React</h4>
-      <h1>One codebase. Any platform. <strong>Now in React</strong></h1>
-      <ul>
-        <li>100+ mobile optimized React UI components</li>
-        <li>Standard React tooling with <code>react-dom</code></li>
-        <li>iOS / Android / Electron / PWA</li>
-      </ul>
-      <a href="/docs/react/your-first-app" class="btn blue sm btn-cta" id="btn-home-get-started">
-        Try Ionic React <img src="/img/homepage/ico-cli.png" width="16"/></a>
-    </hgroup>
-    <div class="graphic">
-      <div class="graphic__container">
-        <img src="/img/homepage/graphic-react-app.png" 
-             alt="Ionic React example" 
-             id="ionic-react-app">
-        <img src="/img/homepage/graphic-ionic-react-code.png" 
-             alt="Ionic React code" 
-             id="ionic-react-code">
-      </div>
-    </div>
-  </section> #}
-  {# <section id="slide-one-any" class="container">
-    <hgroup>
-      <h1>One codebase. Any platform.</h1>
-      <p>
-        Built on standard web technology, Ionic helps teams build and ship 
-        beautiful cross-platform hybrid and Progressive Web Apps with ease.
-      </p>
-      <a href="/getting-started" class="btn blue sm btn-cta" id="btn-home-get-started">
-        Get Started <img src="/img/homepage/ico-cli.png" width="16"/></a>
-      <p>
-        <small>
-          v{{frameworkInfo.version}} / {{frameworkInfo.date}} /
-          <a id="btn-home-release-notes" href="/docs/release-notes">
-            Release Notes
-          </a>
-        </small>
-      </p>
-    </hgroup>
-    <img src="/img/homepage/hero-img.png?2" class="graphic" />
-  </section> #}
 
-  {# <div slot="slide-0" id="slide-limitless">
-    <ul class="graphics">
-      <li class="iphone-x"></li>
-      <li class="iphone-xs-max"></li>
-      <li class="pixel-3"></li>
-      <li class="galaxy"></li>
-      <li class="ipad"></li>
-      <li class="macbook"></li>
-    </ul>
-    <hgroup class="container">
-      <h1>One codebase.<br>Any platform.</h1>
-      <p>
-        Ionic helps developers build and ship beautiful cross-platform hybrid
-        apps.
-      </p>
-      <a href="/getting-started" class="btn white rounded">
-        Get Started <ion-icon name="arrow-forward"></ion-icon>
-      </a>
-      <p class="version-text">
-          <a href="https://github.com/ionic-team/ionic/releases/tag/v{{frameworkInfo.version}}"
-             target="_blank">v{{frameworkInfo.version}}</a> / {{frameworkInfo.date}} /
-          <a href="/docs/release-notes"
-             target="_blank">Release Notes</a>
-        </p>
-      <ul class="supported-platforms">
-        <li><img src="/img/homepage/platform-apple-ios.svg" alt="apple"></li>
-        <li><img src="/img/homepage/platform-android-google.svg" alt="android"></li>
-        <li><img src="/img/homepage/platform-windows.svg" alt="windows"></li>
-        <li><img src="/img/homepage/platform-electronjs-desktop.svg" alt="electron"></li>
-        <li><img src="/img/homepage/platform-javascript.svg" alt="js"></li>
-        <li><img src="/img/homepage/platform-pwa-progressive-web-app.svg" alt="pwa"></li>
-      </ul>
-    </hgroup>
-  </div> #}
-
-  {# <div slot="slide-1" id="slide-v4" class="activateOnScroll">
-    <hgroup class="container">
-      <img src="/img/homepage/ionic-for-everyone-icon.png" alt="Ionic Framework 4">
-      <h4>Ionic Framework 4</h4>
-      <h1>Ionic for everyone.</h1>
-      <p>
-        Introducing the next generation of Ionic Framework, the fastest,
-        smallest, and most extensible version yet.
-      </p>
-      <div class="btns">
-        <a href="https://blog.ionicframework.com/introducing-ionic-4-ionic-for-everyone/"
-           class="btn rounded white">
-          Announcement Blog<ion-icon name="arrow-forward">
-        </a>
-        <a href="/getting-started#cli" class="btn rounded dark">Get Started</a>
-      </div>
-    </hgroup>
-    <div class="features">
-      <ul class="container">
-        <li class="performance">Performance boosts across the board</li>
-        <li class="theming">Powerful theming for high customizability</li>
-        <li class="standards">Web-standards, future-proofed code</li>
-        <li class="compatible">JavaScript framework cross-compatibility</li>
-        <li class="docs">Completely redesigned Docs and Guides</li>
-      </ul>
-    </div>
-  </div> #}
-
-
-  <aside class="activateOnScroll">
+  <aside>
     <div class="container">
       <ul class="stats">
         <li class="stars">
@@ -210,7 +66,7 @@
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 0C3.58214 0 0 3.675 0 8.20357C0 11.8286 2.29286 14.9 5.47143 15.9857C5.52143 15.9964 5.56429 16 5.60714 16C5.90357 16 6.01786 15.7821 6.01786 15.5929C6.01786 15.3964 6.01071 14.8821 6.00714 14.1964C5.70714 14.2643 5.43929 14.2929 5.2 14.2929C3.66071 14.2929 3.31071 13.0964 3.31071 13.0964C2.94643 12.15 2.42143 11.8964 2.42143 11.8964C1.725 11.4071 2.41786 11.3929 2.47143 11.3929H2.475C3.27857 11.4643 3.7 12.2429 3.7 12.2429C4.1 12.9429 4.63571 13.1393 5.11429 13.1393C5.48929 13.1393 5.82857 13.0179 6.02857 12.925C6.1 12.3964 6.30714 12.0357 6.53571 11.8286C4.76071 11.6214 2.89286 10.9179 2.89286 7.775C2.89286 6.87857 3.20357 6.14643 3.71429 5.575C3.63214 5.36786 3.35714 4.53214 3.79286 3.40357C3.79286 3.40357 3.85 3.38571 3.97143 3.38571C4.26071 3.38571 4.91429 3.49643 5.99286 4.24643C6.63214 4.06429 7.31429 3.975 7.99643 3.97143C8.675 3.975 9.36071 4.06429 10 4.24643C11.0786 3.49643 11.7321 3.38571 12.0214 3.38571C12.1429 3.38571 12.2 3.40357 12.2 3.40357C12.6357 4.53214 12.3607 5.36786 12.2786 5.575C12.7893 6.15 13.1 6.88214 13.1 7.775C13.1 10.925 11.2286 11.6179 9.44643 11.8214C9.73214 12.075 9.98929 12.575 9.98929 13.3393C9.98929 14.4357 9.97857 15.3214 9.97857 15.5893C9.97857 15.7821 10.0893 16 10.3857 16C10.4286 16 10.4786 15.9964 10.5286 15.9857C13.7107 14.9 16 11.825 16 8.20357C16 3.675 12.4179 0 8 0Z" fill="#92A1B3"/>
             </svg>
-            40K
+            43K
           </a>
         </li>
         <li class="forks">
@@ -226,69 +82,66 @@
             <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16 1.65885C15.41 1.93958 14.7794 2.12917 14.1149 2.21667C14.793 1.77917 15.3151 1.08646 15.5592 0.2625C14.9252 0.667187 14.2234 0.9625 13.474 1.11927C12.8739 0.430208 12.0195 0 11.0769 0C9.26298 0 7.79487 1.58229 7.79487 3.53281C7.79487 3.8099 7.822 4.07969 7.87963 4.33854C5.15024 4.19271 2.72939 2.78542 1.1121 0.645312C0.830685 1.16667 0.667938 1.77552 0.667938 2.42083C0.667938 3.64583 1.25111 4.72865 2.13266 5.36302C1.59017 5.34844 1.08159 5.18802 0.640814 4.92188V4.96562C0.640814 6.67917 1.77326 8.10469 3.27527 8.42917C3.00064 8.50938 2.70905 8.55313 2.41068 8.55313C2.20047 8.55313 1.99364 8.53125 1.7936 8.4875C2.21064 9.89114 3.42445 10.912 4.86205 10.9411C3.73978 11.8891 2.32253 12.4542 0.783217 12.4542C0.518754 12.4542 0.257682 12.4359 0 12.4031C1.44776 13.4167 3.17355 14 5.02479 14C11.0701 14 14.3725 8.6151 14.3725 3.94479C14.3725 3.79167 14.3691 3.63854 14.3624 3.48906C15.0032 2.98958 15.5592 2.36979 16 1.65885Z" fill="#92A1B3"/>
             </svg>
-            108.3K
+            112.6K
           </a>
         </li>
       </ul>
-      <ionic-newsletter-signup 
+      <ionic-newsletter-signup         
         homepage-mode="true" 
-        placeholder="Join our Newsletter"></ionic-newsletter-signup>
+        placeholder="Join our Newsletter"
+        srOnly="Enter Email to join mailing list."></ionic-newsletter-signup>
     </div>
   </aside>
 </div>
 
 <main>
-  <div class="overflow-mask">
-    <div class="expander-wrapper activateOnScroll">
-      {% include '_includes/promos/hybrid-vs-native.html' %}
-    </div>
-  </div>
+  <ebook-switcher></ebook-switcher>
 
-  <section id="build-with-web" class="container split">
+  <section id="build-with-web" class="container">
     <hgroup>
-      <h2 class="activateOnScroll">Cross-platform apps. Built with the web.</h2>
+      <h2 class="activateOnScroll">
+        Cross-platform apps.
+        <em>Powered by the Web.</em>
+      </h2>
       <p class="activateOnScroll">
-        Free and open source, Ionic offers a library of mobile-optimized UI 
-        components, gestures, and tools for building fast, highly interactive 
-        apps.
+        Free and open source, Ionic offers a library of mobile-optimized UI components, gestures, and tools for building fast, highly interactive apps.
       </p>
     </hgroup>
     <ul>
       <li class="activateOnScroll">
         <img src="/img/homepage/components.png" 
              srcset="/img/homepage/components-1x.png 1x, /img/homepage/components.png 2x" 
+             loading="lazy"
+             width="288" height="228"
              alt="Ionic Components">
-        <h5>Beautiful, reusable components</h5>
+        <h3>Pre-designed UI components</h3>
         <p>
           Ionic’s <a href="https://ionicframework.com/docs/components">UI 
-          components</a> display beautifully on all mobile devices and platforms. 
-          Start with ready-made components, typography, and a gorgeous base 
-          theme that adapts to each platform.
+          components</a> look great on all mobile devices and platforms. Start with pre-made components, typography, and a base theme that adapts to each platform.
         </p>
       </li>
       <li class="activateOnScroll">
         <img src="/img/homepage/run-anywhere.png" 
              srcset="/img/homepage/run-anywhere-1x.png 1x, /img/homepage/run-anywhere.png 2x" 
+             loading="lazy"
+             width="290" height="228"
              alt="Cross-Platform Development">
-        <h5>Write once, run anywhere</h5>
+        <h3>Write once, run anywhere</h3>
         <p>
-          Ionic enables web developers to ship apps to the app stores and as a 
-          PWA with a single shared code base. With Ionic’s 
+          Ionic lets developers to ship apps to the app stores and as a PWA with a single code base. With 
           <a href="https://ionicframework.com/docs/intro/concepts#adaptive-styling">
-          Adaptive Styling</a>, your app looks and feels at home on every 
-          platform and device.
+          Adaptive Styling</a>, apps look and feel at home on every platform.
         </p>
       </li>
       <li class="activateOnScroll">
         <img src="/img/homepage/tooling.png" 
-             srcset="/img/homepage/tooling-1x.png 1x, /img/homepage/tooling.png 2x" 
+             srcset="/img/homepage/tooling.png 1x, /img/homepage/tooling@2x.png 2x" 
+             loading="lazy"
+             width="320" height="228"
              alt="Ionic CLI">
-        <h5>Developer friendly tooling</h5>
+        <h3>Developer-friendly tooling</h3>
         <p>
-          Create, build, test, and deploy your app with a powerful <a 
-          href="https://ionicframework.com/docs/cli">CLI</a>. Access features 
-          like Live Reload, cross-platform deployments, and integrations. You 
-          can even use the CLI’s of your favorite JS frameworks.</a>
+          Create, build, test, and deploy your app with the <a href="https://ionicframework.com/docs/cli">Ionic CLI</a>. Take advantage of Live Reload, deployments, integrations, and even use your favorite JS framework’s CLI.</a>
         </p>
       </li>
     </ul>
@@ -297,42 +150,44 @@
     <section id="performance" class="left container">
       <hgroup class="content">
         <h4 class="activateOnScroll">Performance obsessed</h4>
-        <h2 class="activateOnScroll">Build <span class="highlight">fast apps</span>,<br> faster than before.</h2>
+        <h2 class="activateOnScroll">
+          Fast apps.
+          <em>Out-of-the-box.</em>
+        </h2>
         <p class="activateOnScroll">
-          Ionic is built to perform and run fast on the all of the latest mobile 
-          devices. Build out-of-the-box blazing fast apps with a small footprint 
-          and built-in best practices like hardware accelerated transitions, 
-          touch-optimized gestures, pre-rendering, and AOT compiling.
+          Ionic is built to perform and run fast on the all of the latest mobile devices. Build blazing fast apps with a small footprint and built-in best practices like hardware accelerated transitions, touch-optimized gestures, pre-rendering, and AOT compiling.
         </p>
-        <a href="/getting-started" class="cta">Start building</a>
+        <a href="/start" class="link activateOnScroll">
+          Start building<span class="arrow"> -></span>
+        </a>
       </hgroup>
       <ul class="graphics activateOnScroll">
         <li>
           <span>
-            Up to
-            <strong>60<sub><small>FPS</small></sub></strong>
-            Scrolling on mobile and desktop
+            <sup>Up to</sup>
+            <strong>60<sub>FPS</sub></strong>
+            <span class="subtext">Scrolling on mobile and desktop</span>
           </span>
         </li>
         <li>
           <span>
-            Consistent
+            <sup>Consistent</sup>
             <strong>100<sup>%</sup></strong>
-            Lighthouse PWA performance score
+            <span class="subtext">Lighthouse PWA performance score</span>
           </span>
         </li>
         <li>
           <span>
-            Down to
-            <strong>2.2<sub>s</sub></strong>
-            Time to<br>Interactive 
+            <sup>Down to</sup>
+            <strong>1.8<sub>Sec</sub></strong>
+            <span class="subtext">Time to<br>Interactive </span>
           </span>
         </li>
         <li>
           <span>
-            Up to
+            <sup>Up to</sup>
             <strong>2<sub>x</sub></strong>
-            Faster than previous versions
+            <span class="subtext">Faster than previous versions</span>
           </span>
         </li>
       </ul>
@@ -343,10 +198,15 @@
     <img class="graphics activateOnScroll"
          src="/img/homepage/frameworks.png" 
          srcset="/img/homepage/frameworks-1x.png 1x, /img/homepage/frameworks.png 2x" 
+         loading="lazy"
+         width="560" height="708"
          alt="Angular, React, Vue, and Plain 'ole Javascript">
     <hgroup class="content">
       <h4 class="activateOnScroll">Framework Agnostic</h4>
-      <h2 class="activateOnScroll">Build with your favorite <span class="highlight">Frameworks</span>.</h2>
+      <h2 class="activateOnScroll">
+        Build with the
+        <em>tech you prefer</em>
+      </h2>
       <p class="activateOnScroll">
         We don’t make assumptions about the tech stacks you or your team 
         prefers to build with. That’s why Ionic is engineered to integrate 
@@ -359,28 +219,28 @@
           <a title="Ionic with Angular Docs"
              target="_blank" 
              href="https://ionicframework.com/docs/angular/overview">
-            <img src="/img/homepage/angular.png" alt="Angular">
+            <img src="/img/homepage/angular.png" loading="lazy" width="48" height="48" alt="Angular">
           </a>
         </li>
         <li>
           <a title="Ionic with React Docs"
              target="_blank" 
              href="https://ionicframework.com/react">
-            <img src="/img/homepage/react.png" alt="React">
+            <img src="/img/homepage/react.png" width="48" height="44" loading="lazy" alt="React">
           </a>
         </li>
         <li>
           <a title="Ionic with Vue Docs"
              target="_blank" 
              href="https://ionicframework.com/docs/vue/overview">
-            <img src="/img/homepage/vue.png" alt="Vue">
+            <img src="/img/homepage/vue.png" width="48" height="44" loading="lazy" alt="Vue">
           </a>
         </li>
         <li>
           <a title="Ionic with Javascript Docs"
              target="_blank" 
              href="https://ionicframework.com/docs/building/starting">
-            <img src="/img/homepage/javascript.png" alt="Javascript">
+            <img src="/img/homepage/javascript.png" width="48" height="48" loading="lazy" alt="Javascript">
           </a>
         </li>
       </ul>
@@ -391,11 +251,14 @@
     <hgroup>
       <div>
         <h4 class="activateOnScroll">100+ ui components</h4>
-        <h2 class="activateOnScroll"><span class="highlight">Simple</span>, declarative UI component design.</h2>
+        <h2 class="activateOnScroll">
+          Simple, declarative
+          <em>UI Components</em>
+        </h2>
       </div>
       <p class="activateOnScroll">
         Ionic’s components are written in HTML, CSS, and JavaScript, making it 
-        easily build beautiful, high quality UI’s that perform great everywhere.
+        easy to build modern, high quality UIs that perform great everywhere.
       </p>
     </hgroup>
     <div class="graphics activateOnScroll">
@@ -406,23 +269,20 @@
   <div class="overflow-mask">
     <section id="native" class="left container">
       <hgroup class="content">
-        <h4 class="activateOnScroll">Native Power</h4>
-        <h2 class="activateOnScroll">Access core <span class="highlight">native</span> device functionality.</h2>
+        <h4 class="activateOnScroll">Native Access</h4>
+        <h2 class="activateOnScroll">
+          Core native 
+          <em>device functionality.</em>
+        </h2>
         <p class="activateOnScroll">
-          Ionic makes it easy to access native device features with just a little 
-          bit of JavaScript. Choose from a rich library of over 120 native device 
-          plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive 
-          into the full native SDK when you need it. There’s no limit to what you 
-          can build.
+          Access native device features with just a little bit of JavaScript. Choose from a rich library of over 120 native device plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive into the full native SDK when you need it. There’s no limit to what you can build.
         </p>
-        <a href="/native" class="cta activateOnScroll">Explore Ionic Native</a>
+        <a href="/native" class="link activateOnScroll">
+          Explore Native APIs<span class="arrow"> -></span>
+        </a>
       </hgroup>
       <div class="graphics">
         <home-native></home-native>
-        <img class="graphics activateOnScroll"
-             src="/img/homepage/phones.png" 
-             srcset="/img/homepage/phones-1x.png 1x, /img/homepage/phones.png 2x" 
-             alt="Access Native Android and iOS APIs">
       </div>
     </section>
   </div>
@@ -431,57 +291,57 @@
     <div class="graphics">
       <img class="graphics activateOnScroll"
            src="/img/homepage/community.png" 
-           srcset="/img/homepage/community-1x.png 1x, /img/homepage/community.png 2x" 
+           srcset="/img/homepage/community.png 1x, /img/homepage/community@2x.png 2x" 
+           width="868" height="839"
+           loading="lazy"
            alt="5m Developers, 10m Apps Created, 100+ Meetups">
     </div>
     <hgroup class="content">
-      <h4 class="activateOnScroll">A global community</h4>
-      <h2 class="activateOnScroll">Built for <span class="highlight">developers</span>. Trusted by <span class="highlight">enterprise</span>.</h2>
+      <h4 class="activateOnScroll">Global Scale</h4>
+      <h2 class="activateOnScroll">
+        Built for developers
+        <em>Loved by enterprise</em>
+      </h2>
       <p class="activateOnScroll">
-        More than 5 Million developers in over 200 countries around the world 
-        are using Ionic to power their app development. Join the thousands of 
-        global meetups, forums, and events that makes building with Ionic so 
-        much fun.
+        More than 5 Million developers in over 200 countries around the world are using Ionic to power their app development. Join the thousands of global meetups, forums, and events that makes building with Ionic so much fun.
       </p>
-      <a href="/community" class="cta activateOnScroll">Community Hub</a>
-      <a href="/customers" class="cta activateOnScroll">Customers</a>
+      <a href="/community" class="activateOnScroll link">Community Hub<span class="arrow"> -></span></a>
+      <a href="https://ionic.io/customers" class="activateOnScroll link">Customers<span class="arrow"> -></span></a>
     </hgroup>
   </section>
 
   <section id="integrations" class="center">
     <hgroup class="content container">
       <h4 class="activateOnScroll">Premier integrations</h4>
-      <h2 class="activateOnScroll">Yes, you can <span class="highlight">integrate</span> with that.</h2>
+      <h2 class="activateOnScroll">Yes, you can <em>build with that.</em></h2>
       <p class="lg activateOnScroll">
-        From community plugins to premium supported integrations, Ionic has you 
-        covered. Power-up your app workflow with integrations into your favorite 
-        stacks.
+        From community plugins to premium supported integrations, Ionic has you covered. Power-up your app workflow with integrations into your favorite stacks.
       </p>
-      <a href="/integrations" class="cta">See Integrations</a>
+      <a href="/integrations" class="link">See Integrations<span class="arrow"> -></span></a>
     </hgroup>
     <ul id="integration-list" class="integration-list">
-      <li><img src="/img/homepage/integrations/paypal-integration.png" alt="Paypal"/></li>
-      <li><img src="/img/homepage/integrations/heroku-integration.png" alt="Heroku"/></li>
-      <li><img src="/img/homepage/integrations/couchbase-integration.png" alt="Couchbase"/></li>
-      <li><img src="/img/homepage/integrations/aws-amplify-integration.png" alt="AWS Amplify"/></li>
-      <li><img src="/img/homepage/integrations/android-fingerprint-integration.png" alt="Android Fingerprint"/></li>
-      <li><img src="/img/homepage/integrations/apple-faceid-integration.png" alt="Apple FaceID"/></li>
-      <li><img src="/img/homepage/integrations/active-directory-integration.png" alt="Active Directory"/></li>
-      <li><img src="/img/homepage/integrations/apple-pay-integration.png" alt="ApplePay"/></li>
-      <li><img src="/img/homepage/integrations/firebase-integration.png" alt="Firebase"/></li>
-      <li><img src="/img/homepage/integrations/google-maps-integration.png" alt="Google Maps"/></li>
-      <li><img src="/img/homepage/integrations/ios-camera-plugin-integration.png" alt="Camera"/></li>
-      <li><img src="/img/homepage/integrations/sqlite-integration.png" alt="SQLite"/></li>
-      <li><img src="/img/homepage/integrations/stripe-integration.png" alt="Stripe"/></li>
-      <li><img src="/img/homepage/integrations/touch-id-ios-integration.png" alt="TouchID"/></li>
+      <li><img src="/img/homepage/integrations/paypal-integration.png" width="256" height="256" loading="lazy" alt="Paypal"/></li>
+      <li><img src="/img/homepage/integrations/heroku-integration.png" width="256" height="256" loading="lazy" alt="Heroku"/></li>
+      <li><img src="/img/homepage/integrations/couchbase-integration.png" width="256" height="256" loading="lazy" alt="Couchbase"/></li>
+      <li><img src="/img/homepage/integrations/aws-amplify-integration.png" width="256" height="256" loading="lazy" alt="AWS Amplify"/></li>
+      <li><img src="/img/homepage/integrations/android-fingerprint-integration.png" width="256" height="256" loading="lazy" alt="Android Fingerprint"/></li>
+      <li><img src="/img/homepage/integrations/apple-faceid-integration.png" width="256" height="256" loading="lazy" alt="Apple FaceID"/></li>
+      <li><img src="/img/homepage/integrations/active-directory-integration.png" width="256" height="256" loading="lazy" alt="Active Directory"/></li>
+      <li><img src="/img/homepage/integrations/apple-pay-integration.png" width="256" height="256" loading="lazy" alt="ApplePay"/></li>
+      <li><img src="/img/homepage/integrations/firebase-integration.png" width="256" height="256" loading="lazy" alt="Firebase"/></li>
+      <li><img src="/img/homepage/integrations/google-maps-integration.png" width="256" height="256" loading="lazy" alt="Google Maps"/></li>
+      <li><img src="/img/homepage/integrations/ios-camera-plugin-integration.png" width="256" height="256" loading="lazy" alt="Camera"/></li>
+      <li><img src="/img/homepage/integrations/sqlite-integration.png" width="256" height="256" loading="lazy" alt="SQLite"/></li>
+      <li><img src="/img/homepage/integrations/stripe-integration.png" width="256" height="256" loading="lazy" alt="Stripe"/></li>
+      <li><img src="/img/homepage/integrations/touch-id-ios-integration.png" width="256" height="256" loading="lazy" alt="TouchID"/></li>
     </ul>
   </section>
 
   
 <section class="loved-by container" id="testimonials">
-  <h3 class="activateOnScroll">
-    <strong class="highlight">Loved</strong> by some of our favorite people on earth
-  </h3>
+  <h2 class="activateOnScroll">
+    Loved by some of our <em>favorite people on earth.</em>
+  </h2>
   <blockquote class="quote schinsky">
     I was so inspired when I found Ionic. It fills a gap that’s missing when
     building for mobile and solves many complexities that otherwise require
@@ -489,8 +349,8 @@
     development fun and fast, so you can build more!
   </blockquote>
   <blockquote class="quote cross">
-    Ionic makes building cross-platform mobile apps enjoyable. It's integration 
-    with Angular is seemless, so it's easily become our go-to for mobile.
+    Ionic makes building cross-platform mobile apps enjoyable. Its integration
+    with Angular is seamless, so it has easily become our go-to for mobile.
   </blockquote>
   <blockquote class="quote hevery is-active">
     Ionic is a shining example of a high-quality framework that takes advantage
@@ -509,27 +369,27 @@
   </blockquote>
   <ul class="quotees">
     <li data-speaker="schinsky">
-      <img src="/img/framework/testimonial-holly.png" alt="Holly Schinsky" />
+      <img src="/img/framework/testimonial-holly.png" loading="lazy" width="176" height="160" alt="Holly Schinsky" />
       <strong>Holly Schinsky</strong>
       <span>Dev Evangelist, Adobe</span>
     </li>
     <li data-speaker="cross">
-      <img src="/img/framework/testimonial-jeff.png" alt="Jeff Cross" />
+      <img src="/img/framework/testimonial-jeff.png" loading="lazy" width="100" height="92" alt="Jeff Cross" />
       <strong>Jeff Cross</strong>
       <span>Co-Founder of Nrwl</span>
     </li>
     <li data-speaker="hevery" class="is-active">
-      <img src="/img/framework/testimonial-misko.png" alt="Misko Hevery" />
+      <img src="/img/framework/testimonial-misko.png" loading="lazy" width="176" height="160" alt="Misko Hevery" />
       <strong>Misko Hevery</strong>
       <span>Creator of Angular</span>
     </li>
     <li data-speaker="papa">
-      <img src="/img/framework/testimonial-john.png" alt="John Papa" />
+      <img src="/img/framework/testimonial-john.png" loading="lazy" width="102" height="90" alt="John Papa" />
       <strong>John Papa</strong>
       <span>Microsoft Dev Rel</span>
     </li>
     <li data-speaker="tamplin">
-      <img src="/img/framework/testimonial-james.png" alt="James Tamplin" />
+      <img src="/img/framework/testimonial-james.png" loading="lazy" width="176" height="160" alt="James Tamplin" />
       <strong>James Tamplin</strong>
       <span>Co-Founder of Firebase</span>
     </li>
@@ -540,11 +400,11 @@
   <section id="start">
     <div class="container">
       <hgroup>
-        <h3 class="activateOnScroll">Start building cross-plaftorm apps today</h3>
+        <h2 class="activateOnScroll">Start building cross-plaftorm apps today</h2>
         <p class="activateOnScroll">Ionic is quick to install and it’s easy to get started.</p>
       </hgroup>
-      <a href="/getting-started" class="btn white">
-        Get Started
+      <a href="/start" class="btn white">
+        <span>Get Started </span>
         <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle opacity="0.24" cx="9" cy="8" r="8" fill="#51A7FF"/>
           <rect x="9" y="14" width="10" height="2" fill="#4D8DFF"/>
@@ -558,45 +418,14 @@
 </main>
 {% endblock %}
 
-{% block modals %}
-<div class="modal collapse fade"
-     id="contactForm"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="text-center">
-          <h3>Thank you for your interest in our eBook!</h3>
-          <p class="lg">
-            We just need some basic information so we can send the eBook your
-            way.
-          </p>
-        </hgroup>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="https://js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: '3776657',
-            formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
-          });
-        </script>
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock %}
-
 {% block scripts %}
+<script>
+  window.addEventListener('load', () => {
+    ga('create', 'UA-44023830-1', 'auto', 'legacy');
+  });
+</script>
+
+<script src="https://www.googleoptimize.com/optimize.js?id=GTM-WKQJ324"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -613,67 +442,68 @@
   ]
 }
 </script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script>
-window.flow = function() {
-	var sizes = ["s", "m", "l"],
-	    iconLWidth = 256,
-	    container = document.getElementById("integration-list"),
-			icons = document.querySelectorAll("#integration-list img"),
-			resizeTimer,
-		  w, h;
-	// debounce the re-init so it doesn't totally freak out while draging
-	window.addEventListener('resize', resizeDebounce);
-	function resizeDebounce() {
-		clearTimeout(resizeTimer);
-  	resizeTimer = setTimeout(init, 250);
-	}
-	function init() {
-		w = container.offsetWidth;
-		h = container.offsetHeight;
-		icons.forEach(function(icon, i) {
-			var size = sizes[Math.ceil(Math.random() * 3) -1];
-			TweenMax.set(
-				icon, {
-					attr: {class: size},
-					y: R(50, h - 150),
-					x: R(w, w + 50)
-				}
-			);
-			animate(icon, i);
-		});
-	}
-	// animate x and y values at different rates
-	function animate(element, i) {
-		 TweenMax.to(
-			 element,
-			 R(110,120),
-			 {
-				 x: -1500,
-				 ease: Linear.easeNone,
-				 repeat:-1,
-				 delay: -115 / icons.length * i
-			 }
-		 );
-		 TweenMax.to(
-			 element,
-			 R(6,16),
-			 {
-				 y: '+=50',
-				 repeat: -1,
-				 yoyo: true,
-				 ease: Sine.easeInOut,
-         delay: R(-16, -6)
-			 }
-		 );
-	};
-	function R(min,max) {
-		return min + Math.random() * (max-min)
-	};
-	return {
-		init: init
-	}
+
+
+  window.flow = function() {
+  var sizes = ["s", "m", "l"],
+      iconLWidth = 256,
+      container = document.getElementById("integration-list"),
+      icons = document.querySelectorAll("#integration-list img"),
+      resizeTimer,
+      w, h;
+  // debounce the re-init so it doesn't totally freak out while draging
+  window.addEventListener('resize', resizeDebounce);
+  function resizeDebounce() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 250);
+  }
+  function init() {
+    w = container.offsetWidth;
+    h = container.offsetHeight;
+    icons.forEach(function(icon, i) {
+      var size = sizes[Math.ceil(Math.random() * 3) -1];
+      TweenMax.set(
+        icon, {
+          attr: {class: size},
+          y: R(50, h - 150),
+          x: R(w, w + 50)
+        }
+      );
+      animate(icon, i);
+    });
+  }
+  // animate x and y values at different rates
+  function animate(element, i) {
+    TweenMax.to(
+      element,
+      R(110,120),
+      {
+        x: -1500,
+        ease: Linear.easeNone,
+        repeat:-1,
+        delay: -115 / icons.length * i
+      }
+    );
+    TweenMax.to(
+      element,
+      R(6,16),
+      {
+        y: '+=50',
+        repeat: -1,
+        yoyo: true,
+        ease: Sine.easeInOut,
+        delay: R(-16, -6)
+      }
+    );
+  };
+  function R(min,max) {
+    return min + Math.random() * (max-min)
+  };
+  return {
+    init: init
+  }
 }().init();
 
 window.testimonials = function() {
@@ -684,8 +514,8 @@ window.testimonials = function() {
   const $highlight = document.getElementById('testimonials__highlight');
 
   function activateNextQuote() {
-    $oldSpeaker = deactivateSpeaker();
-
+    const $oldSpeaker = deactivateSpeaker();
+    let $active = null;
     // go back to the beginning if at the end
     if (!$oldSpeaker.nextElementSibling) {
       $active = $testimonials.querySelector('.quotees li:first-child');
@@ -720,7 +550,7 @@ window.testimonials = function() {
 
   // finds and deacivates just the current speaker, not the quote
   function deactivateSpeaker() {
-    $speaker = $testimonials.querySelector('.quotees .is-active')
+    const $speaker = $testimonials.querySelector('.quotees .is-active')
     $speaker.classList.remove('is-active');
     return $speaker;
   }
@@ -766,7 +596,22 @@ window.testimonials = function() {
   updateHighlight();
   addListeners();
   start();
-}();
+  }();
 
+
+const integrationsSec = document.querySelector('#integrations');
+const options = {
+  rootMargin: '1000px',
+  threshold: 1.0,
+}
+
+const observer = new IntersectionObserver((entries) => {
+  if(entries[0].isIntersecting) {
+    observer.unobserve(entries[0].target);
+    load();
+  }   
+}, options);
+
+observer.observe(integrationsSec);
 </script>
 {% endblock %}

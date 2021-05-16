@@ -1,40 +1,90 @@
 ionic-signup-form {
-  display: block;
+  --row-gap: 10px;
+  width: 100%;
 
-  button {
-    justify-content: center;
+  section {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
   }
 
-  ui-floating-input {
-    margin-bottom: 25px;
-  }
+  hgroup {
+    text-align: center;
 
-  .well {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    width: 100%;
-    border: 1px solid #E1E5ED;
-    border-radius: 6px;
-    margin-top: 16px;
-    color: #3B424D;
-    font-size: 14px;
-    font-weight: 600;
+    h2 {
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
 
-    .text-link {
-      margin-left: 5px;
+    p {
+      font-weight: normal;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin-top: 16px;
+      color: #414D5C;
     }
   }
 
-  .disclaimer {
-    margin-top: 16px;
+  #signup-form {
+    margin-top: var(--row-gap);
+    margin-bottom: 32px;
+    display: grid;
+    grid-gap: var(--row-gap);
+    grid-auto-flow: row;
+
+    ui-floating-input {
+      text-align: left;
+    }
+  }
+
+
+  #submit {
+    &:disabled {
+      background: #E9EDF3;
+      color: #B2BECD;
+      box-shadow: none;
+    }
   }
 
   .form-errors {
-    margin: 24px 0;
+    margin-bottom: var(--row-gap);
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
+    background-color: var(--c-red-0);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .login-prompt {
+    text-align: center;
+    color: #414D5C;
+  }
+
+  .disclaimer {
+    margin: var(--row-gap) 0 0;
+    font-size: 12px;
+    text-align: center;
+
+    &,
+    a {
+      color: #92A0B3;
+    }
+
+    a {
+      border-bottom: 1px solid #CED6E0;
+    }
+  }
+
+  .btn {
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
   }
 }

@@ -16,7 +16,7 @@ const pkg = require('./package.json');
 const prefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 
 var closureStart =
   '/*!\n' +
@@ -197,7 +197,7 @@ const run = gulp.parallel(
 )
 
 const watchServer = async () => gulp.watch(['server.js', 'server/**/*'], restartAndReload);
-const watchStylesMain = async () => gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], gulp.series(stylesMain, justReload))
+const watchStylesMain = async () => gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/components/_*.scss', 'assets/scss/styles.scss'], gulp.series(stylesMain, justReload))
 const watchStylesOthers = async () => gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', '!assets/scss/**/_*.scss'], gulp.series(stylesOthers, justReload))
 const watchJS = async () => gulp.watch(['assets/js/**/*.js'], gulp.series(js, justReload));
 const watchStencil = async () => gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], gulp.series(stencil, justReload));

@@ -1,7 +1,10 @@
 {% include '_includes/mobile_nav.html' %}
 
 {% if not hide_pre_header and announcementBar %}
-<nav class="pre-header pre-header--{{announcementBar.data.theme | lower }}">
+<a href="{{announcementBar.data.link.url}}"
+         onclick="return c('MarketingCTAs','btn-header-announcement', this, 0);"
+         target="_blank">
+<nav class="pre-header pre-header--{{announcementBar.data.theme | lower | replace(" ", "-")}}">
   <div class="container">
     <div{# id="optimizely"#}>
       {# Google Optimize hiding added for the top bar 10/18 #}
@@ -11,23 +14,19 @@
       (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
       })(window,document.getElementById('optimizely'),'optimize-loading','dataLayer',4000,
       {'GTM-TKMGCBC':true});</script> #}
-
-      {# <strong>Studio is almost here!</strong>
-      Join the waitlist to be the first in line on launch
-      <a href="/studio" #}
-      {# <pre><code>{{ announcementBar | dump(2) }}</code></pre> #}
       {{PrismicDOM.RichText.asHtml(announcementBar.data.text)}}
-      <a href="{{announcementBar.data.link.url}}"
-         onclick="c('MarketingCTAs','btn-header-announcement', this, 0)"
-         target="_blank"
-         id="btn-header-announcement">{{announcementBar.data.button_text}}</a>
+      <span id="btn-header-announcement">
+        {{announcementBar.data.button_text}}
+        <span class="arrow"> -&gt;</span>
+      </span>
     </div>
   </div>
 </nav>
+</a>
 {% endif %}
 
 <nav class="navbar navbar-default{% if header_style %} {{ header_style }}{% endif %}">
-  <div class="container">
+  <div class="wrapper">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button"
@@ -38,6 +37,7 @@
         <i class="ion-md-more"></i>
       </button>
       <a class="navbar-brand" href="/">
+        {# {% include '_includes/svg/ionic-framework.svg' %} #}
         {% include '_includes/svg/ionic-black.svg' %}
       </a>
     </div>
@@ -46,8 +46,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
 
       <ul class="nav navbar-nav navbar-right">
-        <!--
-        <li style="position:static">
+        <li class="search">
           <ionic-search>
             <ul>
               <li><a href="/framework">Framework</a></li>
@@ -56,47 +55,32 @@
             </ul>
           </ionic-search>
         </li>
-        -->
 
-        <li class="dropdown dropdown--has-container">
-          <a href="#"
-             class="dropdown-toggle"
-             role="button"
-             aria-haspopup="true"
-             aria-expanded="false">
-              Support {% include '_includes/svg/chevron-down.svg' %}
-          </a>
-          <ul class="dropdown-menu dropdown-menu--container" id="dropdown-support">
-            <li class=" dropdown-menu__row">
-              <ul class="dropdown-menu__column">
-                <li><span class="dropdown-menu__text--l2">Topics</span></li>
-                <li>
-                  <a href="/support" class="dropdown-menu__text--l3 icon--help-center">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="/trusted-partners" class="dropdown-menu__text--l3 icon--trusted-partners">
-                    Trusted Partners
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>{# end .dropdown-menu__container #}
-        </li>
+        
 
+        {# {% if user %}
         <li class="sm-hide">
-          <a href="https://dashboard.ionicframework.com/login?source=framework-{{id | default(id, 'default', true)}}">
+          <a href="/logout">Log out</a>
+        </li>
+        <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
+          <a href="{{ DASHBOARD_URL }}" id="btn-header-dashboard">Dashboard</a>
+        </li>
+        {% else %}
+        <li class="sm-hide">
+          <a href="/login?source=framework-{{id | default(id, 'default', true)}}">
             Log in</a>
         </li>
         <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
           <a href="/getting-started"
              id="btn-header-sign-up">Get Started</a>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar">
+        {% endif %} #}
+
         {% include '_includes/header_nav.html' %}
       </ul>
+      {# <ul class="nav navbar-nav navbar">
+        {% include '_includes/header_nav.html' %}
+      </ul> #}
     </div>
     <!-- /.navbar-collapse -->
   </div>

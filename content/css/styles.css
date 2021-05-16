@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
   Ionicons, v3.0.0-alpha.3
-  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
+  Created by Ben Sperry for the Ionic Framework, https://ionicons.com/
   https://twitter.com/benjsperry  https://twitter.com/ionicframework
   MIT License: https://github.com/driftyco/ionicons
 
@@ -11731,7 +11731,7 @@ body.light .sub-header a {
   .pre-header strong {
     font-weight: 600;
     color: #020814; }
-  .pre-header a {
+  .pre-header a{
     background-color: #73a5ff;
     color: #fff;
     border-radius: 16px;
@@ -15583,6 +15583,28 @@ ul.docs-example {
 
 #hubspot-messages-iframe-container {
   z-index: 1; }
+
+
+.page-coming-soon .coming-soon {
+  text-align: center; }
+  .page-coming-soon .coming-soon img {
+    width: 200px;
+
+  }
+  .page-coming-soon .coming-soon p {
+    color: #9da5b3;
+    font-size: 18px; }
+  .page-coming-soon .coming-soon a {
+    font-size: 16px;
+    font-weight: 500; }
+    .page-coming-soon .coming-soon a::after {
+      font-family: Ionicons;
+      content: '\f287';
+      display: inline-block;
+      margin-left: 10px;
+      position: relative;
+      top: 2px; }
+
 
 .page-404 .four-oh-four {
   text-align: center; }

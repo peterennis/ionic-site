@@ -40,6 +40,7 @@ $(document).ready(function() {
 (function () {
   // pre-header announcement animation
   var announcement = document.querySelector('.pre-header__announcement');
+
   if (announcement) {
     var lastClear = localStorage.getItem('last-clear');
     var timeNow  = (new Date()).getTime();
@@ -123,6 +124,13 @@ var activateOnScroll = function() {
   function init() {
     elems = document.querySelectorAll( window.activateOnScrollSelector ?
       activateOnScrollSelector : '.activateOnScroll');
+    // avoiding a potential edge bug by activating everything
+    if (window.navigator.userAgent.indexOf("Edge") > -1) {
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].classList.add('active');
+      }
+      return
+    }
     windowHeight = window.innerHeight ||
                    document.documentElement.clientHeight ||
                    document.body.clientHeight;;
@@ -331,7 +339,7 @@ window.stickyNav = {
     if (this.navBar.className.indexOf('enterprise') > -1) {
       this.stickyNavBar.classList.add('enterprise');
     }
-    this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
+    this.stickyNavBar.appendChild(this.navBar.querySelector('.wrapper').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);
     document.body.classList.add('body-sticky-nav');
@@ -341,7 +349,8 @@ window.stickyNav = {
   handleScroll: function () {
     var self = this;
     requestAnimationFrame(function(){
-      if (window.scrollY > 120) {
+      //header nav height + announcement bar height
+      if (window.scrollY > (70 + 74)) {
         self.show();
       } else {
         self.hide();

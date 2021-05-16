@@ -1,8 +1,7 @@
-import { Component, h, State, Prop, Event } from "@stencil/core";
+import { Component, h, Host, State, Prop, Event, EventEmitter } from "@stencil/core";
 import { SignupForm, signup, oauthAuthorize } from "../../util/auth";
 import { FormErrors } from "../../forms";
 import { trackClick } from "../../util/analytics";
-import { EventEmitter } from "@ionic/core/dist/types/stencil.core";
 
 
 @Component({
@@ -11,6 +10,8 @@ import { EventEmitter } from "@ionic/core/dist/types/stencil.core";
   shadow: false
 })
 export class IonicSignupForm {
+  // Note, the source sent to Hubspot will favor query param sources over the one provided. 
+  // See auth.ts's signup function
   @Prop() source;
 
   // Fired when the signup has completed. Is only triggered if oauthRedirect is false
@@ -28,9 +29,20 @@ export class IonicSignupForm {
   @Prop() oauthRedirect = true;
   // Whether to allow the user to login instead
   @Prop() allowLogin = false;
+  // Whether to allow the user to use third-party signup
+  @Prop() allowSocial = false;
 
+  @Prop() heading: string;
 
-  @State() submitting = false;
+  @Prop() subheading: string;
+
+  @Prop() buttonText = 'Create profile';
+
+  @Prop() message = false;
+
+  @State() formStatus: 'dormant' | 'submitting' | 'submitted' = 'dormant';
+
+  @State () disabled = true;
 
   @State() formErrorMap: { [key: string]: string };
 
@@ -48,7 +60,7 @@ export class IonicSignupForm {
 
     this.clearErrors();
 
-    this.submitting = true;
+    this.formStatus = 'submitting';
 
     if (this.gaEventName && this.gaEventLabel) {
       await trackClick(this.gaEventName, this.gaEventLabel);
@@ -67,11 +79,10 @@ export class IonicSignupForm {
         await oauthAuthorize();
       } else {
         this.signedUp.emit(this.form);
+        this.formStatus = 'submitted'
       }
     } catch (e) {
       this.formErrorMap = { '_form': `Unable to sign up: ${e.message}` };
-    } finally {
-      this.submitting = false;
     }
   }
 
@@ -89,76 +100,124 @@ export class IonicSignupForm {
 
   inputChange = (name: string) => e => this.form = { ...this.form, [name]: e.target.value };
 
+  componentWillLoad() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('name')) {
+      this.form.name = params.get('name');
+    }
+    if (params.has('email')) {
+      this.form.email = params.get('email');
+    }
+    if (params.has('username')) {
+      this.form.username = params.get('username');
+    }
+
+    this.formErrorMap = { _form: 'Error: Failed to load Google reCAPTCHA. Please disable ad blocking and try again.' }
+    if (typeof window.grecaptcha !== 'undefined') {
+      if (window.grecaptcha.execute !== 'undefined') {
+        this.formErrorMap = null;
+      } else {
+        window.grecaptcha.ready(() => this.formErrorMap = null);
+      }
+    }
+  }
+
   render() {
     const { form, inputChange } = this;
 
-    const disable = this.submitting;
-
     return (
-      <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST">
-        { this.formErrorMap?._form ? (
-          <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
-        ) : null }
-        <ui-floating-input
-          type="text"
-          label="Full name"
-          name="name"
-          inputTabIndex={1}
-          required={true}
-          value={form.name}
-          disabled={disable}
-          message={this.formErrorMap?.name}
-          onChange={inputChange('name')} />
-        <ui-floating-input
-          type="email"
-          label="Email"
-          name="email"
-          inputTabIndex={2}
-          required={true}
-          value={form.email}
-          disabled={disable}
-          message={this.formErrorMap?.email}
-          onChange={inputChange('email')} />
-        <ui-floating-input
-          type="text"
-          label="Username"
-          name="username"
-          inputTabIndex={3}
-          required={true}
-          value={form.username}
-          disabled={disable}
-          message={this.formErrorMap?.username}
-          onChange={inputChange('username')} />
-        <ui-floating-input
-          type="password"
-          label="Password"
-          name="password"
-          inputTabIndex={4}
-          required={true}
-          value={form.password}
-          disabled={disable}
-          message={this.formErrorMap?.password}
-          onChange={inputChange('password')} />
-        <button
-          type="submit"
-          id="submit"
-          class="btn btn-block"
-          disabled={disable}
-          tabindex="5">Create profile</button>
-        {this.allowLogin ? (
-        <div class="well">
-          Already have an account?
-          <a href="#"
-             class="text-link"
-             onClick={e => { e.preventDefault(); this.loginInstead.emit() }}>
-               Log in
-          </a>
+    <Host>
+      {this.formStatus !== 'submitted' &&
+        <section>
+          <div class="form-area">
+            { this.formErrorMap?._form ? (
+                <FormErrors>{this.formErrorMap._form}</FormErrors>
+              ) : null }
+
+            { this.heading &&
+              <hgroup>
+                <h2>{this.heading}</h2>
+                { this.subheading && <p>{this.subheading}</p> }
+              </hgroup>
+            }
+
+            {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
+
+            <form id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
+              <ui-floating-input
+                type="text"
+                label="Full name"
+                name="name"
+                inputTabIndex={1}
+                required={true}
+                value={form.name}
+                message={this.formErrorMap?.name}
+                onChange={inputChange('name')} />
+              <ui-floating-input
+                type="text"
+                label="Username"
+                name="username"
+                inputTabIndex={2}
+                required={true}
+                value={form.username}
+                message={this.formErrorMap?.username}
+                onChange={inputChange('username')} />
+              <ui-floating-input
+                type="email"
+                label="Email"
+                name="email"
+                inputTabIndex={3}
+                required={true}
+                value={form.email}
+                message={this.formErrorMap?.email}
+                onChange={inputChange('email')} />
+              <ui-floating-input
+                type="password"
+                label="Password"
+                name="password"
+                inputTabIndex={4}
+                required={true}
+                value={form.password}
+                message={this.formErrorMap?.password}
+                onChange={inputChange('password')} />
+              <button
+                type="submit"
+                id="submit"
+                class="btn btn-block"
+                disabled={this.disabled}
+                tabindex="5">{this.buttonText}</button>
+            </form>
+            {this.allowLogin ? (
+            <div class="login-prompt">
+              Already have an account?{" "}
+              <a href={`/login${window.location.search}`}
+                class="text-link"
+                onClick={(e) => {
+                  if (this.loginInstead.emit().defaultPrevented) {
+                    e.preventDefault();
+                  }
+                }}>
+                  Log in
+              </a>
+            </div>
+          ) : null}
         </div>
-        ) : null}
-        <div class="form-group disclaimer">
+
+        <p class="disclaimer">
           By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
-        </div>
-      </form>
+        </p>
+
+      </section>}
+      {this.formStatus === 'submitted' && this.message &&
+      <div id="signup-thanks">
+        <h2 class="u-box u-font">Thanks!</h2>
+        <p class="u-box u-font">
+          Thanks for joining the Ionic community!
+          As part of your account, you get access to the <a href="http://forum.ionicframework.com/">Ionic Forum</a>,
+          and the ability to push live, remote app updates with <a href="https://dashboard.ionicframework.com/">Appflow</a> (and more!).
+        </p>
+      </div>}
+    </Host>
     )
   }
 }

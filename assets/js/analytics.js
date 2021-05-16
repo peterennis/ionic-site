@@ -83,24 +83,107 @@ function updateQuerystringParameter(uri, key, value) {
   }
 }
 
-// shorthand global analytics click event helper
-window.c = function(cat, lbl, el, val) {
-  if (typeof val === 'undefined') {
-    var val = null;
+window.hsSnitch = () => {
+  // no hubspot forms on this page, bail
+  if (!document.querySelector('[src="//js.hsforms.net/forms/v2.js"]')) return;
+
+  const selector = '.hs-form';
+  let submitting;
+
+  // has the form already loaded?
+  let hsFound = !!document.querySelector(selector);
+  if (hsFound) return;
+
+  const report = async (type) => {
+    console.error(`Hubspot Error: ${type} blocked`);
+    const response = await fetch('/api/v1/hsblocked', {
+      method: 'POST',
+      mode: 'same-origin',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        browser: navigator.userAgent,
+        url: window.location.href,
+        type
+      })
+    });
+    // give HS 3 seconds to load
   }
+
+  const timer = setTimeout(() => {
+    // one last check, just to be safe
+    if (hsFound || !!document.querySelector(selector)) return;
+    report('form');
+  }, 3000);
+
+  // listen for the form to load
+  window.addEventListener('message', event => {
+    // console.log(event.data);
+    if(event.data.type !== 'hsFormCallback') return;
+
+    // form found
+    if(event.data.eventName === 'onFormReady') {
+      hsFound = true;
+      clearTimeout(timer);
+      return;
+    }
+
+    // form submitting
+    if(event.data.eventName === 'onFormSubmit') {
+      submitting = setTimeout(() => {
+        report('form-submit');
+      }, 2000);
+      return;
+    }
+
+    // form submission sucessful
+    if(event.data.eventName === 'onFormSubmitted') {
+      clearTimeout(submitting)
+      return;
+    }
+  });
+}
+window.hsSnitch();
+
+// shorthand global analytics click event helper
+window.c = (cat, lbl, el, val, opts = {}) => {
+  if (typeof val === 'undefined') {
+    val = null;
+  }
+
+  try {
+    window._hsq.push(['trackEvent', {
+      id: lbl
+    }])
+  } catch(e) {
+    console.warn('Hubspot blocked', e);
+  }
+
   if (window.ga && ga.loaded) {
-    ga('send', {
+    let linkFollowed = false;
+    const followLink = () => {
+      if (!el || linkFollowed) return;
+      linkFollowed = true;
+      if (el.target === '_blank') {
+        const newWindow = window.open(el.href);
+        // if new tab wasn't blocked, we're done
+        if (newWindow) return;
+      }
+      document.location = el.href;
+    }
+
+    ga(opts.trackerName ? `${opts.trackerName}.send` : 'send', {
       hitType: 'event',
       eventCategory: cat,
       eventAction: 'Click',
       eventLabel: lbl,
       eventValue: val,
-      hitCallback: function() {
-        if (!!el) {
-          document.location = el.href;
-        };
-      }
+      hitCallback: followLink
     });
+    // GA has 1 second to do its thing
+    setTimeout(followLink, 1000);
   } else {
     if (!!el) {
       document.location = el.href;

@@ -1,9 +1,6 @@
-const API_BASE = 'https://api.ionicjs.com';
-
 import { identify, trackEvent } from './hubspot';
 import { recaptcha } from './recaptcha';
-import { getCookie } from './cookie';
-import { ApiUser } from '../declarations';
+import { UserInfo } from '../declarations';
 
 export interface SignupForm {
   name?: string;
@@ -23,10 +20,15 @@ const makeApiError = (message, exc?, reason?) => ({
   reason
 });
 
-const apiUrl = (url) => `${API_BASE}${url}`;
-
 export const login = async (email, password, source, loginEventId ="000006636951") => {
   try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("source")) {
+      source = params.get("source");
+    } else if (params.has("client_id")) {
+      source = params.get("client_id");
+    }
+
     const ret = await fetch('/oauth/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -45,6 +47,7 @@ export const login = async (email, password, source, loginEventId ="000006636951
 
     await ret.json();
 
+    window.dataLayer.push({ event: 'login' });
     identify(email);
     trackEvent({ id: loginEventId });
 
@@ -57,19 +60,23 @@ export const login = async (email, password, source, loginEventId ="000006636951
 }
 
 export const oauthAuthorize = () => {
-  var params = new URLSearchParams(location.search);
-  if (!params.has("client_id")) {
-    params.set("response_type", "token");
-    params.set("scope", "openid profile email");
-    params.set("client_id", "dash");
-    params.set("nonce", Math.random().toString(36).substring(2));
+  const params = new URLSearchParams(window.location.search);
+  if (params.has("client_id")) {
+    window.location.assign(`/oauth/authorize${window.location.search}`);
+  } else {
+    window.location.assign(`${window.DASHBOARD_URL}/login${window.location.search}`);
   }
-
-  window.location.assign(`/oauth/authorize?${params.toString()}`);
 }
 
 export const signup = async (form: SignupForm, source: string, signupEventId="000006040735") => {
   try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.has("source")) {
+      source = params.get("source");
+    } else if (params.has("client_id")) {
+      source = params.get("client_id");
+    }
+
     const recaptchaCode = await recaptcha('signup');
 
     const ret = await fetch('/oauth/signup', {
@@ -91,8 +98,8 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
       return data;
     }
 
+    window.dataLayer.push({ event: 'sign_up' });
     identify(form.email);
-
     trackEvent({ id: signupEventId });
     
     return data;
@@ -101,18 +108,13 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
   }
 }
 
-export const getAuthToken = () => {
-  return getCookie('_ionic_token');
-}
-
-export const getUser = async (): Promise<ApiUser> => {
+export const getUser = async (): Promise<UserInfo> => {
   try {
-    const ret = await fetch(apiUrl(`/users/self`), {
-      headers: {
-        'Authorization': `Bearer ${getAuthToken()}`
-      }
-    });
-    return (await ret.json()).data as ApiUser;
+    const ret = await fetch('/oauth/userinfo');
+    if (!ret.ok) {
+      return null;
+    }
+    return await ret.json() as UserInfo;
   } catch (e) {
     return null;
   }

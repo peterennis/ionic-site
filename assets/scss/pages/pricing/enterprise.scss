@@ -1,7 +1,6 @@
 @import '../../vars';
 @import '../../mixins';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-@import '../../components/resources_read_more';
 @import './_vars';
 @import './__modal';
 
@@ -471,7 +470,7 @@ main {
   }
 
   .hubspot-override {
-    margin: 0 auto;
+    margin: 32px auto 0 auto;
     max-width: 700px;
   }
 }

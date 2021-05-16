@@ -1,3 +1,4 @@
+var parseUrl        = require('parseurl');
 var config          = require('./config');
 var employees       = require('./data/employees');
 var resources       = require('./data/resources');
@@ -73,11 +74,24 @@ module.exports = {
       now: new Date(),
       domain: req.get('host'),
       url: req.originalUrl,
+      query: req.query,
+      search: parseUrl(req).search,
       dev: req.get('host').indexOf('localhost') === 0,
       trustedPartners: shuffle(trustedPartners),
       frameworkInfo: frameworkInfo,
+      user: await getUser(req)
       // latestBlog: lbs.getLatestPost()
     });
+
+
+    const linkParams = ';rel=preload;as=font;type=font/woff2;crossorigin=anonymous';
+    let linkStr = `<https://ionicframework.com/fonts/eina/eina-01-regular.woff2>${linkParams}`;
+    linkStr += `,<https://ionicframework.com/fonts/inter/Inter-variable-ASCII-subset.woff2>${linkParams}`;
+    linkStr += `,<https://ionicframework.com/fonts/eina/eina-01-semibold.woff2>${linkParams}`;
+    linkStr += `,<https://ionicframework.com/fonts/eina/eina-01-bold.woff2>${linkParams}`;
+    linkStr += `,<https://ionicframework.com/fonts/ionicons.woff2?v=3.0.0-alpha.3>${linkParams}`;
+
+    res.setHeader('Link', linkStr);
 
     return next();
   }
@@ -97,5 +111,19 @@ function shuffle(array) {
   return array;
 };
 
-
-
+async function getUser(req) {
+  const cookie = req.headers.cookie;
+  if (cookie && cookie.includes('__Host-ionic_token=')) {
+    try {
+      const response = await fetch(`${config.API_URL}/oauth/userinfo`, {
+        headers: { cookie },
+      });
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+  return null;
+}

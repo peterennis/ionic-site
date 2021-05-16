@@ -1,12 +1,12 @@
 .navbar-default {
   background: linear-gradient(to right, #347eff, #1ea3ff);
   font-family: $font-family-inter;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   position: relative;
-  padding-top: 20px;
+  padding-top: 18px;
   border-radius: 0;
   margin-bottom: 0;
-  min-height: 32px;
+  min-height: 64px;
   z-index: 999;
   border: 0;
 
@@ -35,8 +35,10 @@
   .navbar-brand {
     height: 32px;
     color: white;
-    padding: 1px 0 0 13px;
+    padding: 1px 0 0 20px;
     transition: 0.3s color;
+    position: relative;
+    z-index: 10;
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
@@ -56,6 +58,18 @@
     }
   }
 
+  .navbar__divider {
+    border-right: 1px solid #CED6E0;
+    height: 2em;
+    margin: 1px 12px 0;
+    display: inline-block;
+
+    &.navbar__divider--finale ~ li > a {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+
   &.light {
     .navbar-brand {
       color: #1A232F;
@@ -64,6 +78,10 @@
         color: $blue;
       }
     }
+  }
+
+  .navbar-right {
+    padding-right: 20px;
   }
 
   &.transparent {
@@ -92,18 +110,6 @@
   }
 
   .navbar-nav {
-    &.navbar-center {
-      float: none;
-      margin: 0 auto;
-      display: inline-block;
-    }
-
-    @media (min-width: $screen-md-min) {
-      &.navbar-center {
-        margin-left: 0px; //offset to align with pre-header announcement
-      }
-    }
-
     @media (max-width: $screen-xs-max) {
       padding-right: 6px;
       padding-left: 6px;
@@ -113,7 +119,7 @@
       padding-top: 0;
 
       &:first-child {
-        margin-left: 14px;
+        margin-left: 0px;
       }
 
       &.sm-hide {
@@ -138,31 +144,41 @@
 
       > a {
         color: white;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
-        margin: 0 10px;
-        padding: 6px 8px;
+        margin: 0;
+        padding: 5px 12px;
         letter-spacing: -.01em;
         transition: 0.2s color;
         border-top: none;
         border-radius: 4px;
         transition-duration: 0.3s;
+        position: relative;
+        z-index: 10;
 
         @media (max-width: $screen-md-max) {
-          margin-left: 9px;
-          margin-right: 9px;
+          padding-left: 8px;
+          padding-right: 7px;
         }
 
         @media (max-width: $screen-sm-max) {
           margin-left: 0;
           margin-right: 0;
-          padding-left: 10px;
-          padding-right: 10px;
+          padding-left: 8px;
+          padding-right: 7px;
         }
 
         @media (max-width: $screen-xs-max) {
           padding: 15px;
           border: 0;
+        }
+
+        .social path {
+          fill: currentColor;
+        }
+
+        path {
+          transition: 0.3s fill;
         }
 
         &:hover {
@@ -190,14 +206,13 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 10px;
+          padding: 7.5px 12px 8.5px;
           border-radius: 8px;
-          color: #4a8bfc;
+          color: #3880FF;
           letter-spacing: -0.03em;
           line-height: 16px;
           font-family: $font-family-inter;
-          font-weight: 600;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          font-weight: 500;
           margin-right: 0;
           margin-left: 16px;
           transition: 0.3s box-shadow, 0.3s background;
@@ -213,6 +228,10 @@
           &:active {
             box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
           }
+
+          @media (max-width: $screen-sm-max) {
+            // margin-left: 0px;
+          }
         }
 
         &.blue {
@@ -226,6 +245,15 @@
               }
             }
           }
+        }
+      }
+
+      &.search {
+        margin-right: 12px;
+        position: static;
+
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+          margin-right: 8px;
         }
       }
     }
@@ -264,19 +292,43 @@
   // desktop width animation
   @media (min-width: $screen-sm-min) {
     .dropdown {
+      &.open .dropdown-menu,
+      &:hover .dropdown-menu {
+        opacity: 1;
+        top: 49px;
+        // z-index: 999;
+        pointer-events: all;
+        transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
+        transition: transform 0.25s cubic-bezier(.17,.67,.52,1), opacity 0.2s linear, top 0.25s step-start;
+        transition-delay: 0.2s;
+
+        &--bar.dropdown-menu {
+          transform: none;
+          transition: 
+            transform 0.25s cubic-bezier(.17,.67,.52,1), 
+            opacity 0.2s linear, 
+            top 0.25s step-start;
+
+          .dropdown-menu__column li {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      }
+
       .dropdown-menu {
         display: block;
         position: absolute;
         border: 0;
         border-radius: 8px;
-        top: 39px;
+        top: 49px;
         padding: 0;
         right: auto;
         left: 50%;
         box-shadow: 
-          0 50px 100px -20px rgba(0,0,0,.2), 
-          0 32px 64px -28px rgba(0,0,0,.3), 
-          0 -16px 64px -8px rgba(0,0,0,.024);
+          0px 18px 24px rgba(2, 8, 20, 0.2), 
+          0px 8px 8px rgba(2, 8, 20, 0.1);
+        border-top: 1px solid #eee;
         opacity: 0;
         top: -2000px;
         pointer-events: none;
@@ -294,15 +346,6 @@
           margin: 0;
           padding-left: 0;
           list-style-type: none;
-        }
-
-        &--container {
-          left: 280px;
-
-          &::before {
-            right: auto;
-            left: 50px;
-          }
         }
 
         &__text--l1,
@@ -327,11 +370,11 @@
         }
 
         &__text--l2 {
-          font-weight: 400;
+          font-weight: 500;
           font-size: 11px;
           line-height: 15px;
-          color: #5B708B;
-          letter-spacing: .08em;
+          color: #73849A;
+          letter-spacing: .12em;
           text-transform: uppercase;
           padding: 15px 32px 10px;
         }
@@ -351,11 +394,12 @@
             color: #73849A;
             margin-top: 1px;
             font-weight: 400;
+            transition: .2s color;
           }
 
           &::before,
           &::after {
-            background: url('/img/ico-nav.png?1') 0 0 no-repeat;
+            background: url('/img/ico-nav.png?3') 0 0 no-repeat;
             background-size: 20px;
             height: 20px;
             width: 20px;
@@ -363,73 +407,36 @@
             position: absolute;
             top: 9px;
             left: 30px;
+
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+              background-image: url('/img/ico-nav@2x.png?3');
+              background-size: 20px;
+            }
           }
+
 
           @include hoverSprite(
             'icon--enterprise'
-            'icon--advisory'
-            'icon--training'
-            'icon--docs'
             'icon--installation'
             'icon--ui-components'
             'icon--native-apis'
-            'icon--deployment'
+            'icon--deployment' // unused
             'icon--cli'
             'icon--hub'
-            'icon--slack'
-            'icon--youtube'
-            'icon--github'
-            'icon--twitter'
             'icon--resources'
             'icon--help-center'
             'icon--trusted-partners'
             'icon--forum'
-            'icon--cross-platform-dev'
-            'icon--progressive-web-apps'
-            'icon--continuous-delivery'
-            'icon--biometric-sign-in'
-            'icon--user-authentication'
-            'icon--offline-storage'
-            'icon--why-ionic'
-            'icon--customers'
-            'icon--platform'
+            'icon--identity-vault' 
+            'icon--auth-connect' 
+            'icon--secure-storage'
+            'icon--appflow' 
             'icon--react'
             'icon--angular'
+            'icon--vue'
+            'icon--integrations'
+            'icon--advisory-services'
           , 20);
-          
-          &.icon--lg {
-            padding: 16px 28px 17px 78px;
-
-            &::before,
-            &::after {
-              background: url('/img/ico-nav-lg.png?1') 0 0 no-repeat;
-              background-size: 36px;
-              height: 36px;
-              width: 36px;
-              top: 16px;
-            }
-
-            @include hoverSprite(
-              'icon--framework'
-              'icon--native'
-              'icon--appflow'
-              'icon--studio'
-            , 36);
-          }
-
-          svg {
-            position: absolute;
-            right: 32px;
-          }
-        }
-
-        &__no-icon {
-          padding-left: 30px;
-
-          &::before,
-          &::after {
-            display: none;
-          }
         }
 
         > li > .dropdown-menu__text--l3 {
@@ -454,15 +461,15 @@
           color: #1A232F;
 
           &:hover {
-            color: #2171FF;
+            color: #000;
             background: transparent;
 
             small {
-              color: #7CABFF;
+              color: #000;
             }
 
             path {
-              fill: #2171FF;
+              fill: #000;
             }
           }
 
@@ -473,57 +480,12 @@
           }
         }
 
-        &__row {
-          display: flex;
-          padding: 10px 0 0;
-        }
-
-        &__row + li,
-        li + .dropdown-menu__row {
-          // margin: 7px 0;
-          // padding: 10px 0px;
-          border-top: 1px solid rgba(#E7ECF3, .8);
-        }
-
-        &__column {
-          position: relative;
-
-          + .dropdown-menu__column--highlight {
-            background: #F9FAFD;
-            margin-top: -10px;
-            padding-top: 10px;
-            border-radius: 0 16px 16px 0;
-
-            a {
-              padding-left: 70px;
-              // min-width: 320px;
-
-              &::before,
-              &::after {
-                left: 40px;
-              }
-            }
-          }
-
-          li + li .dropdown-menu__text--l2 {
-            margin-top: 24px;
-          }
-
-          li:last-child {
-            margin-bottom: 24px;
-          }
-
-          &:last-child li a {
-            min-width: 300px;
-          }
-        }
-
         &::after {
           position: absolute;
-          top: -10px;
+          top: -20px;
           content: '';
           width: 100%;
-          height: 19px;
+          height: 20px;
         }
 
         &::before {
@@ -538,33 +500,6 @@
             content: '';
             display: block;
         }
-      }
-
-      #dropdown-developers {
-        left: 240px;
-
-        &::before {
-          left: 170px;
-        }
-      }
-
-      #dropdown-support {
-        left: 0px;
-
-        &::before {
-          left: 170px;
-        }
-      }
-
-      &.open .dropdown-menu,
-      &:hover .dropdown-menu {
-        opacity: 1;
-        top: 39px;
-        // z-index: 999;
-        pointer-events: all;
-        transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
-        transition: transform 0.25s cubic-bezier(.17,.67,.52,1), opacity 0.1s linear, top 0.25s step-start;
-        transition-delay: 0.2s;
       }
     }
   }
@@ -733,10 +668,23 @@
     &.light {
       .navbar-nav > li:not(.header-btn-white) > a,
       .navbar-nav ionic-search ion-icon {
-        color: #5B708B;
+        color: #35404E;
+
+        .social path {
+          fill: #B2BECD;
+        }
+
+        .chevron path {
+          fill: #2D4665
+        }
 
         &:hover {
           color: $blue;
+
+          .chevron path,
+          .social path {
+            fill: $blue;
+          }
         }
       }
 
@@ -744,28 +692,6 @@
         color: #c7d0e0;
       }
     }
-
-    #header-btn-outline {
-      transition: 0.2s border;
-      padding: 2px 10px 4px;
-      margin-left: 14px;
-      color: #3880FF;
-      border-radius: 16px;
-      border: 1px solid rgba(#3880FF, 0.4);
-      box-sizing: border-box;
-      box-shadow: none;
-      font-size: 13px;
-      font-weight: 600;
-
-      &:hover {
-        border: 1px solid rgba(#3880FF, 0.8);
-      }
-    }
-  }
-
-  .navbar-right > li > a {
-    margin-right: 0px;
-    margin-left: 8px;
   }
 
   &.navbar-sticky {
@@ -781,33 +707,6 @@
     width: 18px;
     height: 31px;
     display: block;
-  }
-
-  .external-icon {
-    width: 10px;
-    overflow: visible;
-  
-    .external-icon__background {
-      fill: #e5e7ea;
-      transition: .2s fill;
-    }
-    .external-icon__foreground {
-      fill: #7a8496;
-      transform: translate(1px, 0);
-      transition: .2s transform ease, .2s fill;
-    }
-  }
-  
-  a:hover {
-    .external-icon__background {
-      fill: lighten($blue, 25);
-
-    }
-  
-    .external-icon__foreground {
-      fill: $blue;
-      transform: translate(2px, -1px);
-    }
   }
 
   &.navbar-sticky {

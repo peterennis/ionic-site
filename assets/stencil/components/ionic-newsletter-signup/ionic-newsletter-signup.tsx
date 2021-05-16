@@ -7,7 +7,10 @@ import { EmailOutlineIcon } from '../../icons';
   shadow: false
 })
 export class IonicNewsletterSignup {
-
+  @Prop() srLabel = {
+    id: Math.random().toString(36).substring(2),
+    text: 'enter email to join newsletter',
+  } 
   @Prop() placeholder: string = 'Email address';
   @Prop() buttonText: string = 'Subscribe';
   @Prop() darkMode: boolean = false;
@@ -63,6 +66,10 @@ export class IonicNewsletterSignup {
       'https://api.hsforms.com/submissions/v3/integration/submit',
       '3776657',
       '76e5f69f-85fd-4579-afce-a1892d48bb32'].join('/');
+
+    const hutkMatch = document.cookie.match && document.cookie.match(/hubspotutk=(.*?);/)
+    const hutk = hutkMatch ? hutkMatch[1] : ''
+
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
@@ -77,7 +84,7 @@ export class IonicNewsletterSignup {
         value: this.email
       }],
       context: {
-        hutk: document.cookie.match(/hubspotutk=(.*?);/)[1],
+        hutk,
         pageUri: window.location.href,
         pageName: document.title
       }
@@ -105,8 +112,10 @@ export class IonicNewsletterSignup {
         class={this.getFormClass()}>
 
         {this.homepageMode ? <EmailOutlineIcon/> : ''}
+        <label id={this.srLabel.id} class="sr-only">{this.srLabel.text}</label>
 
         <input
+          aria-labelledby={this.srLabel.id}
           name="email"
           type="email"
           value={this.email}
